@@ -1,1 +1,47 @@
-Welcome
+<!DOCTYPE html>
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>PDF Magic</title>
+</head>
+
+<body>
+    <header>
+        <nav>
+            <ul>
+                <li id="logo">PDF Magic</li>
+                <li><a href="">Kontakt</a></li>
+                <li><a href="">Datenschutz</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <h1>PDFs zusammenfügen</h1>
+        <p class="intro">
+            Mit PDF Magic kannst du PDF Dokumente zusammenfügen. Klicke auf den Button und wähle PDF Dateien von deinem PC aus oder ziehe sie auf die Ablagefläche.
+        </p>
+
+        <div class="upload-box-outer" ondrop="dropHandler(event);" ondragover="dragOverHandler(event);">
+            <div class="upload-box-inner">
+                <p>
+                    Lege deine PDF Dateien hier ab<br />
+                    oder <br />
+                    <input id="upload-box-button" type="file" accept="application/pdf" multiple></input>
+                </p>
+            </div>
+        </div>
+    </main>
+
+    <aside class="ad">
+    </aside>
+
+    <script src="index.js"></script>
+</body>
+
+</html>
