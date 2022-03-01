@@ -5,7 +5,7 @@
 }
 
 main {
-    margin: 50px 50px 0px 50px;
+    margin: 50px;
 }
 
 header {
@@ -18,7 +18,8 @@ nav {
     margin-bottom: 20px;
 }
 
-#logo {
+#logo > a {
+    color: black;
     font-weight: bold;
 }
 
@@ -31,7 +32,16 @@ header > nav > ul > li {
     margin-left: 30px;
 }
 
+hr {
+    margin: 48px;
+    color: rgb(241, 241, 241);
+}
+
 h1 {
+    margin-bottom: 4px;
+}
+h3 {
+    margin-top: 12px;
     margin-bottom: 4px;
 }
 
@@ -43,7 +53,6 @@ h1 {
 
 .upload-box-inner > p {
     text-align: center;
-    margin: 100px 50px 100px 50px;
 }
 
 .upload-box-outer {
@@ -57,6 +66,7 @@ h1 {
     border-color: grey;
     border-radius: 10px;
     border-style: dashed;
+    padding: 100px 50px;
 }
 
 .upload-box-inner > p {
@@ -69,4 +79,48 @@ h1 {
 a {
     text-decoration: none;
     color: grey;
+}
+
+#badges {
+    display: flex;
+    justify-content: space-around;
+}
+
+#badges > li {
+    display: inline-block;
+}
+
+.badge {
+    width: 240px;
+    text-align: center;
+}
+
+.badge > p {
+    margin-top: 16px;
+    color: grey;
+    text-align: justify;
+}
+
+.material-icons.md-custom {
+    color: rgb(206, 206, 206);
+    font-size: 92px;
+}
+
+.file {
+    color: black;
+}
+
+form {
+    text-align: center;
+}
+
+input {
+    text-align: center;
+}
+
+.download-btn {
+    text-align: center;
+    font-weight: bold;
+    color: white;
+    display: block;
 }
