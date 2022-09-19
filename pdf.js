@@ -12,10 +12,13 @@ class PDFSplitter {
         this.resultZip = new JSZip()
     }
 
-    async addPage(pdfDocument, pageIndex) {
+    async addPage(pdfDocument, pageIndex, rotation) {
         let page = await pdflib.PDFDocument.create()
         let doc = await pdflib.PDFDocument.load(pdfDocument.documentBytes)
         let [copiedPage] = await page.copyPages(doc, [pageIndex])
+        if (rotation != 0) {
+            copiedPage.setRotation(pdflib.degrees(rotation))
+        }
         page.addPage(copiedPage)
 
         let pageData = await page.save()
@@ -35,12 +38,16 @@ class PDFMerger {
         this.resultPdf = await pdflib.PDFDocument.create()
     }
 
-    async addPages(pdfDocument, pages) {
+    async addPages(pdfDocument, pages, rotation) {
         let doc = await pdflib.PDFDocument.load(pdfDocument.documentBytes)
         let copiedPages = await this.resultPdf.copyPages(doc, pages)
         
         for (let i = 0; i < copiedPages.length; i++) {
-            this.resultPdf.addPage(copiedPages[i])
+            let copiedPage = copiedPages[i]
+            if (rotation != 0) {
+                copiedPage.setRotation(pdflib.degrees(rotation))
+            }
+            this.resultPdf.addPage(copiedPage)
         }
     }
 
