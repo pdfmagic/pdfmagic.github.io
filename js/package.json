@@ -1,0 +1,21 @@
+{
+  "name": "pdfmagictest",
+  "version": "1.0.0",
+  "description": "",
+  "main": "test.js",
+  "dependencies": {
+    "jszip": "^3.10.1",
+    "pdf-lib": "^1.17.1",
+    "pdfjs-dist": "^2.16.105"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.19.1",
+    "babelify": "^10.0.0",
+    "common-shakeify": "^1.1.1"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC"
+}
