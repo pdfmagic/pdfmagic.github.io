@@ -1,0 +1,10 @@
+main:
+  - title: "How To"
+    url: /how-to/
+  - title: "Merge PDF"
+    url: /go
+  - title: "Split PDF"
+    url: /go
+  - title: "Rotate PDF"
+    url: /go
+
