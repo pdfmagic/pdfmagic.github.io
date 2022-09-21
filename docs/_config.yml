@@ -3,6 +3,7 @@
 minimal_mistakes_skin: air
 title: PDF Magic
 email: contact@pdfmagic.de
+logo: /assets/images/logo.jpg
 description: >- # this means to ignore newlines until "baseurl:"
   Edit, merge, rotate PDF documents easily with PDF Magic.
 baseurl: "/" # the subpath of your site, e.g. /blog
