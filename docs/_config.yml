@@ -8,12 +8,16 @@ description: >- # this means to ignore newlines until "baseurl:"
   Edit, merge, rotate PDF documents easily with PDF Magic.
 baseurl: "/" # the subpath of your site, e.g. /blog
 url: "https://pdfmagic.de" # the base hostname & protocol for your site, e.g. http://example.com
+atom_feed:
+  hide: false
 
 # Build settings
 remote_theme: "mmistakes/minimal-mistakes@4.24.0"
 plugins:
   # - jekyll-feed
   - jekyll-include-cache
+
+
 
 include: ["_pages"]
 
@@ -36,3 +40,13 @@ include: ["_pages"]
 #   - vendor/cache/
 #   - vendor/gems/
 #   - vendor/ruby/
+
+footer:
+  links:
+    - label: "Contact"
+      url: "/contact"
+    - label: "Privacy Policy"
+      url: "/privacy-policy"
+    - label: "Github"
+      icon: "fab fa-fw fa-github"
+      url: "https://github.com/pdfmagic"
