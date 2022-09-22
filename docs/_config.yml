@@ -9,7 +9,7 @@ description: >- # this means to ignore newlines until "baseurl:"
 baseurl: "/" # the subpath of your site, e.g. /blog
 url: "https://pdfmagic.de" # the base hostname & protocol for your site, e.g. http://example.com
 atom_feed:
-  hide: false
+  hide: true
 
 # Build settings
 remote_theme: "mmistakes/minimal-mistakes@4.24.0"
