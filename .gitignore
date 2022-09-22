@@ -8,3 +8,7 @@ vendor
 
 build/
 js/node_modules/
+.flutter-plugins
+.flutter-plugins-dependencies
+.packages
+.dart_tool
