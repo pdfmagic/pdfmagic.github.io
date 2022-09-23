@@ -3,6 +3,12 @@ layout: single
 title: How To
 permalink: /how-to
 ---
+# Inhaltsverzeichnis
+1. [PDF verbinden](#pdfs-verbinden)
+2. [PDF zerteilen](#pdfs-zerteilen)
+3. [PDF rotieren](#pdfs-rotieren)
+
+
 In diesem kurzen Artikel zeige ich dir, wie du PDF Dokumente ganz einfach online bearbeiten kannst. Wir werden uns anschauen wie du PDF Dokumente verbinden, PDF Dokumente zerteilen und PDF Dokumente rotieren kannst.
 
 Dafür benutzen wir die Webseite [PDFMagic.de](https://pdfmagic.de/). Der Vorteil dieser Webseite im Vergleich zu anderen ist, dass wir keine Limits haben. Wir können also so viele Dokumente bearbeiten wie wir wollen. Das ist möglich, weil du deine Dateien nicht hochladen musst, sondern die werden direkt bei dir im Browser verarbeitet. Das ist gerade bei bei einer langsamen Internetverbindung (in manchen Ländern gibt's sowas ja noch -> Deutschland 😭) sehr praktisch.
