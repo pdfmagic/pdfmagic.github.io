@@ -45,6 +45,8 @@ footer:
   links:
     - label: "Kontakt"
       url: "/kontakt"
+    - label: "Nutzungsbedingungen"
+      url: "/nutzungsbedingungen"
     - label: "Datenschutz"
       url: "/datenschutz"
     - label: "Github"
