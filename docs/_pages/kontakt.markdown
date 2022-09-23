@@ -11,9 +11,9 @@ Falls du Feedback für uns hast, erreichst du uns unter contact@pdfmagic.de.
 
 # Noch mehr Kontaktinformationen
 
-Florian Teich  
-Paul-Dessau-Straße 1  
-12679 Berlin  
-contact@pdfmagic.de  
+Florian Teich<br>
+Paul-Dessau-Straße 1<br>
+12679 Berlin<br>
+contact@pdfmagic.de<br>
 +4915908102537
 
