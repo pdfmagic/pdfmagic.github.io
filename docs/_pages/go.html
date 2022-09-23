@@ -1,5 +1,5 @@
 ---
-permalink: /go
+permalink: /go/
 ---
 <!DOCTYPE html>
 <html>
@@ -58,6 +58,24 @@ permalink: /go
         return appRunner.runApp();
       });
     });
+  </script>
+  <div id="loading"></div>
+  <script>
+     window.addEventListener('load', function(ev) {
+       var loading = document.querySelector('#loading');
+       loading.textContent = "Loading entrypoint...";
+       _flutter.loader.loadEntrypoint({
+         serviceWorker: {
+           serviceWorkerVersion: serviceWorkerVersion,
+         }
+       }).then(function(engineInitializer) {
+         loading.textContent = "Initializing engine...";
+         return engineInitializer.initializeEngine();
+       }).then(function(appRunner) {
+         loading.textContent = "Running app...";
+         return appRunner.runApp();
+       });
+     });
   </script>
 </body>
 </html>
