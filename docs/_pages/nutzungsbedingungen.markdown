@@ -52,6 +52,7 @@ Wir behalten uns das Recht vor, diese Nutzungsbedingungen mit Wirkung für die Z
 # 6. Haftung
 
 Es gilt das gesetzliche Haftungsrecht.
+
 # 7. Rechte der Betreiber der Applikation
 
 Bei Verstößen gegen diese Nutzungsbedingungen und / oder Gesetze können wir einzelne Nutzer zeitweise oder dauerhaft von der Nutzung der Applikation ausschließen.

@@ -9,7 +9,7 @@ header:
     - label: "Los geht's"
       url: "/go"
   caption: ""
-excerpt: "Das Bearbeiten von PDF Dokumenten kann nervig sein. Probier's mal mit Magie 🪄"
+excerpt: "Das Bearbeiten von PDF Dokumenten kann nervig sein. Probier's mal mit Magie"
 
 feature_row:
   - title: "Einfach"
