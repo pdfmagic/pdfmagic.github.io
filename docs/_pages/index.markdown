@@ -10,7 +10,7 @@ header:
     - label: "Try it out"
       url: "/go"
   caption: ""
-excerpt: "There is the right tool for every challenge.\nTry PDF Magic for your pdf tasks."
+excerpt: "Modifying PDFs can be painful. Let magic do the heavy lifting for you."
 
 feature_row:
   - title: "Easy"
