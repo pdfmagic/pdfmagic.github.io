@@ -43,6 +43,7 @@ dependencies:
   js: ^0.6.4
   url_launcher: ^6.1.5
   google_fonts: ^3.0.1
+  easy_web_view2: ^0.0.3
 
 dev_dependencies:
   flutter_test:
