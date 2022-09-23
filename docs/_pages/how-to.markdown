@@ -1,7 +1,11 @@
 ---
 layout: single
-title: Contact
+title: How To
 permalink: /how-to
 ---
 
-How to
+# Hot To - PDF Dokumente / Seiten verbinden
+
+# How To - PDF Dokumente / Seiten zerteilen
+
+# How To - PDF Dokumente / Seiten rotieren

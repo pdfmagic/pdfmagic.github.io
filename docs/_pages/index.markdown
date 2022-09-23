@@ -7,18 +7,18 @@ header:
   overlay_filter: "0.5"
   overlay_image: /assets/images/background.jpg
   actions:
-    - label: "Try it out"
+    - label: "Los geht's"
       url: "/go"
   caption: ""
-excerpt: "Modifying PDFs can be painful. Let magic do the heavy lifting for you."
+excerpt: "Das Bearbeiten von PDF Dokumenten kann nervig sein. Probier's mal mit Magie 🪄"
 
 feature_row:
-  - title: "Easy"
-    excerpt: "Our Drag and Drop editor is super easy to use. No experience required."
-  - title: "Fast & Unlimited"
-    excerpt: "Latest technologies help to process your files as fast as possible without any limits"
-  - title: "Secure"
-    excerpt: "Your files stay on your computer. There is no file upload thanks to newest technology."
+  - title: "Einfach"
+    excerpt: "Unser Drag and Drop Editor ist kinderleicht zu bedienen. "
+  - title: "Schnell"
+    excerpt: "Innerhalb von Sekunden kannst du dein Dokument bearbeiten und wieder herunterladen. Alles passiert direkt in deinem Browser."
+  - title: "Sicher"
+    excerpt: "Deine Dokumente bleiben auf deinem Rechner. Die gehören schließlich dir! Es sind keine Uploads notwendig und deshalb gibt's bei uns auch keine Limits."
 ---
 
 {% include feature_row %}

@@ -43,10 +43,10 @@ include: ["_pages"]
 
 footer:
   links:
-    - label: "Contact"
-      url: "/contact"
-    - label: "Privacy Policy"
-      url: "/privacy-policy"
+    - label: "Kontakt"
+      url: "/kontakt"
+    - label: "Datenschutz"
+      url: "/datenschutz"
     - label: "Github"
       icon: "fab fa-fw fa-github"
       url: "https://github.com/pdfmagic"
