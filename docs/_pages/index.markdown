@@ -1,5 +1,4 @@
 ---
-title: "PDF Magic"
 layout: splash
 permalink: /
 header:
