@@ -26,13 +26,15 @@ Wir verarbeiten personenbezogene Daten, die der Nutzer im Rahmen dieses Vertrage
 Diese Verarbeitung erfolgt zur Erfüllung des Nutzungsvertrages nach Art. 6 Abs. 1 lit. b DSGVO.
 Die Daten werden so lange gespeichert, bis der Nutzer sein Konto löscht bzw. seinen datenschutzrechtlichen Löschungsanspruch geltend macht.
 
-3. Analyse
+# 3. Analyse
 
 Wir nutzen ein Analysetool von Google, mit dem wir die Nutzung von Funktionen der Anwendung auswerten können. Es handelt sich hierbei nicht um personenbezogene Daten, die Rückschlüsse auf Abläufe erlauben würden. Vielmehr können wir mit Google Analytics nur feststellen, welche Module, Einstellungen, etc. von den Nutzern verwendet werden. Rechtsgrundlage der Datenverarbeitung ist damit Art. 6. Abs. 1 lit. f DSGVO (berechtigtes Interesse). Google Analytics ist ein Dienst der Google Ireland Limited, Gordon House, Barrow Street, Dublin 4, Irland.
-4. Weitergabe der Daten
+
+# 4. Weitergabe der Daten
 
 Personenbezogene Daten werden von uns streng vertraulich behandelt und nicht an Dritte weitergegeben, soweit keine ausdrückliche Einwilligung der Nutzer vorliegt. Eine Ausnahme gilt, wenn dies im Rahmen der Vertragserfüllung erforderlich ist oder ein berechtigtes Interesse vorliegt.
-5. Datenschutzrechtliche Ansprüche
+
+# 5. Datenschutzrechtliche Ansprüche
 
 Nutzer haben das Recht
 

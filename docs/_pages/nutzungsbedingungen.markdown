@@ -49,7 +49,7 @@ permalink: /nutzungsbedingungen
 
 Wir behalten uns das Recht vor, diese Nutzungsbedingungen mit Wirkung für die Zukunft zu ändern. In diesem Fall werden wir die Nutzer vorher über die Änderungen an den Nutzungsbedingungen informieren und sie darauf hinweisen, dass die Änderungen als angenommen gelten, wenn sie die Applikation weiter nutzen oder nicht binnen 3 Wochen den Änderungen widersprechen.
 
-#6. Haftung
+# 6. Haftung
 
 Es gilt das gesetzliche Haftungsrecht.
 # 7. Rechte der Betreiber der Applikation
