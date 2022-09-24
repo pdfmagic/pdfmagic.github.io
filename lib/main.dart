@@ -405,102 +405,104 @@ class PDFMagicMobileApp extends StatelessWidget {
       ),
       body: Column(
         children: [
-          BlocBuilder<AppCubit, AppState>(
-            builder: (context, state) {
-              int itemCount =
-                  state.documentMode ? state.documents.length : state.pages.length;
-
-              return Column(children: [
-                Align(
-                  child: Padding(
-                    padding: const EdgeInsets.all(12),
-                    child: ToggleSwitch(
-                      minHeight: 22,
-                      minWidth: 120.0,
-                      cornerRadius: 20.0,
-                      activeBgColors: const [
-                        [Colors.white],
-                        [Colors.white]
-                      ],
-                      activeFgColor: Colors.black,
-                      inactiveBgColor: const Color(0xFFD9D9D9),
-                      inactiveFgColor: Colors.black,
-                      initialLabelIndex: state.documentMode ? 0 : 1,
-                      totalSwitches: 2,
-                      labels: const ['Dokumente', 'Seiten'],
-                      radiusStyle: true,
-                      onToggle: (index) => AppCubit.of(context).toggleMode(),
+          Expanded(
+            child: BlocBuilder<AppCubit, AppState>(
+              builder: (context, state) {
+                int itemCount =
+                    state.documentMode ? state.documents.length : state.pages.length;
+          
+                return Column(children: [
+                  Align(
+                    child: Padding(
+                      padding: const EdgeInsets.all(12),
+                      child: ToggleSwitch(
+                        minHeight: 22,
+                        minWidth: 120.0,
+                        cornerRadius: 20.0,
+                        activeBgColors: const [
+                          [Colors.white],
+                          [Colors.white]
+                        ],
+                        activeFgColor: Colors.black,
+                        inactiveBgColor: const Color(0xFFD9D9D9),
+                        inactiveFgColor: Colors.black,
+                        initialLabelIndex: state.documentMode ? 0 : 1,
+                        totalSwitches: 2,
+                        labels: const ['Dokumente', 'Seiten'],
+                        radiusStyle: true,
+                        onToggle: (index) => AppCubit.of(context).toggleMode(),
+                      ),
                     ),
                   ),
-                ),
-                Expanded(
-                  child: itemCount == 0
-                      ? PromoWidget()
-                      : Padding(
-                          padding: const EdgeInsets.fromLTRB(12, 12, 12, 0),
-                          child: ReorderableGridView.builder(
-                            gridDelegate:
-                                const SliverGridDelegateWithFixedCrossAxisCount(
-                                    childAspectRatio: 1 / 1.4142,
-                                    crossAxisCount: 2,
-                                    mainAxisSpacing: 8,
-                                    crossAxisSpacing: 8),
-                            itemCount: itemCount,
-                            onReorder: (oldIndex, newIndex) {
-                              state.documentMode
-                                  ? AppCubit.of(context)
-                                      .reorderDocument(oldIndex, newIndex)
-                                  : AppCubit.of(context)
-                                      .reorderPage(oldIndex, newIndex);
-                            },
-                            itemBuilder: ((context, index) {
-                              if (state.documentMode) {
-                                return ItemOverlay(
-                                  key: ValueKey(index),
-                                  alwaysVisible: true,
-                                  onDelete: () =>
-                                      AppCubit.of(context).removeDocument(index),
-                                  onDuplicate: () =>
-                                      AppCubit.of(context).duplicateDocument(index),
-                                  onRotate: () =>
-                                      AppCubit.of(context).rotateDocument(index),
-                                  child: Center(
-                                    child: RotatedBox(
-                                      quarterTurns:
-                                          state.documents[index].rotation ~/ 90,
-                                      child: Image.network(
-                                          state.documents[index].thumbnailUrl),
-                                    ),
-                                  ),
-                                );
-                              } else {
-                                return ItemOverlay(
-                                  key: ValueKey(index),
-                                  alwaysVisible: true,
-                                  onDelete: () =>
-                                      AppCubit.of(context).removePage(index),
-                                  onDuplicate: () =>
-                                      AppCubit.of(context).duplicatePage(index),
-                                  onRotate: () =>
-                                      AppCubit.of(context).rotatePage(index),
-                                  child: Center(
-                                    child: RotatedBox(
-                                      quarterTurns:
-                                          state.pages[index].rotation ~/ 90,
-                                      child: Image.network(
-                                        state.pages[index].thumbnailUrl!,
+                  Expanded(
+                    child: itemCount == 0
+                        ? PromoWidget()
+                        : Padding(
+                            padding: const EdgeInsets.fromLTRB(12, 12, 12, 0),
+                            child: ReorderableGridView.builder(
+                              gridDelegate:
+                                  const SliverGridDelegateWithFixedCrossAxisCount(
+                                      childAspectRatio: 1 / 1.4142,
+                                      crossAxisCount: 2,
+                                      mainAxisSpacing: 8,
+                                      crossAxisSpacing: 8),
+                              itemCount: itemCount,
+                              onReorder: (oldIndex, newIndex) {
+                                state.documentMode
+                                    ? AppCubit.of(context)
+                                        .reorderDocument(oldIndex, newIndex)
+                                    : AppCubit.of(context)
+                                        .reorderPage(oldIndex, newIndex);
+                              },
+                              itemBuilder: ((context, index) {
+                                if (state.documentMode) {
+                                  return ItemOverlay(
+                                    key: ValueKey(index),
+                                    alwaysVisible: true,
+                                    onDelete: () =>
+                                        AppCubit.of(context).removeDocument(index),
+                                    onDuplicate: () =>
+                                        AppCubit.of(context).duplicateDocument(index),
+                                    onRotate: () =>
+                                        AppCubit.of(context).rotateDocument(index),
+                                    child: Center(
+                                      child: RotatedBox(
+                                        quarterTurns:
+                                            state.documents[index].rotation ~/ 90,
+                                        child: Image.network(
+                                            state.documents[index].thumbnailUrl),
                                       ),
                                     ),
-                                  ),
-                                );
-                              }
-                            }),
+                                  );
+                                } else {
+                                  return ItemOverlay(
+                                    key: ValueKey(index),
+                                    alwaysVisible: true,
+                                    onDelete: () =>
+                                        AppCubit.of(context).removePage(index),
+                                    onDuplicate: () =>
+                                        AppCubit.of(context).duplicatePage(index),
+                                    onRotate: () =>
+                                        AppCubit.of(context).rotatePage(index),
+                                    child: Center(
+                                      child: RotatedBox(
+                                        quarterTurns:
+                                            state.pages[index].rotation ~/ 90,
+                                        child: Image.network(
+                                          state.pages[index].thumbnailUrl!,
+                                        ),
+                                      ),
+                                    ),
+                                  );
+                                }
+                              }),
+                            ),
                           ),
-                        ),
-                ),
-                
-              ]);
-            },
+                  ),
+                  
+                ]);
+              },
+            ),
           ),
           AdsWebView()
         ],
