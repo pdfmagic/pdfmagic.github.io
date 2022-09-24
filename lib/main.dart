@@ -188,7 +188,7 @@ class MyAppBar extends StatelessWidget {
                                 MaterialStateProperty.all(Colors.black),
                             side: MaterialStateProperty.all(BorderSide.none),
                             textStyle: MaterialStateProperty.all(
-                                GoogleFonts.roboto(fontSize: 24))),
+                                TextStyle(fontSize: 24))),
                         onPressed: AppCubit.of(context).addDocuments,
                         child: Text("Dokumente hinzufügen")),
                   ),
@@ -196,15 +196,16 @@ class MyAppBar extends StatelessWidget {
               ),
               Flexible(
                 fit: FlexFit.tight,
-                child: Column(
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
                   mainAxisSize: MainAxisSize.min,
                   children: [
+                    Padding(
+                      padding: const EdgeInsets.only(right: 12),
+                      child: Image.asset("logo.png", height: 50, width: 50,),
+                    ),
                     Text("PDF Magic",
-                        style: GoogleFonts.rampartOne(fontSize: 40)),
-                    // Text(
-                    //   "Einfach, Schnell und völlig offline",
-                    //   style: GoogleFonts.rampartOne(fontSize: 18),
-                    // )
+                        style: TextStyle(fontSize: 40, fontWeight: FontWeight.bold)),
                   ],
                 ),
               ),
@@ -358,8 +359,12 @@ class PDFMagicMobileApp extends StatelessWidget {
       appBar: AppBar(
         backgroundColor: Colors.white,
         shadowColor: Colors.deepPurple,
+        leading: Padding(
+          padding: const EdgeInsets.fromLTRB(8, 8, 0, 8),
+          child: Image.asset("logo.png",),
+        ),
         title: Text("PDF Magic",
-            style: GoogleFonts.rampartOne(color: Colors.black)),
+            style: TextStyle(color: Colors.black, fontWeight: FontWeight.bold)),
         centerTitle: false,
         actions: [
           PopupMenuButton<bool>(
