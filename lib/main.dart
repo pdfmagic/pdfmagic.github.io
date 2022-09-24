@@ -504,10 +504,12 @@ class _AdsWebViewState extends State<AdsWebView> {
   void initState() {
     // TODO: implement initState
     super.initState();
-    _iFrameElement.height = "80";
-    _iFrameElement.width = "800";
+    _iFrameElement.height = "80px";
+    _iFrameElement.width = "800px";
     _iFrameElement.src = "https://pdfmagic.de/ads";
     _iFrameElement.style.border = "none";
+    _iFrameElement.style.height = "80px";
+    _iFrameElement.style.width = "800px";
 
     // ignore: undefined_prefixed_name
     ui.platformViewRegistry.registerViewFactory(
