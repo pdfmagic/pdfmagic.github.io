@@ -16,7 +16,7 @@ class PDFSplitter {
         let doc = await pdflib.PDFDocument.load(pdfDocument.documentBytes)
         let [copiedPage] = await page.copyPages(doc, [pageIndex])
         if (rotation != 0) {
-            copiedPage.setRotation(pdflib.degrees(copiedPage.getRotation() + rotation))
+            copiedPage.setRotation(pdflib.degrees(copiedPage.getRotation().angle + rotation))
         }
         page.addPage(copiedPage)
 
@@ -44,7 +44,7 @@ class PDFMerger {
         for (let i = 0; i < copiedPages.length; i++) {
             let copiedPage = copiedPages[i]
             if (rotation != 0) {
-                copiedPage.setRotation(pdflib.degrees(copiedPage.getRotation() + rotation))
+                copiedPage.setRotation(pdflib.degrees(copiedPage.getRotation().angle + rotation))
             }
             this.resultPdf.addPage(copiedPage)
         }
