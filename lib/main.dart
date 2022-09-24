@@ -40,81 +40,83 @@ class PDFMagicApp extends StatelessWidget {
         backgroundColor: const Color(0xFFECECEC),
         body: Column(
           children: [
-            BlocBuilder<AppCubit, AppState>(
-              builder: (context, state) {
-                int itemCount = state.documentMode
-                    ? state.documents.length
-                    : state.pages.length;
-
-                return Column(
-                  children: [
-                    const MyAppBar(),
-                    Expanded(
-                      child: itemCount == 0
-                          ? PromoWidget()
-                          : Padding(
-                              padding: const EdgeInsets.fromLTRB(12, 12, 12, 0),
-                              child: ReorderableGridView.builder(
-                                gridDelegate:
-                                    const SliverGridDelegateWithFixedCrossAxisCount(
-                                        childAspectRatio: 1 / 1.4142,
-                                        crossAxisCount: 8,
-                                        mainAxisSpacing: 8,
-                                        crossAxisSpacing: 8),
-                                itemCount: itemCount,
-                                onReorder: (oldIndex, newIndex) {
-                                  state.documentMode
-                                      ? AppCubit.of(context)
-                                          .reorderDocument(oldIndex, newIndex)
-                                      : AppCubit.of(context)
-                                          .reorderPage(oldIndex, newIndex);
-                                },
-                                itemBuilder: ((context, index) {
-                                  if (state.documentMode) {
-                                    return ItemOverlay(
-                                      key: ValueKey(index),
-                                      onDelete: () => AppCubit.of(context)
-                                          .removeDocument(index),
-                                      onDuplicate: () => AppCubit.of(context)
-                                          .duplicateDocument(index),
-                                      onRotate: () => AppCubit.of(context)
-                                          .rotateDocument(index),
-                                      child: Center(
-                                        child: RotatedBox(
-                                          quarterTurns:
-                                              state.documents[index].rotation ~/ 90,
-                                          child: Image.network(
-                                              state.documents[index].thumbnailUrl),
+            Expanded(
+              child: BlocBuilder<AppCubit, AppState>(
+                builder: (context, state) {
+                  int itemCount = state.documentMode
+                      ? state.documents.length
+                      : state.pages.length;
+            
+                  return Column(
+                    children: [
+                      const MyAppBar(),
+                      Expanded(
+                        child: itemCount == 0
+                            ? PromoWidget()
+                            : Padding(
+                                padding: const EdgeInsets.fromLTRB(12, 12, 12, 0),
+                                child: ReorderableGridView.builder(
+                                  gridDelegate:
+                                      const SliverGridDelegateWithFixedCrossAxisCount(
+                                          childAspectRatio: 1 / 1.4142,
+                                          crossAxisCount: 8,
+                                          mainAxisSpacing: 8,
+                                          crossAxisSpacing: 8),
+                                  itemCount: itemCount,
+                                  onReorder: (oldIndex, newIndex) {
+                                    state.documentMode
+                                        ? AppCubit.of(context)
+                                            .reorderDocument(oldIndex, newIndex)
+                                        : AppCubit.of(context)
+                                            .reorderPage(oldIndex, newIndex);
+                                  },
+                                  itemBuilder: ((context, index) {
+                                    if (state.documentMode) {
+                                      return ItemOverlay(
+                                        key: ValueKey(index),
+                                        onDelete: () => AppCubit.of(context)
+                                            .removeDocument(index),
+                                        onDuplicate: () => AppCubit.of(context)
+                                            .duplicateDocument(index),
+                                        onRotate: () => AppCubit.of(context)
+                                            .rotateDocument(index),
+                                        child: Center(
+                                          child: RotatedBox(
+                                            quarterTurns:
+                                                state.documents[index].rotation ~/ 90,
+                                            child: Image.network(
+                                                state.documents[index].thumbnailUrl),
+                                          ),
                                         ),
-                                      ),
-                                    );
-                                  } else {
-                                    return ItemOverlay(
-                                      key: ValueKey(index),
-                                      onDelete: () =>
-                                          AppCubit.of(context).removePage(index),
-                                      onDuplicate: () =>
-                                          AppCubit.of(context).duplicatePage(index),
-                                      onRotate: () =>
-                                          AppCubit.of(context).rotatePage(index),
-                                      child: Center(
-                                        child: RotatedBox(
-                                          quarterTurns:
-                                              state.pages[index].rotation ~/ 90,
-                                          child: Image.network(
-                                              state.pages[index].thumbnailUrl!),
+                                      );
+                                    } else {
+                                      return ItemOverlay(
+                                        key: ValueKey(index),
+                                        onDelete: () =>
+                                            AppCubit.of(context).removePage(index),
+                                        onDuplicate: () =>
+                                            AppCubit.of(context).duplicatePage(index),
+                                        onRotate: () =>
+                                            AppCubit.of(context).rotatePage(index),
+                                        child: Center(
+                                          child: RotatedBox(
+                                            quarterTurns:
+                                                state.pages[index].rotation ~/ 90,
+                                            child: Image.network(
+                                                state.pages[index].thumbnailUrl!),
+                                          ),
                                         ),
-                                      ),
-                                    );
-                                  }
-                                }),
+                                      );
+                                    }
+                                  }),
+                                ),
                               ),
-                            ),
-                    )
-                    
-                  ],
-                );
-              },
+                      )
+                      
+                    ],
+                  );
+                },
+              ),
             ),
              AdsWebView()
           ],
