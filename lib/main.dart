@@ -202,7 +202,7 @@ class MyAppBar extends StatelessWidget {
                   children: [
                     Padding(
                       padding: const EdgeInsets.only(right: 12),
-                      child: Image.network("https://pdfmagic.de/assets/logo.png", height: 50, width: 50,),
+                      child: Image.network("https://pdfmagic.de/assets/images/logo.png", height: 50, width: 50,),
                     ),
                     Text("PDF Magic",
                         style: TextStyle(fontSize: 40, fontWeight: FontWeight.bold)),
@@ -361,7 +361,7 @@ class PDFMagicMobileApp extends StatelessWidget {
         shadowColor: Colors.deepPurple,
         leading: Padding(
           padding: const EdgeInsets.fromLTRB(8, 8, 0, 8),
-          child: Image.network("https://pdfmagic.de/assets/logo.png",),
+          child: Image.network("https://pdfmagic.de/assets/images/logo.png",),
         ),
         title: Text("PDF Magic",
             style: TextStyle(color: Colors.black, fontWeight: FontWeight.bold)),
