@@ -13,7 +13,7 @@ excerpt: "Das Bearbeiten von PDF Dokumenten kann nervig sein. Probier's mal mit 
 
 feature_row:
   - title: "Einfach"
-    excerpt: "Unser Drag and Drop Editor ist kinderleicht zu bedienen. "
+    excerpt: "Unser Drag and Drop Editor ist kinderleicht zu bedienen."
   - title: "Schnell"
     excerpt: "Innerhalb von Sekunden kannst du dein Dokument bearbeiten und wieder herunterladen. Alles passiert direkt in deinem Browser."
   - title: "Sicher"
@@ -25,5 +25,6 @@ feature_row:
 # Credits
 Ein großes Dankeschön geht raus an die tollen Künstler, Fotografen und Designer bei [Flaticon.com](https://www.flaticon.com) und [Unsplash.com](https://unsplash.com), die die Bilder und Icons auf dieser Webseite zur Verfügung gestellt haben. Ihr macht einen wunderbaren Job!
 
-Insbesondere möchte ich mich für das Zauberhut-Icon bedanken: <a href="https://www.flaticon.com/free-icons/magic" title="magic icons">Magic icons created by Freepik - Flaticon</a> und für unser tolles Hintergrundbild: <a href="https://unsplash.com/@anniespratt">Images by Annie Spratt
-</a>
+Insbesondere möchten wir uns für das Zauberhut-Icon bedanken: <a href="https://www.flaticon.com/free-icons/magic" title="magic icons">Magic icons created by Freepik - Flaticon</a> und für unser tolles Hintergrundbild: <a href="https://unsplash.com/@anniespratt">Images by Annie Spratt</a>
+
+Desweiteren bedanken wir uns für die tollen Frameworks, die wir hier benutzt haben. Ein Dankeschön geht raus an die Teams von: Flutter, PDF.js, PDF-LIB.
