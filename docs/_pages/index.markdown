@@ -21,3 +21,9 @@ feature_row:
 ---
 
 {% include feature_row %}
+
+# Credits
+Ein großes Dankeschön geht raus an die tollen Künstler, Fotografen und Designer bei [Flaticon.com](https://www.flaticon.com) und [Unsplash.com](https://unsplash.com), die die Bilder und Icons auf dieser Webseite zur Verfügung gestellt haben. Ihr macht einen wunderbaren Job!
+
+Insbesondere möchte ich mich für das Zauberhut-Icon bedanken: <a href="https://www.flaticon.com/free-icons/magic" title="magic icons">Magic icons created by Freepik - Flaticon</a> und für unser tolles Hintergrundbild: <a href="https://unsplash.com/@anniespratt">Images by Annie Spratt
+</a>
