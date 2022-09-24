@@ -1,4 +1,6 @@
-import 'package:easy_web_view2/easy_web_view2.dart';
+import 'dart:html';
+import 'dart:ui' as ui;
+
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -16,14 +18,13 @@ void main() {
         const AppState(documentMode: true, documents: [], pages: []),
         repository)),
     child: MaterialApp(
-      home: LayoutBuilder(
-        builder: (context, constraints) {
-          if (constraints.minWidth < constraints.minHeight) return PDFMagicMobileApp(repository: repository);
-          return PDFMagicApp(
-            repository: repository,
-          );
-        }
-      ),
+      home: LayoutBuilder(builder: (context, constraints) {
+        if (constraints.minWidth < constraints.minHeight)
+          return PDFMagicMobileApp(repository: repository);
+        return PDFMagicApp(
+          repository: repository,
+        );
+      }),
     ),
   ));
 }
@@ -108,12 +109,7 @@ class PDFMagicApp extends StatelessWidget {
                           ),
                         ),
                 ),
-                EasyWebView(
-                  height: 80,
-                  width: 800,
-                  src: "https://pdfmagic.de/ads", onLoaded: () {
-                  print("Page loaded");
-                })
+                AdsWebView()
               ],
             );
           },
@@ -354,7 +350,7 @@ class PDFMagicMobileApp extends StatelessWidget {
   final Repository repository;
 
   const PDFMagicMobileApp({super.key, required this.repository});
-  
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -362,45 +358,46 @@ class PDFMagicMobileApp extends StatelessWidget {
       appBar: AppBar(
         backgroundColor: Colors.white,
         shadowColor: Colors.deepPurple,
-        title: Text("PDF Magic", style: GoogleFonts.rampartOne(color: Colors.black)),
+        title: Text("PDF Magic",
+            style: GoogleFonts.rampartOne(color: Colors.black)),
         centerTitle: false,
         actions: [
           PopupMenuButton<bool>(
-                        onSelected: (value) {
-                          value
-                              ? AppCubit.of(context).downloadPdf()
-                              : AppCubit.of(context).downloadZip();
-                        },
-                        itemBuilder: ((context) {
-                          return [
-                            const PopupMenuItem(
-                                child: Text("Als ein PDF"), value: true),
-                            const PopupMenuItem(
-                                child: Text("Jede Seite einzeln"), value: false)
-                          ];
-                        }),
-                        child: Center(
-                          child: Padding(
-                            padding: const EdgeInsets.symmetric(horizontal: 4),
-                            child: Text(
-                              "Speichern",
-                              style: GoogleFonts.roboto(color: Colors.black),
-                            ),
-                          ),
-                        ))
+              onSelected: (value) {
+                value
+                    ? AppCubit.of(context).downloadPdf()
+                    : AppCubit.of(context).downloadZip();
+              },
+              itemBuilder: ((context) {
+                return [
+                  const PopupMenuItem(child: Text("Als ein PDF"), value: true),
+                  const PopupMenuItem(
+                      child: Text("Jede Seite einzeln"), value: false)
+                ];
+              }),
+              child: Center(
+                child: Padding(
+                  padding: const EdgeInsets.symmetric(horizontal: 4),
+                  child: Text(
+                    "Speichern",
+                    style: GoogleFonts.roboto(color: Colors.black),
+                  ),
+                ),
+              ))
         ],
       ),
       floatingActionButton: FloatingActionButton(
         backgroundColor: Colors.deepPurple,
-        onPressed: AppCubit.of(context).addDocuments, child: const Icon(Icons.add),),
+        onPressed: AppCubit.of(context).addDocuments,
+        child: const Icon(Icons.add),
+      ),
       body: BlocBuilder<AppCubit, AppState>(
         builder: (context, state) {
-          int itemCount = state.documentMode
-                ? state.documents.length
-                : state.pages.length;
+          int itemCount =
+              state.documentMode ? state.documents.length : state.pages.length;
 
           return Column(children: [
-          Align(
+            Align(
               child: Padding(
                 padding: const EdgeInsets.all(12),
                 child: ToggleSwitch(
@@ -421,74 +418,113 @@ class PDFMagicMobileApp extends StatelessWidget {
                   onToggle: (index) => AppCubit.of(context).toggleMode(),
                 ),
               ),
-            )
-          ,
-          Expanded(
-                    child: itemCount == 0
-                        ? PromoWidget()
-                        : Padding(
-                            padding: const EdgeInsets.fromLTRB(12, 12, 12, 0),
-                            child: ReorderableGridView.builder(
-                              gridDelegate:
-                                  const SliverGridDelegateWithFixedCrossAxisCount(
-                                      childAspectRatio: 1 / 1.4142,
-                                      crossAxisCount: 2,
-                                      mainAxisSpacing: 8,
-                                      crossAxisSpacing: 8),
-                              itemCount: itemCount,
-                              onReorder: (oldIndex, newIndex) {
-                                state.documentMode
-                                    ? AppCubit.of(context)
-                                        .reorderDocument(oldIndex, newIndex)
-                                    : AppCubit.of(context)
-                                        .reorderPage(oldIndex, newIndex);
-                              },
-                              itemBuilder: ((context, index) {
-                                if (state.documentMode) {
-                                  return ItemOverlay(
-                                    key: ValueKey(index),
-                                    alwaysVisible: true,
-                                    onDelete: () => AppCubit.of(context)
-                                        .removeDocument(index),
-                                    onDuplicate: () => AppCubit.of(context)
-                                        .duplicateDocument(index),
-                                    onRotate: () => AppCubit.of(context)
-                                        .rotateDocument(index),
-                                    child: Center(
-                                      child: RotatedBox(
-                                        quarterTurns:
-                                            state.documents[index].rotation ~/ 90,
-                                        child: Image.network(
-                                            state.documents[index].thumbnailUrl),
-                                      ),
-                                    ),
-                                  );
-                                } else {
-                                  return ItemOverlay(
-                                    key: ValueKey(index),
-                                    alwaysVisible: true,
-                                    onDelete: () =>
-                                        AppCubit.of(context).removePage(index),
-                                    onDuplicate: () =>
-                                        AppCubit.of(context).duplicatePage(index),
-                                    onRotate: () =>
-                                        AppCubit.of(context).rotatePage(index),
-                                    child: Center(
-                                      child: RotatedBox(
-                                        quarterTurns:
-                                            state.pages[index].rotation ~/ 90,
-                                        child: Image.network(
-                                            state.pages[index].thumbnailUrl!,),
-                                      ),
-                                    ),
-                                  );
-                                }
-                              }),
-                            ),
-                          ),
-                  )
-        ]);
+            ),
+            Expanded(
+              child: itemCount == 0
+                  ? PromoWidget()
+                  : Padding(
+                      padding: const EdgeInsets.fromLTRB(12, 12, 12, 0),
+                      child: ReorderableGridView.builder(
+                        gridDelegate:
+                            const SliverGridDelegateWithFixedCrossAxisCount(
+                                childAspectRatio: 1 / 1.4142,
+                                crossAxisCount: 2,
+                                mainAxisSpacing: 8,
+                                crossAxisSpacing: 8),
+                        itemCount: itemCount,
+                        onReorder: (oldIndex, newIndex) {
+                          state.documentMode
+                              ? AppCubit.of(context)
+                                  .reorderDocument(oldIndex, newIndex)
+                              : AppCubit.of(context)
+                                  .reorderPage(oldIndex, newIndex);
+                        },
+                        itemBuilder: ((context, index) {
+                          if (state.documentMode) {
+                            return ItemOverlay(
+                              key: ValueKey(index),
+                              alwaysVisible: true,
+                              onDelete: () =>
+                                  AppCubit.of(context).removeDocument(index),
+                              onDuplicate: () =>
+                                  AppCubit.of(context).duplicateDocument(index),
+                              onRotate: () =>
+                                  AppCubit.of(context).rotateDocument(index),
+                              child: Center(
+                                child: RotatedBox(
+                                  quarterTurns:
+                                      state.documents[index].rotation ~/ 90,
+                                  child: Image.network(
+                                      state.documents[index].thumbnailUrl),
+                                ),
+                              ),
+                            );
+                          } else {
+                            return ItemOverlay(
+                              key: ValueKey(index),
+                              alwaysVisible: true,
+                              onDelete: () =>
+                                  AppCubit.of(context).removePage(index),
+                              onDuplicate: () =>
+                                  AppCubit.of(context).duplicatePage(index),
+                              onRotate: () =>
+                                  AppCubit.of(context).rotatePage(index),
+                              child: Center(
+                                child: RotatedBox(
+                                  quarterTurns:
+                                      state.pages[index].rotation ~/ 90,
+                                  child: Image.network(
+                                    state.pages[index].thumbnailUrl!,
+                                  ),
+                                ),
+                              ),
+                            );
+                          }
+                        }),
+                      ),
+                    ),
+            ),
+            AdsWebView()
+          ]);
         },
+      ),
+    );
+  }
+}
+
+class AdsWebView extends StatefulWidget {
+  @override
+  State<AdsWebView> createState() => _AdsWebViewState();
+}
+
+class _AdsWebViewState extends State<AdsWebView> {
+  final IFrameElement _iFrameElement = IFrameElement();
+
+  @override
+  void initState() {
+    // TODO: implement initState
+    super.initState();
+    _iFrameElement.height = "80";
+    _iFrameElement.width = "800";
+    _iFrameElement.src = "https://pdfmagic.de/ads";
+    _iFrameElement.style.border = "none";
+
+    // ignore: undefined_prefixed_name
+    ui.platformViewRegistry.registerViewFactory(
+      'iframeElement',
+      (int viewId) => _iFrameElement,
+    );
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      color: Colors.transparent,
+      height: 80,
+      width: 800,
+      child: HtmlElementView(
+        key: UniqueKey(),
+        viewType: "iframeElement",
       ),
     );
   }
