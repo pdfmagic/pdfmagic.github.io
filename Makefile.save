@@ -1,0 +1,4 @@
+all:
+cd js && browserify code.js -p common-shakeify -t babelify -s pdf -o ../web/pdf.js
+flutter build web
+
