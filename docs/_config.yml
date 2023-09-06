@@ -1,0 +1,54 @@
+# Theme Example Config: https://github.com/mmistakes/minimal-mistakes/blob/master/_config.yml
+
+minimal_mistakes_skin: air
+title: PDF Magic
+email: contact@pdfmagic.de
+logo: /assets/images/logo.png
+description: >- # this means to ignore newlines until "baseurl:"
+  Edit, merge, rotate PDF documents easily with PDF Magic.
+baseurl: "/" # the subpath of your site, e.g. /blog
+url: "https://pdfmagic.de" # the base hostname & protocol for your site, e.g. http://example.com
+atom_feed:
+  hide: true
+
+# Build settings
+remote_theme: "mmistakes/minimal-mistakes@4.24.0"
+plugins:
+  # - jekyll-feed
+  - jekyll-include-cache
+
+
+
+include: ["_pages"]
+
+# Exclude from processing.
+# The following items will not be processed, by default.
+# Any item listed under the `exclude:` key here will be automatically added to
+# the internal "default list".
+#
+# Excluded items can be processed by explicitly listing the directories or
+# their entries' file path in the `include:` list.
+#
+# exclude:
+#   - .sass-cache/
+#   - .jekyll-cache/
+#   - gemfiles/
+#   - Gemfile
+#   - Gemfile.lock
+#   - node_modules/
+#   - vendor/bundle/
+#   - vendor/cache/
+#   - vendor/gems/
+#   - vendor/ruby/
+
+footer:
+  links:
+    - label: "Kontakt"
+      url: "/kontakt"
+    - label: "Nutzungsbedingungen"
+      url: "/nutzungsbedingungen"
+    - label: "Datenschutz"
+      url: "/datenschutz"
+    - label: "Github"
+      icon: "fab fa-fw fa-github"
+      url: "https://github.com/pdfmagic"
