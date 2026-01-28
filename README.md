@@ -18,7 +18,7 @@ A modern, responsive web application for converting images to PDF and extracting
 - Font Awesome Icons
 
 ## Live Demo
-https://pdfmagic-tools.vercel.app
+https://pdfmagic.github.io
 
 ## Setup Instructions
 1. Clone the repository
