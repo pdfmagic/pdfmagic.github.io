@@ -2,5 +2,6 @@ User-agent: *
 Allow: /
 Disallow: /assets/
 
-# Sitemap
+# Sitemaps
 Sitemap: https://pdfmagic.github.io/sitemap.xml
+Sitemap: https://pdfmagic.github.io/sitemap_index.xml

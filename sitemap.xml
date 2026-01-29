@@ -1,50 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
-  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-  xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9
-  http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
-  
-  <!-- الصفحة الرئيسية -->
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://pdfmagic.github.io/</loc>
     <lastmod>2026-01-29</lastmod>
-    <changefreq>daily</changefreq>
     <priority>1.0</priority>
   </url>
-  
-  <!-- ملفات توثيق Google -->
-  <url>
-    <loc>https://pdfmagic.github.io/googleca25802b78f414da.html</loc>
-    <lastmod>2026-01-29</lastmod>
-    <priority>0.5</priority>
-  </url>
-  
-  <url>
-    <loc>https://pdfmagic.github.io/googledcb3eca49124b1e6.html</loc>
-    <lastmod>2026-01-29</lastmod>
-    <priority>0.5</priority>
-  </url>
-  
-  <!-- صفحات إضافية (لو عندك) -->
-  <url>
-    <loc>https://pdfmagic.github.io/privacy.html</loc>
-    <lastmod>2026-01-29</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  
-  <url>
-    <loc>https://pdfmagic.github.io/terms.html</loc>
-    <lastmod>2026-01-29</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  
-  <!-- الصفحات المهمة -->
-  <url>
-    <loc>https://pdfmagic.github.io/index.html</loc>
-    <lastmod>2026-01-29</lastmod>
-    <priority>0.9</priority>
-  </url>
-  
 </urlset>
