@@ -43,7 +43,7 @@
     <script src="https://cdn.jsdelivr.net/npm/exif-js@2.3.0/exif.min.js"></script>
     
     <style>
-        /* ========== 🔴 CSS Variables ========== */
+        /* ========== 🔴 CSS الكامل ========== */
         :root {
             --primary: #4A6FFF;
             --primary-dark: #3A5FEF;
@@ -67,17 +67,9 @@
             --transition: all 0.3s ease;
         }
         
-        /* ========== 🔴 Reset & Base Styles ========== */
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
         
-        html {
-            font-size: 15px;
-            scroll-behavior: smooth;
-        }
+        html { font-size: 15px; scroll-behavior: smooth; }
         
         body {
             font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
@@ -109,9 +101,7 @@
             transition: var(--transition);
         }
         
-        .header.scrolled {
-            box-shadow: var(--shadow);
-        }
+        .header.scrolled { box-shadow: var(--shadow); }
         
         .header-content {
             display: flex;
@@ -140,31 +130,9 @@
             flex-shrink: 0;
         }
         
-        .logo-img img {
-            width: 28px;
-            height: 28px;
-            filter: brightness(0) invert(1);
-        }
-        
-        .logo-text {
-            display: flex;
-            flex-direction: column;
-        }
-        
-        .logo-name {
-            font-size: 22px;
-            font-weight: 900;
-            color: var(--dark);
-            line-height: 1.2;
-            letter-spacing: -0.3px;
-        }
-        
-        .logo-tagline {
-            font-size: 12px;
-            color: var(--gray-600);
-            font-weight: 500;
-            letter-spacing: 0.3px;
-        }
+        .logo-text { display: flex; flex-direction: column; }
+        .logo-name { font-size: 22px; font-weight: 900; color: var(--dark); }
+        .logo-tagline { font-size: 12px; color: var(--gray-600); font-weight: 500; }
         
         /* ========== 🔴 Language Switcher ========== */
         .language-switcher {
@@ -282,18 +250,8 @@
             border-color: transparent;
         }
         
-        .feature-title {
-            font-size: 17px;
-            font-weight: 700;
-            color: var(--dark);
-            margin-bottom: 11px;
-        }
-        
-        .feature-desc {
-            font-size: 14px;
-            color: var(--gray-600);
-            line-height: 1.5;
-        }
+        .feature-title { font-size: 17px; font-weight: 700; color: var(--dark); margin-bottom: 11px; }
+        .feature-desc { font-size: 14px; color: var(--gray-600); line-height: 1.5; }
         
         /* ========== 🔴 Ad Sections ========== */
         .ad-section {
@@ -330,14 +288,10 @@
             overflow: hidden;
         }
         
-        .ad-content.large {
-            min-height: 220px;
-        }
+        .ad-content.large { min-height: 220px; }
         
         /* ========== 🔴 Tools Section ========== */
-        .tools-section {
-            margin: 70px 0;
-        }
+        .tools-section { margin: 70px 0; }
         
         .section-title {
             font-size: clamp(32px, 3.5vw, 42px);
@@ -422,18 +376,8 @@
             transform: rotate(10deg);
         }
         
-        .tool-title {
-            font-size: 21px;
-            font-weight: 800;
-            color: var(--dark);
-        }
-        
-        .tool-desc {
-            color: var(--gray-800);
-            font-size: 15px;
-            margin-bottom: 28px;
-            line-height: 1.6;
-        }
+        .tool-title { font-size: 21px; font-weight: 800; color: var(--dark); }
+        .tool-desc { color: var(--gray-800); font-size: 15px; margin-bottom: 28px; line-height: 1.6; }
         
         /* ========== 🔴 Upload Area ========== */
         .upload-area {
@@ -453,33 +397,265 @@
             background: var(--primary-light);
         }
         
-        .upload-icon {
-            font-size: 52px;
-            color: var(--primary);
-            margin-bottom: 18px;
-            opacity: 0.8;
+        .upload-icon { font-size: 52px; color: var(--primary); margin-bottom: 18px; opacity: 0.8; }
+        .upload-text { font-size: 19px; font-weight: 700; color: var(--dark); margin-bottom: 9px; }
+        .upload-subtext { font-size: 13px; color: var(--gray-600); max-width: 500px; margin: 0 auto; }
+        
+        /* ========== 🔴 Preview Section ========== */
+        .preview-section {
+            background: var(--gray-50);
+            border-radius: var(--radius);
+            padding: 22px;
+            margin: 22px 0;
+            display: none;
+            border: 1px solid var(--gray-200);
         }
         
-        .upload-text {
-            font-size: 19px;
+        .preview-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 18px;
+            flex-wrap: wrap;
+            gap: 14px;
+        }
+        
+        .preview-title {
+            font-size: 17px;
             font-weight: 700;
             color: var(--dark);
-            margin-bottom: 9px;
+            display: flex;
+            align-items: center;
+            gap: 9px;
         }
         
-        .upload-subtext {
+        .preview-controls { display: flex; gap: 9px; flex-wrap: wrap; }
+        
+        .preview-btn {
+            padding: 7px 13px;
+            background: var(--light);
+            border: 2px solid var(--gray-300);
+            border-radius: var(--radius-sm);
+            color: var(--gray-800);
+            font-size: 12px;
+            font-weight: 600;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            transition: var(--transition);
+            min-width: 42px;
+            justify-content: center;
+        }
+        
+        .preview-btn:hover {
+            background: var(--gray-100);
+            border-color: var(--primary);
+            color: var(--primary);
+        }
+        
+        .preview-btn.move-btn {
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            color: white;
+            border: none;
+            width: 34px;
+            height: 34px;
+            border-radius: 50%;
+            padding: 0;
+        }
+        
+        .preview-btn.move-btn:hover:not(:disabled) {
+            transform: scale(1.1);
+            box-shadow: var(--shadow);
+        }
+        
+        .preview-btn.move-btn:disabled {
+            background: var(--gray-300);
+            cursor: not-allowed;
+            opacity: 0.5;
+        }
+        
+        .preview-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(110px, 1fr));
+            gap: 12px;
+            max-height: 320px;
+            overflow-y: auto;
+            padding: 6px;
+        }
+        
+        .preview-item {
+            position: relative;
+            border-radius: 8px;
+            overflow: hidden;
+            border: 2px solid var(--gray-200);
+            background: white;
+            aspect-ratio: 1;
+            transition: var(--transition);
+            cursor: pointer;
+        }
+        
+        .preview-item:hover {
+            transform: translateY(-3px);
+            border-color: var(--primary);
+            box-shadow: var(--shadow);
+        }
+        
+        .preview-item.active {
+            border-color: var(--primary);
+            box-shadow: 0 0 0 2px var(--primary-light);
+        }
+        
+        .preview-img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+        }
+        
+        .preview-index {
+            position: absolute;
+            top: 6px;
+            right: 6px;
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            color: white;
+            width: 22px;
+            height: 22px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 11px;
+            font-weight: bold;
+            z-index: 2;
+        }
+        
+        .preview-filename {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: rgba(0, 0, 0, 0.7);
+            color: white;
+            font-size: 10px;
+            padding: 4px 5px;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            text-align: center;
+        }
+        
+        .drag-handle {
+            position: absolute;
+            top: 6px;
+            left: 6px;
+            background: rgba(255, 255, 255, 0.9);
+            color: var(--primary);
+            width: 26px;
+            height: 26px;
+            border-radius: 6px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: grab;
+            font-size: 11px;
+            z-index: 2;
+            box-shadow: var(--shadow-sm);
+            opacity: 0;
+            transition: var(--transition);
+        }
+        
+        .preview-item:hover .drag-handle { opacity: 1; }
+        .drag-handle:hover { background: var(--light); transform: scale(1.1); }
+        
+        .item-controls {
+            position: absolute;
+            bottom: 22px;
+            left: 0;
+            right: 0;
+            display: flex;
+            justify-content: center;
+            gap: 12px;
+            z-index: 3;
+            opacity: 0;
+            transition: var(--transition);
+        }
+        
+        .preview-item:hover .item-controls { opacity: 1; }
+        
+        .item-btn {
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            color: white;
+            border: none;
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 12px;
+            box-shadow: var(--shadow-sm);
+            transition: var(--transition);
+        }
+        
+        .item-btn:hover:not(:disabled) {
+            transform: scale(1.1);
+            box-shadow: var(--shadow);
+        }
+        
+        .item-btn:disabled {
+            background: var(--gray-300);
+            cursor: not-allowed;
+            opacity: 0.5;
+        }
+        
+        /* ========== 🔴 Carousel Navigation ========== */
+        .carousel-nav {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 14px;
+            margin-top: 18px;
+        }
+        
+        .carousel-btn {
+            width: 42px;
+            height: 42px;
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            border: none;
+            border-radius: 50%;
+            color: white;
+            font-size: 17px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: var(--transition);
+            box-shadow: var(--shadow-sm);
+        }
+        
+        .carousel-btn:hover:not(:disabled) {
+            transform: translateY(-2px);
+            box-shadow: var(--shadow);
+        }
+        
+        .carousel-btn:disabled {
+            background: var(--gray-300);
+            cursor: not-allowed;
+            opacity: 0.5;
+        }
+        
+        .carousel-info {
             font-size: 13px;
-            color: var(--gray-600);
-            max-width: 500px;
-            margin: 0 auto;
+            color: var(--gray-800);
+            font-weight: 600;
+            min-width: 110px;
+            text-align: center;
         }
         
         /* ========== 🔴 Buttons ========== */
-        .controls {
-            display: flex;
-            gap: 14px;
-            margin-top: 22px;
-        }
+        .controls { display: flex; gap: 14px; margin-top: 22px; }
         
         .btn {
             padding: 13px 26px;
@@ -507,10 +683,7 @@
             box-shadow: 0 8px 24px rgba(74, 111, 255, 0.4);
         }
         
-        .btn-primary:disabled {
-            opacity: 0.7;
-            cursor: not-allowed;
-        }
+        .btn-primary:disabled { opacity: 0.7; cursor: not-allowed; }
         
         .btn-secondary {
             background: var(--light);
@@ -550,11 +723,7 @@
             margin-bottom: 35px;
         }
         
-        .footer-brand {
-            display: flex;
-            flex-direction: column;
-            gap: 18px;
-        }
+        .footer-brand { display: flex; flex-direction: column; gap: 18px; }
         
         .footer-logo {
             display: flex;
@@ -593,27 +762,12 @@
         
         /* ========== 🔴 Responsive Design ========== */
         @media (max-width: 768px) {
-            .header-content {
-                flex-direction: column;
-                gap: 15px;
-            }
-            
-            .hero {
-                padding: 120px 0 50px;
-            }
-            
-            .tools-grid {
-                gap: 20px;
-            }
-            
-            .tool-card {
-                padding: 25px;
-            }
-            
-            .features {
-                grid-template-columns: 1fr;
-                gap: 15px;
-            }
+            .header-content { flex-direction: column; gap: 15px; }
+            .hero { padding: 120px 0 50px; }
+            .tools-grid { gap: 20px; }
+            .tool-card { padding: 25px; }
+            .features { grid-template-columns: 1fr; gap: 15px; }
+            .preview-grid { grid-template-columns: repeat(auto-fill, minmax(90px, 1fr)); }
         }
     </style>
 </head>
@@ -633,12 +787,10 @@
                 </div>
                 <div class="language-switcher">
                     <button class="lang-btn active" onclick="setLanguage('en')">
-                        <i class="fas fa-globe"></i>
-                        <span>English</span>
+                        <i class="fas fa-globe"></i> <span>English</span>
                     </button>
                     <button class="lang-btn" onclick="setLanguage('ar')">
-                        <i class="fas fa-globe"></i>
-                        <span>العربية</span>
+                        <i class="fas fa-globe"></i> <span>العربية</span>
                     </button>
                 </div>
             </div>
@@ -650,34 +802,26 @@
         <div class="container">
             <div class="hero-content">
                 <h1 class="hero-title" id="hero-title"><span>Free PDF Tools</span> for Everyone</h1>
-                <p class="hero-desc" id="hero-desc">Convert images to PDF & extract images from PDF online. 100% free, secure, and private. No registration required. Works directly in your browser.</p>
+                <p class="hero-desc" id="hero-desc">Convert images to PDF & extract images from PDF online. 100% free, secure, and private. No registration required.</p>
                 
                 <div class="features">
                     <div class="feature-card">
-                        <div class="feature-icon">
-                            <i class="fas fa-bolt"></i>
-                        </div>
+                        <div class="feature-icon"><i class="fas fa-bolt"></i></div>
                         <h3 class="feature-title" id="feature1">Instant Processing</h3>
                         <p class="feature-desc" id="feature1-desc">Fast conversion powered by modern web technology</p>
                     </div>
                     <div class="feature-card">
-                        <div class="feature-icon">
-                            <i class="fas fa-shield-alt"></i>
-                        </div>
+                        <div class="feature-icon"><i class="fas fa-shield-alt"></i></div>
                         <h3 class="feature-title" id="feature2">100% Secure</h3>
                         <p class="feature-desc" id="feature2-desc">Files never leave your device - complete privacy</p>
                     </div>
                     <div class="feature-card">
-                        <div class="feature-icon">
-                            <i class="fas fa-infinity"></i>
-                        </div>
+                        <div class="feature-icon"><i class="fas fa-infinity"></i></div>
                         <h3 class="feature-title" id="feature3">Unlimited Free</h3>
                         <p class="feature-desc" id="feature3-desc">No limits, watermarks, or subscriptions</p>
                     </div>
                     <div class="feature-card">
-                        <div class="feature-icon">
-                            <i class="fas fa-star"></i>
-                        </div>
+                        <div class="feature-icon"><i class="fas fa-star"></i></div>
                         <h3 class="feature-title" id="feature4">Premium Quality</h3>
                         <p class="feature-desc" id="feature4-desc">Professional results without quality loss</p>
                     </div>
@@ -686,7 +830,7 @@
         </div>
     </section>
 
-    <!-- ========== 🔴 Ad Section ========== -->
+    <!-- ========== 🔴 Ad Section 1 ========== -->
     <div class="container">
         <div class="ad-section">
             <div class="ad-label">Advertisement</div>
@@ -702,61 +846,102 @@
             <h2 class="section-title" id="section-title">Powerful PDF Tools</h2>
             
             <div class="tools-grid">
-                <!-- Images to PDF Tool -->
+                <!-- 🔴 Images to PDF Tool -->
                 <div class="tool-card">
                     <div class="tool-header">
-                        <div class="tool-icon">
-                            <i class="fas fa-file-pdf"></i>
-                        </div>
+                        <div class="tool-icon"><i class="fas fa-file-pdf"></i></div>
                         <h3 class="tool-title" id="tool1-title">Images to PDF Converter</h3>
                     </div>
-                    <p class="tool-desc" id="tool1-desc">Transform your images into professional PDF documents. Combine multiple images into a single PDF with automatic sorting and image rotation correction.</p>
+                    <p class="tool-desc" id="tool1-desc">Transform images into PDF documents. Automatic sorting and rotation correction. Perfect for portfolios and presentations.</p>
                     
-                    <div class="upload-area" id="imageUploadArea" onclick="document.getElementById('imageInput').click()">
+                    <input type="file" id="imageInput" accept="image/*" multiple class="file-input">
+                    
+                    <div class="upload-area" id="imageUploadArea">
                         <i class="fas fa-cloud-upload-alt upload-icon"></i>
                         <div class="upload-text" id="upload1-text">Drag & Drop Images Here</div>
                         <div class="upload-subtext" id="upload1-subtext">Supports JPG, PNG, GIF, BMP, WebP • Max 50 images • 20MB each</div>
                     </div>
                     
-                    <input type="file" id="imageInput" accept="image/*" multiple style="display:none">
+                    <!-- 🔴 Preview Section -->
+                    <div class="preview-section" id="previewSection">
+                        <div class="preview-header">
+                            <div class="preview-title">
+                                <i class="fas fa-images"></i>
+                                <span id="previewTitle">Selected Images</span>
+                                <span id="imageCount" style="background: var(--primary); color: white; padding: 2px 8px; border-radius: 10px; font-size: 11px;">0</span>
+                            </div>
+                            <div class="preview-controls">
+                                <button class="preview-btn" onclick="sortImages('name')" id="sortNameBtn">
+                                    <i class="fas fa-sort-alpha-down"></i> <span>Name</span>
+                                </button>
+                                <button class="preview-btn" onclick="sortImages('date')" id="sortDateBtn">
+                                    <i class="fas fa-calendar"></i> <span>Date</span>
+                                </button>
+                                <button class="preview-btn" onclick="autoSortByData()" id="autoSortBtn" style="background: linear-gradient(135deg, #00D4AA, #00B894); color: white;">
+                                    <i class="fas fa-sort-amount-down"></i> <span id="autoSortText">Auto Sort</span>
+                                </button>
+                            </div>
+                        </div>
+                        <div class="preview-grid" id="previewGrid">
+                            <!-- Images will appear here -->
+                        </div>
+                        <div class="carousel-nav">
+                            <button class="carousel-btn" id="prevBtn" onclick="navigateImage('prev')" disabled><i class="fas fa-chevron-left"></i></button>
+                            <div class="carousel-info" id="carouselInfo"><span id="currentImageIndex">0</span> / <span id="totalImagesCount">0</span></div>
+                            <button class="carousel-btn" id="nextBtn" onclick="navigateImage('next')" disabled><i class="fas fa-chevron-right"></i></button>
+                        </div>
+                    </div>
                     
                     <div class="controls">
                         <button class="btn btn-primary" onclick="convertImagesToPDF()" id="convert-btn1">
-                            <i class="fas fa-file-pdf"></i>
-                            <span id="btn1-text">Convert to PDF</span>
+                            <i class="fas fa-file-pdf"></i> <span id="btn1-text">Convert to PDF</span>
                         </button>
                         <button class="btn btn-secondary" onclick="clearAllImages()" id="clear-btn1">
-                            <i class="fas fa-trash"></i>
-                            <span id="btn2-text">Clear All</span>
+                            <i class="fas fa-trash"></i> <span id="btn2-text">Clear All</span>
                         </button>
                     </div>
                 </div>
 
-                <!-- PDF to Images Tool -->
+                <!-- 🔴 Ad Section 2 -->
+                <div class="ad-section">
+                    <div class="ad-label">Advertisement</div>
+                    <div class="ad-content large">
+                        <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-7397173829932152" data-ad-slot="3110723269" data-ad-format="auto" data-full-width-responsive="true"></ins>
+                    </div>
+                </div>
+
+                <!-- 🔴 PDF to Images Tool -->
                 <div class="tool-card">
                     <div class="tool-header">
-                        <div class="tool-icon">
-                            <i class="fas fa-images"></i>
-                        </div>
+                        <div class="tool-icon"><i class="fas fa-images"></i></div>
                         <h3 class="tool-title" id="tool2-title">PDF Image Extractor</h3>
                     </div>
-                    <p class="tool-desc" id="tool2-desc">Extract all images from your PDF files with exceptional quality. Save each page as a high-resolution JPG image.</p>
+                    <p class="tool-desc" id="tool2-desc">Extract all images from PDF files with high quality. Save each page as JPG image.</p>
                     
-                    <div class="upload-area" id="pdfUploadArea" onclick="document.getElementById('pdfInput').click()">
+                    <input type="file" id="pdfInput" accept="application/pdf" class="file-input">
+                    
+                    <div class="upload-area" id="pdfUploadArea">
                         <i class="fas fa-file-pdf upload-icon"></i>
                         <div class="upload-text" id="upload2-text">Upload PDF File</div>
                         <div class="upload-subtext" id="upload2-subtext">All PDF versions supported • Max 100MB • Up to 200 pages</div>
                     </div>
                     
-                    <input type="file" id="pdfInput" accept="application/pdf" style="display:none">
-                    
                     <div class="controls">
                         <button class="btn btn-primary" onclick="convertPDFToImages()" id="convert-btn2">
-                            <i class="fas fa-download"></i>
-                            <span id="btn4-text">Extract Images</span>
+                            <i class="fas fa-download"></i> <span id="btn4-text">Extract Images</span>
                         </button>
                     </div>
                 </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- ========== 🔴 Ad Section 3 ========== -->
+    <div class="container">
+        <div class="ad-section">
+            <div class="ad-label">Advertisement</div>
+            <div class="ad-content">
+                <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-7397173829932152" data-ad-slot="7055166696" data-ad-format="auto" data-full-width-responsive="true"></ins>
             </div>
         </div>
     </div>
@@ -767,9 +952,7 @@
             <div class="footer-content">
                 <div class="footer-brand">
                     <div class="footer-logo">
-                        <div class="footer-logo-icon">
-                            <i class="fas fa-file-pdf"></i>
-                        </div>
+                        <div class="footer-logo-icon"><i class="fas fa-file-pdf"></i></div>
                         <span>PDFConvertMagic</span>
                     </div>
                     <p class="footer-about" id="footer-about">Free online PDF tools for converting, editing, and managing PDF files. No registration required. 100% secure and private.</p>
@@ -782,12 +965,21 @@
         </div>
     </footer>
 
-    <!-- ========== 🔴 JavaScript ========== -->
+    <!-- ========== 🔴 JavaScript الكامل ========== -->
     <script>
         // 🔴 المتغيرات
         let images = [];
+        let imageUrls = new Map();
         let currentPDFFile = null;
         let currentLanguage = 'en';
+        let currentImageIndex = 0;
+        
+        // 🔴 عناصر DOM
+        const imageInput = document.getElementById('imageInput');
+        const imageUploadArea = document.getElementById('imageUploadArea');
+        const previewSection = document.getElementById('previewSection');
+        const previewGrid = document.getElementById('previewGrid');
+        const imageCount = document.getElementById('imageCount');
         
         // 🔴 الترجمات
         const translations = {
@@ -796,77 +988,59 @@
                 "logo-tagline": "All-in-One PDF Tools Platform",
                 "hero-title": "Free PDF Tools for Everyone",
                 "hero-desc": "Convert images to PDF & extract images from PDF online. 100% free, secure, and private.",
-                "feature1": "Instant Processing",
-                "feature1-desc": "Fast conversion powered by modern web technology",
-                "feature2": "100% Secure",
-                "feature2-desc": "Files never leave your device - complete privacy",
-                "feature3": "Unlimited Free",
-                "feature3-desc": "No limits, watermarks, or subscriptions",
-                "feature4": "Premium Quality",
-                "feature4-desc": "Professional results without quality loss",
-                "tool1-title": "Images to PDF Converter",
-                "tool1-desc": "Transform your images into professional PDF documents with automatic sorting and rotation correction.",
-                "upload1-text": "Drag & Drop Images Here",
-                "btn1-text": "Convert to PDF",
-                "btn2-text": "Clear All",
-                "tool2-title": "PDF Image Extractor",
-                "tool2-desc": "Extract all images from your PDF files with exceptional quality.",
-                "upload2-text": "Upload PDF File",
-                "btn4-text": "Extract Images"
+                "feature1": "Instant Processing", "feature1-desc": "Fast conversion powered by modern web technology",
+                "feature2": "100% Secure", "feature2-desc": "Files never leave your device - complete privacy",
+                "feature3": "Unlimited Free", "feature3-desc": "No limits, watermarks, or subscriptions",
+                "feature4": "Premium Quality", "feature4-desc": "Professional results without quality loss",
+                "tool1-title": "Images to PDF Converter", "tool1-desc": "Transform images into PDF documents. Automatic sorting and rotation correction.",
+                "upload1-text": "Drag & Drop Images Here", "btn1-text": "Convert to PDF", "btn2-text": "Clear All",
+                "tool2-title": "PDF Image Extractor", "tool2-desc": "Extract all images from PDF files with high quality.",
+                "upload2-text": "Upload PDF File", "btn4-text": "Extract Images"
             },
             ar: {
-                "logo-name": "بي دي اف كونفرت ماجيك",
-                "logo-tagline": "منصة أدوات PDF شاملة",
-                "hero-title": "أدوات PDF مجانية للجميع",
-                "hero-desc": "تحويل الصور إلى PDF واستخراج الصور من PDF أونلاين. مجاني 100%، آمن وخاص.",
-                "feature1": "معالجة فورية",
-                "feature1-desc": "تحويل سريع مدعوم بتقنية الويب الحديثة",
-                "feature2": "آمن 100%",
-                "feature2-desc": "ملفاتك لا تغادر جهازك - خصوصية كاملة",
-                "feature3": "مجاني غير محدود",
-                "feature3-desc": "لا حدود، لا علامات مائية، لا اشتراكات",
-                "feature4": "جودة احترافية",
-                "feature4-desc": "نتائج احترافية بدون فقدان الجودة",
-                "tool1-title": "محول الصور إلى PDF",
-                "tool1-desc": "حوّل صورك إلى مستندات PDF احترافية مع ترتيب تلقائي وتصحيح دوران الصور.",
-                "upload1-text": "اسحب وأفلت الصور هنا",
-                "btn1-text": "تحويل إلى PDF",
-                "btn2-text": "مسح الكل",
-                "tool2-title": "مستخرج صور PDF",
-                "tool2-desc": "استخرج جميع الصور من ملفات PDF بجودة استثنائية.",
-                "upload2-text": "رفع ملف PDF",
-                "btn4-text": "استخراج الصور"
+                "logo-name": "بي دي اف كونفرت ماجيك", "logo-tagline": "منصة أدوات PDF شاملة",
+                "hero-title": "أدوات PDF مجانية للجميع", "hero-desc": "تحويل الصور إلى PDF واستخراج الصور من PDF أونلاين. مجاني 100%، آمن وخاص.",
+                "feature1": "معالجة فورية", "feature1-desc": "تحويل سريع مدعوم بتقنية الويب الحديثة",
+                "feature2": "آمن 100%", "feature2-desc": "ملفاتك لا تغادر جهازك - خصوصية كاملة",
+                "feature3": "مجاني غير محدود", "feature3-desc": "لا حدود، لا علامات مائية، لا اشتراكات",
+                "feature4": "جودة احترافية", "feature4-desc": "نتائج احترافية بدون فقدان الجودة",
+                "tool1-title": "محول الصور إلى PDF", "tool1-desc": "حوّل صورك إلى مستندات PDF مع ترتيب تلقائي وتصحيح الدوران.",
+                "upload1-text": "اسحب وأفلت الصور هنا", "btn1-text": "تحويل إلى PDF", "btn2-text": "مسح الكل",
+                "tool2-title": "مستخرج صور PDF", "tool2-desc": "استخرج جميع الصور من ملفات PDF بجودة عالية.",
+                "upload2-text": "رفع ملف PDF", "btn4-text": "استخراج الصور"
             }
         };
         
         // 🔴 تهيئة التطبيق
         document.addEventListener('DOMContentLoaded', function() {
-            // تحميل إعلانات Google
-            (adsbygoogle = window.adsbygoogle || []).push({});
-            
+            initApp();
+            updateLanguage('en');
+            loadAdSense();
+        });
+        
+        function initApp() {
             // إعداد مستمعي الأحداث
-            document.getElementById('imageInput').addEventListener('change', handleImageUpload);
+            imageInput.addEventListener('change', handleImageUpload);
             document.getElementById('pdfInput').addEventListener('change', handlePDFUpload);
+            
+            imageUploadArea.addEventListener('click', () => imageInput.click());
+            document.getElementById('pdfUploadArea').addEventListener('click', () => document.getElementById('pdfInput').click());
             
             // إعداد السحب والإفلات
             setupDragAndDrop();
             
-            // إضافة تأثير للهيدر عند التمرير
+            // تأثير التمرير
             window.addEventListener('scroll', function() {
-                const header = document.getElementById('header');
                 if (window.scrollY > 50) {
-                    header.classList.add('scrolled');
+                    document.getElementById('header').classList.add('scrolled');
                 } else {
-                    header.classList.remove('scrolled');
+                    document.getElementById('header').classList.remove('scrolled');
                 }
             });
-        });
+        }
         
         function setupDragAndDrop() {
-            const imageArea = document.getElementById('imageUploadArea');
-            const pdfArea = document.getElementById('pdfUploadArea');
-            
-            [imageArea, pdfArea].forEach(area => {
+            [imageUploadArea, document.getElementById('pdfUploadArea')].forEach(area => {
                 area.addEventListener('dragover', (e) => {
                     e.preventDefault();
                     area.style.borderColor = 'var(--primary)';
@@ -885,7 +1059,7 @@
                     
                     const files = Array.from(e.dataTransfer.files);
                     
-                    if (area === imageArea) {
+                    if (area === imageUploadArea) {
                         handleDroppedImages(files);
                     } else {
                         handleDroppedPDF(files);
@@ -898,14 +1072,22 @@
             const files = Array.from(e.target.files);
             if (files.length === 0) return;
             
-            // تسجيل وقت الرفع للترتيب التلقائي
             const currentTime = Date.now();
             files.forEach((file, index) => {
                 file.uploadOrder = currentTime + index;
             });
             
+            cleanImageMemory();
             images = files;
+            updateImagePreviews();
             showNotification(`Added ${files.length} image(s)`, 'success');
+            autoSortByData();
+        }
+        
+        function handlePDFUpload(e) {
+            if (e.target.files.length === 0) return;
+            currentPDFFile = e.target.files[0];
+            showNotification(`PDF loaded: ${currentPDFFile.name}`, 'success');
         }
         
         function handleDroppedImages(files) {
@@ -917,14 +1099,11 @@
                 file.uploadOrder = currentTime + index;
             });
             
+            cleanImageMemory();
             images = imageFiles;
+            updateImagePreviews();
             showNotification(`Added ${imageFiles.length} image(s)`, 'success');
-        }
-        
-        function handlePDFUpload(e) {
-            if (e.target.files.length === 0) return;
-            currentPDFFile = e.target.files[0];
-            showNotification(`PDF loaded: ${currentPDFFile.name}`, 'success');
+            autoSortByData();
         }
         
         function handleDroppedPDF(files) {
@@ -935,7 +1114,66 @@
             showNotification(`PDF loaded: ${currentPDFFile.name}`, 'success');
         }
         
-        // 🔴 إصلاح اتجاه الصور باستخدام EXIF
+        function cleanImageMemory() {
+            imageUrls.forEach(url => URL.revokeObjectURL(url));
+            imageUrls.clear();
+        }
+        
+        function updateImagePreviews() {
+            if (images.length === 0) {
+                previewSection.style.display = 'none';
+                return;
+            }
+            
+            previewSection.style.display = 'block';
+            imageCount.textContent = images.length;
+            document.getElementById('currentImageIndex').textContent = currentImageIndex + 1;
+            document.getElementById('totalImagesCount').textContent = images.length;
+            
+            previewGrid.innerHTML = '';
+            
+            images.forEach((file, index) => {
+                const previewItem = document.createElement('div');
+                previewItem.className = 'preview-item';
+                previewItem.dataset.index = index;
+                
+                if (!imageUrls.has(file)) {
+                    imageUrls.set(file, URL.createObjectURL(file));
+                }
+                
+                previewItem.innerHTML = `
+                    <div class="drag-handle"><i class="fas fa-bars"></i></div>
+                    <img src="${imageUrls.get(file)}" class="preview-img" alt="Image ${index + 1}" loading="lazy">
+                    <div class="preview-index">${index + 1}</div>
+                    <div class="preview-filename" title="${file.name}">${file.name.length > 15 ? file.name.substring(0, 12) + '...' : file.name}</div>
+                `;
+                
+                previewGrid.appendChild(previewItem);
+            });
+            
+            initSortable();
+            updateNavigationButtons();
+        }
+        
+        function initSortable() {
+            new Sortable(previewGrid, {
+                animation: 150,
+                handle: '.drag-handle',
+                onEnd: function(evt) {
+                    const newOrder = [];
+                    document.querySelectorAll('#previewGrid .preview-item').forEach(item => {
+                        const oldIndex = parseInt(item.dataset.index);
+                        newOrder.push(images[oldIndex]);
+                    });
+                    
+                    images = newOrder;
+                    updateImagePreviews();
+                    showNotification('Image order updated', 'success');
+                }
+            });
+        }
+        
+        // 🔴 إصلاح تدوير الصور
         async function fixImageOrientation(img) {
             return new Promise((resolve) => {
                 try {
@@ -989,6 +1227,35 @@
             });
         }
         
+        // 🔴 ترتيب تلقائي حسب أسبقية الرفع
+        function autoSortByData() {
+            if (images.length < 2) return;
+            
+            images.sort((a, b) => {
+                return (a.uploadOrder || 0) - (b.uploadOrder || 0);
+            });
+            
+            updateImagePreviews();
+            showNotification('Images auto-sorted by upload order', 'success');
+        }
+        
+        function sortImages(criteria) {
+            if (images.length < 2) return;
+            
+            switch(criteria) {
+                case 'name':
+                    images.sort((a, b) => a.name.toLowerCase().localeCompare(b.name.toLowerCase()));
+                    break;
+                case 'date':
+                    images.sort((a, b) => b.lastModified - a.lastModified);
+                    break;
+            }
+            
+            updateImagePreviews();
+            showNotification(`Sorted by ${criteria}`, 'success');
+        }
+        
+        // 🔴 تحويل الصور إلى PDF
         async function convertImagesToPDF() {
             if (images.length === 0) {
                 showNotification('Please upload images first', 'error');
@@ -1002,9 +1269,6 @@
             try {
                 const { jsPDF } = window.jspdf;
                 const pdf = new jsPDF();
-                
-                // ترتيب الصور حسب وقت الرفع
-                images.sort((a, b) => (a.uploadOrder || 0) - (b.uploadOrder || 0));
                 
                 for (let i = 0; i < images.length; i++) {
                     const img = await loadImageWithOrientation(images[i]);
@@ -1038,6 +1302,7 @@
                 showNotification('PDF created successfully!', 'success');
                 
             } catch (error) {
+                console.error('PDF conversion error:', error);
                 showNotification('Conversion failed. Please try again.', 'error');
             } finally {
                 btn.disabled = false;
@@ -1045,6 +1310,7 @@
             }
         }
         
+        // 🔴 استخراج الصور من PDF
         async function convertPDFToImages() {
             if (!currentPDFFile) {
                 showNotification('Please upload a PDF file first', 'error');
@@ -1074,7 +1340,7 @@
                     const dataUrl = canvas.toDataURL('image/jpeg', 0.95);
                     const a = document.createElement('a');
                     a.href = dataUrl;
-                    a.download = `Page_${i}_${currentPDFFile.name.replace('.pdf', '')}.jpg`;
+                    a.download = `PDF_Page_${i}.jpg`;
                     a.click();
                     
                     await new Promise(resolve => setTimeout(resolve, 100));
@@ -1083,6 +1349,7 @@
                 showNotification(`Successfully extracted ${totalPages} images!`, 'success');
                 
             } catch (error) {
+                console.error('PDF extraction error:', error);
                 showNotification('Extraction failed. Please try again.', 'error');
             } finally {
                 btn.disabled = false;
@@ -1091,13 +1358,52 @@
         }
         
         function clearAllImages() {
+            cleanImageMemory();
             images = [];
-            document.getElementById('imageInput').value = '';
+            previewSection.style.display = 'none';
+            imageInput.value = '';
+            currentImageIndex = 0;
             showNotification('All images cleared', 'success');
         }
         
+        function updateNavigationButtons() {
+            const hasImages = images.length > 0;
+            const isFirst = currentImageIndex === 0;
+            const isLast = currentImageIndex === images.length - 1;
+            
+            document.getElementById('prevBtn').disabled = !hasImages || isFirst;
+            document.getElementById('nextBtn').disabled = !hasImages || isLast;
+        }
+        
+        function navigateImage(direction) {
+            if (direction === 'prev' && currentImageIndex > 0) {
+                currentImageIndex--;
+            } else if (direction === 'next' && currentImageIndex < images.length - 1) {
+                currentImageIndex++;
+            }
+            
+            document.getElementById('currentImageIndex').textContent = currentImageIndex + 1;
+            updateNavigationButtons();
+        }
+        
         function showNotification(message, type = 'success') {
-            alert(type === 'success' ? '✅ ' + message : '❌ ' + message);
+            const notification = document.createElement('div');
+            notification.style.cssText = `
+                position: fixed;
+                top: 100px;
+                right: 20px;
+                background: ${type === 'success' ? '#00D4AA' : '#FF4444'};
+                color: white;
+                padding: 12px 20px;
+                border-radius: 8px;
+                z-index: 9999;
+                font-weight: 600;
+                box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+            `;
+            notification.textContent = message;
+            document.body.appendChild(notification);
+            
+            setTimeout(() => notification.remove(), 3000);
         }
         
         function setLanguage(lang) {
@@ -1105,6 +1411,10 @@
             updateLanguage(lang);
             document.documentElement.dir = lang === 'ar' ? 'rtl' : 'ltr';
             document.documentElement.lang = lang;
+            
+            // تحديث أزرار اللغة
+            document.querySelectorAll('.lang-btn').forEach(btn => btn.classList.remove('active'));
+            event.target.closest('.lang-btn').classList.add('active');
         }
         
         function updateLanguage(lang) {
@@ -1114,6 +1424,17 @@
                 if (element) element.textContent = t[key];
             });
         }
+        
+        function loadAdSense() {
+            setTimeout(function() {
+                (adsbygoogle = window.adsbygoogle || []).push({});
+            }, 1000);
+        }
+        
+        // تنظيف الذاكرة عند مغادرة الصفحة
+        window.addEventListener('beforeunload', function() {
+            cleanImageMemory();
+        });
     </script>
 </body>
 </html>
