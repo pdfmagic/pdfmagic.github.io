@@ -1,31 +1,42 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en" dir="ltr">
 <head>
+<link rel="canonical" href="https://pdfmagic.github.io/" />
+<meta property="og:url" content="https://pdfmagic.github.io/" />
     <meta charset="UTF-8">
+  <link rel="sitemap" type="application/xml" href="https://pdfmagic.github.io/sitemap-final.xml">
+    <!-- تعديل مستوى الزوم ليكون متوسطاً -->
     <meta name="viewport" content="width=device-width, initial-scale=0.85, maximum-scale=3.0, user-scalable=yes">
     
     <!-- 🔴 SEO Meta Tags 🔴 -->
-    <title>PDFConvertMagic | Free Online PDF Converter | محول PDF مجاني أونلاين</title>
-    <meta name="description" content="Free online PDF converter to Word, Excel, JPG, PNG. Merge, split, compress PDF files instantly. No registration required. محول PDF مجاني أونلاين: تحويل PDF إلى وورد، إكسل، صور. دمج، تقسيم، ضغط ملفات PDF بدون تسجيل.">
-    <meta name="keywords" content="PDF converter, free PDF tools, PDF to Word, PDF to Excel, PDF to JPG, merge PDF, split PDF, compress PDF, online PDF converter, تحويل PDF, محول بي دي اف, تحويل PDF إلى وورد, تحويل PDF إلى صور, دمج ملفات PDF, تقسيم PDF, ضغط PDF">
+    <title>PDFConvertMagic | تحويل PDF مجاني أونلاين | Free PDF Converter Online</title>
+    <meta name="description" content="PDFConvertMagic - موقع تحويل PDF مجاني أونلاين. حوّل ملفات PDF إلى Word، Excel، JPG والعكس. دمج وتقسيم PDF بدون تسجيل. Free online PDF converter. Convert PDF to Word, Excel, JPG and vice versa. Merge, split PDF without registration.">
+    <meta name="keywords" content="pdfconvertmagic, تحويل pdf, pdf to word, pdf to excel, دمج pdf, تقسيم pdf, pdf converter, merge pdf, split pdf, بي دي اف ماجيك, free pdf tools, images to pdf, online pdf converter">
     <meta name="author" content="PDFConvertMagic">
-    <meta name="robots" content="index, follow">
+    <meta name="robots" content="index, follow, max-image-preview:large">
     
     <!-- 🔴 Open Graph Meta Tags 🔴 -->
-    <meta property="og:title" content="PDFConvertMagic | Free Online PDF Converter">
-    <meta property="og:description" content="Convert images to PDF & extract images from PDF online. 100% free, secure, and private.">
-    <meta property="og:url" content="https://pdfmagic.github.io">
+    <meta property="og:title" content="PDFConvertMagic | تحويل PDF مجاني أونلاين">
+    <meta property="og:description" content="PDFConvertMagic - موقع تحويل PDF مجاني أونلاين. حوّل ملفات PDF إلى Word، Excel، JPG والعكس. دمج وتقسيم PDF بدون تسجيل.">
+    <meta property="og:image" content="https://pdfmagic.github.io/assets/logo.png">
     <meta property="og:type" content="website">
     <meta property="og:site_name" content="PDFConvertMagic">
-    <meta property="og:image" content="https://pdfmagic.github.io/assets/logo.png">
     
     <!-- 🔴 Twitter Meta Tags 🔴 -->
     <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="PDFConvertMagic - Free PDF Converter Online">
-    <meta name="twitter:description" content="Best free online PDF tools. Convert, merge, split PDF files instantly.">
+    <meta name="twitter:title" content="PDFConvertMagic | تحويل PDF مجاني">
+    <meta name="twitter:description" content="PDFConvertMagic - موقع تحويل PDF مجاني أونلاين. حوّل ملفات PDF إلى Word، Excel، JPG والعكس. دمج وتقسيم PDF بدون تسجيل.">
+    <meta name="twitter:image" content="https://pdfmagic.github.io/assets/logo.png">
     
-    <!-- 🔴 Favicon 🔴 -->
+    <!-- 🔴 Favicon Links 🔴 -->
     <link rel="icon" href="/favicon.ico" type="image/x-icon">
+    <link rel="icon" href="/assets/favicon-16x16.png" type="image/png" sizes="16x16">
+    <link rel="icon" href="/assets/favicon-32x32.png" type="image/png" sizes="32x32">
+    <link rel="apple-touch-icon" href="/assets/apple-touch-icon.png">
+    <link rel="manifest" href="/assets/site.webmanifest">
+    
+    <!-- 🔴 Canonical URL 🔴 -->
+    <link rel="canonical" href="https://pdfmagic.github.io">
     
     <!-- 🔴 Google AdSense 🔴 -->
     <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7397173829932152" crossorigin="anonymous"></script>
@@ -36,14 +47,13 @@
     <!-- 🔴 Google Fonts 🔴 -->
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
     
-    <!-- 🔴 مكتبات JavaScript 🔴 -->
+    <!-- ========== 🔴 مكتبات JavaScript إضافية ========== -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.16.105/pdf.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Sortable/1.15.0/Sortable.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/exif-js@2.3.0/exif.min.js"></script>
     
     <style>
-        /* ========== 🔴 CSS الكامل ========== */
+        /* ========== 🔴 CSS Variables ========== */
         :root {
             --primary: #4A6FFF;
             --primary-dark: #3A5FEF;
@@ -67,9 +77,17 @@
             --transition: all 0.3s ease;
         }
         
-        * { margin: 0; padding: 0; box-sizing: border-box; }
+        /* ========== 🔴 Base Styles مع زوم متوسط ========== */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
         
-        html { font-size: 15px; scroll-behavior: smooth; }
+        html {
+            font-size: 15px; /* حجم خط متوسط */
+            scroll-behavior: smooth;
+        }
         
         body {
             font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
@@ -79,6 +97,8 @@
             min-height: 100vh;
             overflow-x: hidden;
         }
+        
+        /* إزالة التحجيم من body للمستويات العادية */
         
         .container {
             width: 100%;
@@ -101,7 +121,9 @@
             transition: var(--transition);
         }
         
-        .header.scrolled { box-shadow: var(--shadow); }
+        .header.scrolled {
+            box-shadow: var(--shadow);
+        }
         
         .header-content {
             display: flex;
@@ -130,9 +152,31 @@
             flex-shrink: 0;
         }
         
-        .logo-text { display: flex; flex-direction: column; }
-        .logo-name { font-size: 22px; font-weight: 900; color: var(--dark); }
-        .logo-tagline { font-size: 12px; color: var(--gray-600); font-weight: 500; }
+        .logo-img img {
+            width: 28px;
+            height: 28px;
+            filter: brightness(0) invert(1);
+        }
+        
+        .logo-text {
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .logo-name {
+            font-size: 22px;
+            font-weight: 900;
+            color: var(--dark);
+            line-height: 1.2;
+            letter-spacing: -0.3px;
+        }
+        
+        .logo-tagline {
+            font-size: 12px;
+            color: var(--gray-600);
+            font-weight: 500;
+            letter-spacing: 0.3px;
+        }
         
         /* ========== 🔴 Language Switcher ========== */
         .language-switcher {
@@ -250,8 +294,18 @@
             border-color: transparent;
         }
         
-        .feature-title { font-size: 17px; font-weight: 700; color: var(--dark); margin-bottom: 11px; }
-        .feature-desc { font-size: 14px; color: var(--gray-600); line-height: 1.5; }
+        .feature-title {
+            font-size: 17px;
+            font-weight: 700;
+            color: var(--dark);
+            margin-bottom: 11px;
+        }
+        
+        .feature-desc {
+            font-size: 14px;
+            color: var(--gray-600);
+            line-height: 1.5;
+        }
         
         /* ========== 🔴 Ad Sections ========== */
         .ad-section {
@@ -288,10 +342,14 @@
             overflow: hidden;
         }
         
-        .ad-content.large { min-height: 220px; }
+        .ad-content.large {
+            min-height: 220px;
+        }
         
         /* ========== 🔴 Tools Section ========== */
-        .tools-section { margin: 70px 0; }
+        .tools-section {
+            margin: 70px 0;
+        }
         
         .section-title {
             font-size: clamp(32px, 3.5vw, 42px);
@@ -376,8 +434,18 @@
             transform: rotate(10deg);
         }
         
-        .tool-title { font-size: 21px; font-weight: 800; color: var(--dark); }
-        .tool-desc { color: var(--gray-800); font-size: 15px; margin-bottom: 28px; line-height: 1.6; }
+        .tool-title {
+            font-size: 21px;
+            font-weight: 800;
+            color: var(--dark);
+        }
+        
+        .tool-desc {
+            color: var(--gray-800);
+            font-size: 15px;
+            margin-bottom: 28px;
+            line-height: 1.6;
+        }
         
         /* ========== 🔴 Upload Area ========== */
         .upload-area {
@@ -397,11 +465,28 @@
             background: var(--primary-light);
         }
         
-        .upload-icon { font-size: 52px; color: var(--primary); margin-bottom: 18px; opacity: 0.8; }
-        .upload-text { font-size: 19px; font-weight: 700; color: var(--dark); margin-bottom: 9px; }
-        .upload-subtext { font-size: 13px; color: var(--gray-600); max-width: 500px; margin: 0 auto; }
+        .upload-icon {
+            font-size: 52px;
+            color: var(--primary);
+            margin-bottom: 18px;
+            opacity: 0.8;
+        }
         
-        /* ========== 🔴 Preview Section ========== */
+        .upload-text {
+            font-size: 19px;
+            font-weight: 700;
+            color: var(--dark);
+            margin-bottom: 9px;
+        }
+        
+        .upload-subtext {
+            font-size: 13px;
+            color: var(--gray-600);
+            max-width: 500px;
+            margin: 0 auto;
+        }
+        
+        /* ========== 🔴 معاينة الصور المحسنة ========== */
         .preview-section {
             background: var(--gray-50);
             border-radius: var(--radius);
@@ -429,7 +514,12 @@
             gap: 9px;
         }
         
-        .preview-controls { display: flex; gap: 9px; flex-wrap: wrap; }
+        /* 🔴 أزرار التحكم */
+        .preview-controls {
+            display: flex;
+            gap: 9px;
+            flex-wrap: wrap;
+        }
         
         .preview-btn {
             padding: 7px 13px;
@@ -545,6 +635,7 @@
             text-align: center;
         }
         
+        /* 🔴 أنماط السحب والإفلات */
         .drag-handle {
             position: absolute;
             top: 6px;
@@ -565,9 +656,16 @@
             transition: var(--transition);
         }
         
-        .preview-item:hover .drag-handle { opacity: 1; }
-        .drag-handle:hover { background: var(--light); transform: scale(1.1); }
+        .preview-item:hover .drag-handle {
+            opacity: 1;
+        }
         
+        .drag-handle:hover {
+            background: var(--light);
+            transform: scale(1.1);
+        }
+        
+        /* 🔴 أنماط التحكم في كل صورة */
         .item-controls {
             position: absolute;
             bottom: 22px;
@@ -581,7 +679,9 @@
             transition: var(--transition);
         }
         
-        .preview-item:hover .item-controls { opacity: 1; }
+        .preview-item:hover .item-controls {
+            opacity: 1;
+        }
         
         .item-btn {
             background: linear-gradient(135deg, var(--primary), var(--secondary));
@@ -608,6 +708,59 @@
             background: var(--gray-300);
             cursor: not-allowed;
             opacity: 0.5;
+        }
+        
+        /* 🔴 زر تدوير الصور */
+        .rotate-controls {
+            position: absolute;
+            top: 6px;
+            right: 6px;
+            display: flex;
+            gap: 5px;
+            z-index: 3;
+            opacity: 0;
+            transition: var(--transition);
+        }
+        
+        .preview-item:hover .rotate-controls {
+            opacity: 1;
+        }
+        
+        .rotate-btn {
+            background: var(--light);
+            color: var(--primary);
+            border: 1px solid var(--primary);
+            width: 26px;
+            height: 26px;
+            border-radius: 50%;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 10px;
+            box-shadow: var(--shadow-sm);
+            transition: var(--transition);
+        }
+        
+        .rotate-btn:hover {
+            background: var(--primary);
+            color: white;
+        }
+        
+        /* 🔴 أنماط للسحب والإفلات */
+        .sortable-ghost {
+            opacity: 0.4;
+            background: var(--primary-light);
+        }
+        
+        .sortable-chosen {
+            background: var(--primary-light);
+            transform: scale(1.05);
+        }
+        
+        .sortable-drag {
+            opacity: 0.8;
+            transform: rotate(5deg);
         }
         
         /* ========== 🔴 Carousel Navigation ========== */
@@ -655,7 +808,11 @@
         }
         
         /* ========== 🔴 Buttons ========== */
-        .controls { display: flex; gap: 14px; margin-top: 22px; }
+        .controls {
+            display: flex;
+            gap: 14px;
+            margin-top: 22px;
+        }
         
         .btn {
             padding: 13px 26px;
@@ -683,7 +840,10 @@
             box-shadow: 0 8px 24px rgba(74, 111, 255, 0.4);
         }
         
-        .btn-primary:disabled { opacity: 0.7; cursor: not-allowed; }
+        .btn-primary:disabled {
+            opacity: 0.7;
+            cursor: not-allowed;
+        }
         
         .btn-secondary {
             background: var(--light);
@@ -695,6 +855,51 @@
             background: var(--gray-100);
             border-color: var(--primary);
             color: var(--primary);
+        }
+        
+        /* ========== 🔴 Stats Section ========== */
+        .stats-section {
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            border-radius: var(--radius-lg);
+            padding: 55px 35px;
+            margin: 70px 0;
+            color: white;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+            gap: 28px;
+            margin-top: 35px;
+        }
+        
+        .stat-card {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            padding: 28px;
+            border-radius: var(--radius);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            transition: var(--transition);
+        }
+        
+        .stat-card:hover {
+            background: rgba(255, 255, 255, 0.15);
+            transform: translateY(-4px);
+        }
+        
+        .stat-number {
+            font-size: 38px;
+            font-weight: 800;
+            margin-bottom: 7px;
+        }
+        
+        .stat-label {
+            font-size: 14px;
+            opacity: 0.9;
+            font-weight: 600;
         }
         
         /* ========== 🔴 Footer ========== */
@@ -723,7 +928,11 @@
             margin-bottom: 35px;
         }
         
-        .footer-brand { display: flex; flex-direction: column; gap: 18px; }
+        .footer-brand {
+            display: flex;
+            flex-direction: column;
+            gap: 18px;
+        }
         
         .footer-logo {
             display: flex;
@@ -745,10 +954,45 @@
             font-size: 20px;
         }
         
+        .footer-logo-icon img {
+            width: 24px;
+            height: 24px;
+            filter: brightness(0) invert(1);
+        }
+        
         .footer-about {
             color: rgba(255, 255, 255, 0.7);
             line-height: 1.6;
             font-size: 14px;
+        }
+        
+        .footer-links-title {
+            font-size: 17px;
+            font-weight: 700;
+            margin-bottom: 18px;
+            color: white;
+        }
+        
+        .footer-links {
+            display: flex;
+            flex-direction: column;
+            gap: 14px;
+        }
+        
+        .footer-links a {
+            color: rgba(255, 255, 255, 0.7);
+            text-decoration: none;
+            font-size: 14px;
+            cursor: pointer;
+            transition: var(--transition);
+            display: flex;
+            align-items: center;
+            gap: 9px;
+        }
+        
+        .footer-links a:hover {
+            color: white;
+            transform: translateX(5px);
         }
         
         .copyright {
@@ -760,68 +1004,622 @@
             font-size: 13px;
         }
         
-        /* ========== 🔴 Responsive Design ========== */
-        @media (max-width: 768px) {
-            .header-content { flex-direction: column; gap: 15px; }
-            .hero { padding: 120px 0 50px; }
-            .tools-grid { gap: 20px; }
-            .tool-card { padding: 25px; }
-            .features { grid-template-columns: 1fr; gap: 15px; }
-            .preview-grid { grid-template-columns: repeat(auto-fill, minmax(90px, 1fr)); }
+        /* ========== 🔴 Progress Bar ========== */
+        .progress-container {
+            width: 100%;
+            height: 6px;
+            background: var(--gray-200);
+            border-radius: 3px;
+            margin: 22px 0;
+            overflow: hidden;
+            display: none;
+        }
+        
+        .progress-bar {
+            height: 100%;
+            background: linear-gradient(90deg, var(--primary), var(--secondary));
+            width: 0%;
+            transition: width 0.4s ease;
+            border-radius: 3px;
+        }
+        
+        /* ========== 🔴 Notification ========== */
+        .notification {
+            position: fixed;
+            top: 90px;
+            right: 20px;
+            background: var(--light);
+            padding: 16px;
+            border-radius: var(--radius);
+            box-shadow: var(--shadow-lg);
+            display: none;
+            align-items: center;
+            gap: 14px;
+            z-index: 2000;
+            max-width: 380px;
+            border-left: 4px solid var(--accent);
+            animation: slideIn 0.3s ease;
+        }
+        
+        .notification.error {
+            border-left-color: #FF4444;
+        }
+        
+        @keyframes slideIn {
+            from {
+                transform: translateX(100%);
+                opacity: 0;
+            }
+            to {
+                transform: translateX(0);
+                opacity: 1;
+            }
+        }
+        
+        /* ========== 🔴 Modal ========== */
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.8);
+            z-index: 3000;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+            backdrop-filter: blur(5px);
+        }
+        
+        .modal-content {
+            background: var(--light);
+            border-radius: var(--radius);
+            padding: 35px;
+            max-width: 550px;
+            width: 100%;
+            max-height: 75vh;
+            overflow-y: auto;
+            box-shadow: var(--shadow-lg);
+            animation: modalPop 0.3s ease;
+        }
+        
+        .close-modal {
+            position: absolute;
+            top: 18px;
+            right: 18px;
+            background: var(--gray-100);
+            border: none;
+            font-size: 20px;
+            cursor: pointer;
+            color: var(--gray-600);
+            width: 38px;
+            height: 38px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+            transition: var(--transition);
+        }
+        
+        .close-modal:hover {
+            background: var(--gray-200);
+            color: var(--dark);
+        }
+        
+        /* ========== 🔴 File Info ========== */
+        .file-info {
+            background: var(--gray-50);
+            padding: 16px;
+            border-radius: var(--radius);
+            margin: 18px 0;
+            display: none;
+            align-items: center;
+            justify-content: space-between;
+            border: 1px solid var(--gray-200);
+        }
+        
+        .remove-btn {
+            background: linear-gradient(135deg, #FF6B6B, #FF4444);
+            color: white;
+            border: none;
+            padding: 9px 18px;
+            border-radius: var(--radius-sm);
+            cursor: pointer;
+            font-size: 14px;
+            display: flex;
+            align-items: center;
+            gap: 7px;
+            transition: var(--transition);
+            font-weight: 600;
+        }
+        
+        .remove-btn:hover {
+            background: linear-gradient(135deg, #FF7B7B, #FF5555);
+        }
+        
+        /* ========== 🔴 Input File Hidden ========== */
+        .file-input {
+            display: none;
+        }
+        
+        /* ========== 🔴 Responsive Design - تحسين للأجهزة الذكية المختلفة ========== */
+        
+        /* 📱 الهواتف الصغيرة */
+        @media (max-width: 480px) {
+            html {
+                font-size: 14px;
+            }
+            
+            .container {
+                padding: 0 15px;
+            }
+            
+            .header {
+                padding: 12px 0;
+            }
+            
+            .header-content {
+                flex-direction: column;
+                gap: 12px;
+            }
+            
+            .logo {
+                flex-direction: column;
+                text-align: center;
+                gap: 8px;
+            }
+            
+            .logo-text {
+                align-items: center;
+            }
+            
+            .language-switcher {
+                width: 100%;
+                justify-content: center;
+            }
+            
+            .hero {
+                padding: 130px 0 50px;
+            }
+            
+            .hero-title {
+                font-size: 30px;
+            }
+            
+            .hero-desc {
+                font-size: 15px;
+            }
+            
+            .features {
+                grid-template-columns: 1fr;
+                gap: 16px;
+                margin: 40px 0;
+            }
+            
+            .feature-card {
+                padding: 22px;
+            }
+            
+            .section-title {
+                font-size: 26px;
+                margin-bottom: 35px;
+            }
+            
+            .tools-grid {
+                gap: 22px;
+            }
+            
+            .tool-card {
+                padding: 25px 20px;
+            }
+            
+            .tool-header {
+                flex-direction: column;
+                text-align: center;
+                gap: 16px;
+            }
+            
+            .upload-area {
+                padding: 35px 15px;
+            }
+            
+            .preview-grid {
+                grid-template-columns: repeat(auto-fill, minmax(90px, 1fr));
+                gap: 10px;
+            }
+            
+            .preview-controls {
+                width: 100%;
+                justify-content: center;
+            }
+            
+            .controls {
+                flex-direction: column;
+            }
+            
+            .btn {
+                width: 100%;
+            }
+            
+            .stats-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 16px;
+            }
+            
+            .stat-card {
+                padding: 22px;
+            }
+            
+            .footer-content {
+                grid-template-columns: 1fr;
+                gap: 28px;
+            }
+        }
+        
+        /* 📱 الهواتف الكبيرة والأجهزة اللوحية الصغيرة */
+        @media (min-width: 481px) and (max-width: 768px) {
+            html {
+                font-size: 14.5px;
+            }
+            
+            .container {
+                padding: 0 18px;
+            }
+            
+            .header-content {
+                flex-direction: column;
+                gap: 15px;
+            }
+            
+            .language-switcher {
+                width: 100%;
+                justify-content: center;
+            }
+            
+            .hero {
+                padding: 140px 0 60px;
+            }
+            
+            .features {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 18px;
+            }
+            
+            .tools-grid {
+                gap: 25px;
+            }
+            
+            .tool-header {
+                flex-direction: column;
+                text-align: center;
+                gap: 18px;
+            }
+            
+            .preview-grid {
+                grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
+                gap: 10px;
+            }
+            
+            .preview-controls {
+                width: 100%;
+                justify-content: center;
+            }
+            
+            .controls {
+                flex-direction: column;
+            }
+            
+            .btn {
+                width: 100%;
+            }
+            
+            .stats-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 20px;
+            }
+            
+            .footer-content {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 30px;
+            }
+        }
+        
+        /* 💻 الأجهزة اللوحية والأجهزة الذكية المتوسطة */
+        @media (min-width: 769px) and (max-width: 1024px) {
+            html {
+                font-size: 15px;
+            }
+            
+            .container {
+                padding: 0 20px;
+            }
+            
+            .features {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 20px;
+            }
+            
+            .tools-grid {
+                gap: 25px;
+            }
+            
+            .tool-card {
+                padding: 28px;
+            }
+            
+            .preview-grid {
+                grid-template-columns: repeat(auto-fill, minmax(110px, 1fr));
+            }
+            
+            .stats-grid {
+                grid-template-columns: repeat(4, 1fr);
+                gap: 20px;
+            }
+            
+            .footer-content {
+                grid-template-columns: repeat(3, 1fr);
+                gap: 35px;
+            }
+        }
+        
+        /* 🖥️ الشاشات المتوسطة */
+        @media (min-width: 1025px) and (max-width: 1280px) {
+            .container {
+                max-width: 1100px;
+            }
+            
+            .features {
+                grid-template-columns: repeat(4, 1fr);
+                gap: 20px;
+            }
+            
+            .tools-grid {
+                gap: 30px;
+            }
+            
+            .tool-card {
+                width: 100%;
+            }
+        }
+        
+        /* 🖥️ الشاشات الكبيرة */
+        @media (min-width: 1281px) {
+            .container {
+                max-width: 1300px;
+            }
+            
+            .features {
+                grid-template-columns: repeat(4, 1fr);
+                gap: 25px;
+            }
+            
+            .tools-grid {
+                gap: 35px;
+            }
+            
+            .tool-card {
+                width: 100%;
+                max-width: none;
+            }
+        }
+        
+        /* 🖥️ تحسينات خاصة للشاشات الكبيرة جداً */
+        @media (min-width: 1440px) {
+            html {
+                font-size: 16px;
+            }
+            
+            .container {
+                max-width: 1400px;
+            }
+            
+            .hero-title {
+                font-size: 56px;
+            }
+            
+            .hero-desc {
+                font-size: 20px;
+            }
+        }
+        
+        /* 📐 تحسينات للشاشات العمودية */
+        @media (orientation: portrait) and (max-width: 768px) {
+            .preview-controls {
+                justify-content: space-between;
+            }
+            
+            .preview-btn {
+                min-width: 38px;
+                padding: 6px 10px;
+            }
+            
+            .preview-btn.move-btn {
+                width: 32px;
+                height: 32px;
+            }
+        }
+        
+        /* 📐 تحسينات للشاشات الأفقية */
+        @media (orientation: landscape) and (max-height: 600px) {
+            .hero {
+                padding: 120px 0 40px;
+            }
+            
+            .features {
+                margin: 30px 0;
+                grid-template-columns: repeat(4, 1fr);
+            }
+            
+            .feature-card {
+                padding: 20px;
+            }
+        }
+        
+        /* 🎮 تحسينات للأجهزة التي تدعم اللمس */
+        @media (hover: none) and (pointer: coarse) {
+            .drag-handle {
+                opacity: 1; /* إظهار مقبض السحب دائمًا على الأجهزة التي تعمل باللمس */
+            }
+            
+            .item-controls {
+                opacity: 1; /* إظهار عناصر التحكم دائمًا */
+            }
+            
+            .preview-btn, .btn, .carousel-btn {
+                min-height: 44px; /* زيادة مساحة اللمس */
+            }
+            
+            .item-btn {
+                width: 36px;
+                height: 36px;
+            }
+        }
+        
+        /* 🌙 تحسينات لوضع التباين العالي */
+        @media (prefers-contrast: high) {
+            :root {
+                --primary: #2B4FFF;
+                --secondary: #FF4B4B;
+                --dark: #000000;
+                --gray-800: #333333;
+            }
+            
+            .feature-card, .tool-card, .ad-section {
+                border: 2px solid var(--gray-800);
+            }
+        }
+        
+        /* 🔄 تحسينات للرسوم المتحركة */
+        @media (prefers-reduced-motion: no-preference) {
+            .feature-card, .tool-card, .stat-card {
+                animation: fadeInUp 0.5s ease-out;
+            }
+            
+            @keyframes fadeInUp {
+                from {
+                    opacity: 0;
+                    transform: translateY(20px);
+                }
+                to {
+                    opacity: 1;
+                    transform: translateY(0);
+                }
+            }
+        }
+        
+        /* 💡 تحسينات للوضع الاقتصادي */
+        @media (prefers-reduced-motion: reduce) {
+            * {
+                animation-duration: 0.01ms !important;
+                animation-iteration-count: 1 !important;
+                transition-duration: 0.01ms !important;
+            }
         }
     </style>
+<!-- Google Site Name -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebSite",
+  "name": "PDFConvertMagic | تحويل PDF مجاني",
+  "alternateName": "PDF Convert Magic Tools",
+  "url": "https://pdfmagic.github.io/",
+  "potentialAction": {
+    "@type": "SearchAction",
+    "target": "https://pdfmagic.github.io/?q={search_term_string}",
+    "query-input": "required name=search_term_string"
+  }
+}
+</script>
+
+<!-- Google Organization -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  "name": "PDFConvertMagic",
+  "url": "https://pdfmagic.github.io/",
+  "logo": "https://pdfmagic.github.io/assets/logo.png",
+  "description": "موقع تحويل PDF مجاني أونلاين. حوّل ملفات PDF إلى Word، Excel، JPG والعكس. دمج وتقسيم PDF بدون تسجيل.",
+  "sameAs": [
+    "https://pdfmagic.github.io/"
+  ],
+  "contactPoint": {
+    "@type": "ContactPoint",
+    "email": "contact@pdfmagic.github.io",
+    "contactType": "customer service"
+  }
+}
+</script>
 </head>
 <body>
-    <!-- ========== 🔴 Header ========== -->
+    <!-- ========== 🔴 Header with Logo & Name 🔴 -->
     <header class="header" id="header">
         <div class="container">
             <div class="header-content">
                 <div class="logo">
                     <div class="logo-img">
-                        <i class="fas fa-file-pdf"></i>
+                        <img src="/assets/logo.png" alt="PDF Convert Magic Logo">
                     </div>
                     <div class="logo-text">
                         <div class="logo-name" id="logo-name">PDFConvertMagic</div>
                         <div class="logo-tagline" id="logo-tagline">All-in-One PDF Tools Platform</div>
                     </div>
                 </div>
+                
                 <div class="language-switcher">
                     <button class="lang-btn active" onclick="setLanguage('en')">
-                        <i class="fas fa-globe"></i> <span>English</span>
+                        <i class="fas fa-globe"></i>
+                        <span>English</span>
                     </button>
                     <button class="lang-btn" onclick="setLanguage('ar')">
-                        <i class="fas fa-globe"></i> <span>العربية</span>
+                        <i class="fas fa-globe"></i>
+                        <span>العربية</span>
                     </button>
                 </div>
             </div>
         </div>
     </header>
-
-    <!-- ========== 🔴 Hero Section ========== -->
+    
+    <!-- ========== 🔴 Hero Section 🔴 -->
     <section class="hero">
         <div class="container">
             <div class="hero-content">
-                <h1 class="hero-title" id="hero-title"><span>Free PDF Tools</span> for Everyone</h1>
-                <p class="hero-desc" id="hero-desc">Convert images to PDF & extract images from PDF online. 100% free, secure, and private. No registration required.</p>
+                <h1 class="hero-title" id="hero-title">
+                    <span>Free PDF Tools</span> for Everyone
+                </h1>
+                <p class="hero-desc" id="hero-desc">
+                    Convert images to PDF & extract images from PDF online. 100% free, secure, and private. 
+                    No registration required. Works directly in your browser.
+                </p>
                 
                 <div class="features">
                     <div class="feature-card">
-                        <div class="feature-icon"><i class="fas fa-bolt"></i></div>
+                        <div class="feature-icon">
+                            <i class="fas fa-bolt"></i>
+                        </div>
                         <h3 class="feature-title" id="feature1">Instant Processing</h3>
                         <p class="feature-desc" id="feature1-desc">Fast conversion powered by modern web technology</p>
                     </div>
                     <div class="feature-card">
-                        <div class="feature-icon"><i class="fas fa-shield-alt"></i></div>
+                        <div class="feature-icon">
+                            <i class="fas fa-shield-alt"></i>
+                        </div>
                         <h3 class="feature-title" id="feature2">100% Secure</h3>
                         <p class="feature-desc" id="feature2-desc">Files never leave your device - complete privacy</p>
                     </div>
                     <div class="feature-card">
-                        <div class="feature-icon"><i class="fas fa-infinity"></i></div>
+                        <div class="feature-icon">
+                            <i class="fas fa-infinity"></i>
+                        </div>
                         <h3 class="feature-title" id="feature3">Unlimited Free</h3>
                         <p class="feature-desc" id="feature3-desc">No limits, watermarks, or subscriptions</p>
                     </div>
                     <div class="feature-card">
-                        <div class="feature-icon"><i class="fas fa-star"></i></div>
+                        <div class="feature-icon">
+                            <i class="fas fa-star"></i>
+                        </div>
                         <h3 class="feature-title" id="feature4">Premium Quality</h3>
                         <p class="feature-desc" id="feature4-desc">Professional results without quality loss</p>
                     </div>
@@ -829,40 +1627,54 @@
             </div>
         </div>
     </section>
-
-    <!-- ========== 🔴 Ad Section 1 ========== -->
+    
+    <!-- ========== 🔴 Ad Section 1 - Top 🔴 -->
     <div class="container">
         <div class="ad-section">
             <div class="ad-label">Advertisement</div>
             <div class="ad-content">
-                <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-7397173829932152" data-ad-slot="7652603503" data-ad-format="auto" data-full-width-responsive="true"></ins>
+                <ins class="adsbygoogle"
+                     style="display:block"
+                     data-ad-client="ca-pub-7397173829932152"
+                     data-ad-slot="7652603503"
+                     data-ad-format="auto"
+                     data-full-width-responsive="true"></ins>
+                <script>
+                     (adsbygoogle = window.adsbygoogle || []).push({});
+                </script>
             </div>
         </div>
     </div>
-
-    <!-- ========== 🔴 Main Tools Section ========== -->
+    
+    <!-- ========== 🔴 Main Tools Section - مع التحكم الكامل 🔴 -->
     <div class="container">
         <div class="tools-section">
             <h2 class="section-title" id="section-title">Powerful PDF Tools</h2>
             
             <div class="tools-grid">
-                <!-- 🔴 Images to PDF Tool -->
+                <!-- Images to PDF Tool -->
                 <div class="tool-card">
                     <div class="tool-header">
-                        <div class="tool-icon"><i class="fas fa-file-pdf"></i></div>
+                        <div class="tool-icon">
+                            <i class="fas fa-file-pdf"></i>
+                        </div>
                         <h3 class="tool-title" id="tool1-title">Images to PDF Converter</h3>
                     </div>
-                    <p class="tool-desc" id="tool1-desc">Transform images into PDF documents. Automatic sorting and rotation correction. Perfect for portfolios and presentations.</p>
+                    
+                    <p class="tool-desc" id="tool1-desc">
+                        Transform your images into professional PDF documents. Combine multiple images into a single PDF, 
+                        reorder pages with intuitive drag-and-drop, and customize settings for optimal quality. 
+                        Perfect for creating portfolios, presentations, and documents.
+                    </p>
                     
                     <input type="file" id="imageInput" accept="image/*" multiple class="file-input">
-                    
                     <div class="upload-area" id="imageUploadArea">
                         <i class="fas fa-cloud-upload-alt upload-icon"></i>
                         <div class="upload-text" id="upload1-text">Drag & Drop Images Here</div>
                         <div class="upload-subtext" id="upload1-subtext">Supports JPG, PNG, GIF, BMP, WebP • Max 50 images • 20MB each</div>
                     </div>
                     
-                    <!-- 🔴 Preview Section -->
+                    <!-- 🔴 معاينة الصور مع أزرار التحكم الكاملة -->
                     <div class="preview-section" id="previewSection">
                         <div class="preview-header">
                             <div class="preview-title">
@@ -871,108 +1683,360 @@
                                 <span id="imageCount" style="background: var(--primary); color: white; padding: 2px 8px; border-radius: 10px; font-size: 11px;">0</span>
                             </div>
                             <div class="preview-controls">
+                                <!-- أزرار الترتيب التلقائي -->
                                 <button class="preview-btn" onclick="sortImages('name')" id="sortNameBtn">
-                                    <i class="fas fa-sort-alpha-down"></i> <span>Name</span>
+                                    <i class="fas fa-sort-alpha-down"></i>
+                                    <span>Name</span>
+                                </button>
+                                <button class="preview-btn" onclick="sortImages('size')" id="sortSizeBtn">
+                                    <i class="fas fa-sort-amount-down"></i>
+                                    <span>Size</span>
                                 </button>
                                 <button class="preview-btn" onclick="sortImages('date')" id="sortDateBtn">
-                                    <i class="fas fa-calendar"></i> <span>Date</span>
+                                    <i class="fas fa-calendar"></i>
+                                    <span>Date</span>
                                 </button>
+                                <button class="preview-btn" onclick="sortImages('type')" id="sortTypeBtn">
+                                    <i class="fas fa-file-image"></i>
+                                    <span>Type</span>
+                                </button>
+                                
+                                <!-- زر الترتيب التلقائي "باي داتا" -->
                                 <button class="preview-btn" onclick="autoSortByData()" id="autoSortBtn" style="background: linear-gradient(135deg, #00D4AA, #00B894); color: white;">
-                                    <i class="fas fa-sort-amount-down"></i> <span id="autoSortText">Auto Sort</span>
+                                    <i class="fas fa-sort-amount-down"></i>
+                                    <span id="autoSortText">Auto Sort (By Data)</span>
+                                </button>
+                                
+                                <!-- أزرار التنقل العامة -->
+                                <button class="preview-btn move-btn" onclick="moveCurrentImage('up')" id="moveUpBtn" title="Move Up (↑)">
+                                    <i class="fas fa-arrow-up"></i>
+                                </button>
+                                <button class="preview-btn move-btn" onclick="moveCurrentImage('down')" id="moveDownBtn" title="Move Down (↓)">
+                                    <i class="fas fa-arrow-down"></i>
+                                </button>
+                                <button class="preview-btn move-btn" onclick="moveCurrentImage('first')" id="moveFirstBtn" title="Move to First">
+                                    <i class="fas fa-angle-double-up"></i>
+                                </button>
+                                <button class="preview-btn move-btn" onclick="moveCurrentImage('last')" id="moveLastBtn" title="Move to Last">
+                                    <i class="fas fa-angle-double-down"></i>
                                 </button>
                             </div>
                         </div>
+                        
                         <div class="preview-grid" id="previewGrid">
-                            <!-- Images will appear here -->
+                            <!-- الصور تضاف هنا تلقائياً -->
                         </div>
+                        
+                        <!-- 🔴 التنقل بين الصور -->
                         <div class="carousel-nav">
-                            <button class="carousel-btn" id="prevBtn" onclick="navigateImage('prev')" disabled><i class="fas fa-chevron-left"></i></button>
-                            <div class="carousel-info" id="carouselInfo"><span id="currentImageIndex">0</span> / <span id="totalImagesCount">0</span></div>
-                            <button class="carousel-btn" id="nextBtn" onclick="navigateImage('next')" disabled><i class="fas fa-chevron-right"></i></button>
+                            <button class="carousel-btn" id="prevBtn" onclick="navigateImage('prev')" disabled>
+                                <i class="fas fa-chevron-left"></i>
+                            </button>
+                            
+                            <div class="carousel-info" id="carouselInfo">
+                                <span id="currentImageIndex">0</span> / <span id="totalImagesCount">0</span>
+                            </div>
+                            
+                            <button class="carousel-btn" id="nextBtn" onclick="navigateImage('next')" disabled>
+                                <i class="fas fa-chevron-right"></i>
+                            </button>
                         </div>
+                    </div>
+                    
+                    <div class="progress-container" id="pdfProgress">
+                        <div class="progress-bar"></div>
                     </div>
                     
                     <div class="controls">
                         <button class="btn btn-primary" onclick="convertImagesToPDF()" id="convert-btn1">
-                            <i class="fas fa-file-pdf"></i> <span id="btn1-text">Convert to PDF</span>
+                            <i class="fas fa-file-pdf"></i>
+                            <span id="btn1-text">Convert to PDF</span>
                         </button>
                         <button class="btn btn-secondary" onclick="clearAllImages()" id="clear-btn1">
-                            <i class="fas fa-trash"></i> <span id="btn2-text">Clear All</span>
+                            <i class="fas fa-trash"></i>
+                            <span id="btn2-text">Clear All</span>
                         </button>
                     </div>
                 </div>
-
-                <!-- 🔴 Ad Section 2 -->
+                
+                <!-- ========== 🔴 Ad Section 2 - Between Tools 🔴 -->
                 <div class="ad-section">
                     <div class="ad-label">Advertisement</div>
                     <div class="ad-content large">
-                        <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-7397173829932152" data-ad-slot="3110723269" data-ad-format="auto" data-full-width-responsive="true"></ins>
+                        <ins class="adsbygoogle"
+                             style="display:block"
+                             data-ad-client="ca-pub-7397173829932152"
+                             data-ad-slot="3110723269"
+                             data-ad-format="auto"
+                             data-full-width-responsive="true"></ins>
+                        <script>
+                             (adsbygoogle = window.adsbygoogle || []).push({});
+                        </script>
                     </div>
                 </div>
-
-                <!-- 🔴 PDF to Images Tool -->
+                
+                <!-- PDF to Images Tool -->
                 <div class="tool-card">
                     <div class="tool-header">
-                        <div class="tool-icon"><i class="fas fa-images"></i></div>
+                        <div class="tool-icon">
+                            <i class="fas fa-images"></i>
+                        </div>
                         <h3 class="tool-title" id="tool2-title">PDF Image Extractor</h3>
                     </div>
-                    <p class="tool-desc" id="tool2-desc">Extract all images from PDF files with high quality. Save each page as JPG image.</p>
+                    
+                    <p class="tool-desc" id="tool2-desc">
+                        Extract all images from your PDF files with exceptional quality. Save each page as a high-resolution 
+                        JPG image. Perfect for recovering images from PDF documents, creating image galleries, 
+                        or repurposing PDF content for other uses.
+                    </p>
                     
                     <input type="file" id="pdfInput" accept="application/pdf" class="file-input">
-                    
                     <div class="upload-area" id="pdfUploadArea">
                         <i class="fas fa-file-pdf upload-icon"></i>
                         <div class="upload-text" id="upload2-text">Upload PDF File</div>
                         <div class="upload-subtext" id="upload2-subtext">All PDF versions supported • Max 100MB • Up to 200 pages</div>
                     </div>
                     
+                    <div class="file-info" id="pdfFileInfo">
+                        <div class="file-name" id="pdfFileName"></div>
+                        <button class="remove-btn" onclick="clearPDF()" id="remove-btn">
+                            <i class="fas fa-times"></i>
+                            <span id="btn3-text">Remove</span>
+                        </button>
+                    </div>
+                    
+                    <div class="progress-container" id="imageProgress">
+                        <div class="progress-bar"></div>
+                    </div>
+                    
                     <div class="controls">
                         <button class="btn btn-primary" onclick="convertPDFToImages()" id="convert-btn2">
-                            <i class="fas fa-download"></i> <span id="btn4-text">Extract Images</span>
+                            <i class="fas fa-download"></i>
+                            <span id="btn4-text">Extract Images</span>
                         </button>
                     </div>
                 </div>
             </div>
         </div>
     </div>
-
-    <!-- ========== 🔴 Ad Section 3 ========== -->
+    
+    <!-- ========== 🔴 Stats Section 🔴 -->
+    <div class="container">
+        <div class="stats-section">
+            <div class="stats-content">
+                <h2 class="stats-title" id="stats-title">Trusted by Thousands</h2>
+                <p class="stats-desc" id="stats-desc">
+                    Join our growing community of users who trust PDFConvertMagic for their document needs.
+                </p>
+                
+                <div class="stats-grid">
+                    <div class="stat-card">
+                        <div class="stat-number">500K+</div>
+                        <div class="stat-label" id="stat1-label">Monthly Users</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-number">10M+</div>
+                        <div class="stat-label" id="stat2-label">Files Processed</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-number">99.8%</div>
+                        <div class="stat-label" id="stat3-label">Satisfaction Rate</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-number">100%</div>
+                        <div class="stat-label" id="stat4-label">Privacy Guaranteed</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- ========== 🔴 Ad Section 3 - After Stats 🔴 -->
     <div class="container">
         <div class="ad-section">
             <div class="ad-label">Advertisement</div>
             <div class="ad-content">
-                <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-7397173829932152" data-ad-slot="7055166696" data-ad-format="auto" data-full-width-responsive="true"></ins>
+                <ins class="adsbygoogle"
+                     style="display:block"
+                     data-ad-client="ca-pub-7397173829932152"
+                     data-ad-slot="7055166696"
+                     data-ad-format="auto"
+                     data-full-width-responsive="true"></ins>
+                <script>
+                     (adsbygoogle = window.adsbygoogle || []).push({});
+                </script>
             </div>
         </div>
     </div>
-
-    <!-- ========== 🔴 Footer ========== -->
+    
+    <!-- ========== 🔴 Ad Section 4 - Bottom 🔴 -->
+    <div class="container">
+        <div class="ad-section">
+            <div class="ad-label">Advertisement</div>
+            <div class="ad-content large">
+                <ins class="adsbygoogle"
+                     style="display:block"
+                     data-ad-client="ca-pub-7397173829932152"
+                     data-ad-slot="9246215764"
+                     data-ad-format="auto"
+                     data-full-width-responsive="true"></ins>
+                <script>
+                     (adsbygoogle = window.adsbygoogle || []).push({});
+                </script>
+            </div>
+        </div>
+    </div>
+    
+    <!-- ========== 🔴 Footer 🔴 -->
     <footer class="footer">
         <div class="container">
             <div class="footer-content">
                 <div class="footer-brand">
                     <div class="footer-logo">
-                        <div class="footer-logo-icon"><i class="fas fa-file-pdf"></i></div>
+                        <div class="footer-logo-icon">
+                            <img src="/assets/logo.png" alt="PDF Convert Magic Logo">
+                        </div>
                         <span>PDFConvertMagic</span>
                     </div>
-                    <p class="footer-about" id="footer-about">Free online PDF tools for converting, editing, and managing PDF files. No registration required. 100% secure and private.</p>
+                    <p class="footer-about" id="footer-about">
+                        Free online PDF tools for converting, editing, and managing PDF files.
+                        No registration required. 100% secure and private.
+                    </p>
+                </div>
+                
+                <div>
+                    <div class="footer-links-title" id="footer-links-title1">Quick Links</div>
+                    <div class="footer-links">
+                        <a onclick="openModal('privacy')" id="link1">
+                            <i class="fas fa-shield-alt"></i>
+                            <span id="footer-link1">Privacy Policy</span>
+                        </a>
+                        <a onclick="openModal('terms')" id="link2">
+                            <i class="fas fa-file-contract"></i>
+                            <span id="footer-link2">Terms of Service</span>
+                        </a>
+                        <a onclick="openModal('contact')" id="link3">
+                            <i class="fas fa-envelope"></i>
+                            <span id="footer-link3">Contact Us</span>
+                        </a>
+                        <a onclick="openModal('faq')" id="link4">
+                            <i class="fas fa-question-circle"></i>
+                            <span id="footer-link4">FAQ</span>
+                        </a>
+                    </div>
+                </div>
+                
+                <div>
+                    <div class="footer-links-title" id="footer-links-title2">PDF Tools</div>
+                    <div class="footer-links">
+                        <a href="#imageUploadArea">
+                            <i class="fas fa-image"></i>
+                            <span id="footer-tool1">Images to PDF</span>
+                        </a>
+                        <a href="#pdfUploadArea">
+                            <i class="fas fa-file-pdf"></i>
+                            <span id="footer-tool2">PDF to Images</span>
+                        </a>
+                    </div>
                 </div>
             </div>
+            
             <div class="copyright">
                 <p>© 2024 PDFConvertMagic - All-in-One PDF Tools Platform</p>
                 <p id="copyright-text">Free online PDF tools for personal and professional use</p>
             </div>
         </div>
     </footer>
-
-    <!-- ========== 🔴 JavaScript الكامل ========== -->
+    
+    <!-- ========== 🔴 Notification 🔴 -->
+    <div class="notification" id="notification"></div>
+    
+    <!-- ========== 🔴 Modals 🔴 -->
+    <div id="privacyModal" class="modal">
+        <div class="modal-content">
+            <button class="close-modal" onclick="closeModal('privacy')">&times;</button>
+            <h2 id="privacy-title">Privacy Policy</h2>
+            <div style="margin-top: 20px;">
+                <h3 style="color: var(--primary); margin-bottom: 10px;">Your Privacy Matters</h3>
+                <p style="margin-bottom: 15px; line-height: 1.6;">At PDFConvertMagic, we believe in complete transparency about how we handle your data.</p>
+                
+                <h3 style="color: var(--primary); margin: 20px 0 10px;">No Data Collection</h3>
+                <p style="margin-bottom: 15px; line-height: 1.6;">We do not collect, store, or transmit any of your personal data or files. All processing happens locally in your browser using JavaScript.</p>
+                
+                <h3 style="color: var(--primary); margin: 20px 0 10px;">File Security</h3>
+                <p style="margin-bottom: 15px; line-height: 1.6;">Your files never leave your computer. We don't upload anything to external servers, ensuring maximum security and privacy.</p>
+            </div>
+        </div>
+    </div>
+    
+    <div id="termsModal" class="modal">
+        <div class="modal-content">
+            <button class="close-modal" onclick="closeModal('terms')">&times;</button>
+            <h2 id="terms-title">Terms of Service</h2>
+            <div style="margin-top: 20px;">
+                <h3 style="color: var(--primary); margin-bottom: 10px;">Acceptable Use</h3>
+                <p style="margin-bottom: 15px; line-height: 1.6;">PDFConvertMagic is available for personal, educational, and commercial use. You agree to use our services for legal purposes only.</p>
+                
+                <h3 style="color: var(--primary); margin: 20px 0 10px;">Service Limitations</h3>
+                <p style="margin-bottom: 15px; line-height: 1.6;">
+                    • Maximum 50 images per conversion<br>
+                    • Maximum file size: 100MB for PDF files<br>
+                    • Maximum 20MB per image file<br>
+                    • Maximum 200 pages per PDF for extraction
+                </p>
+            </div>
+        </div>
+    </div>
+    
+    <div id="contactModal" class="modal">
+        <div class="modal-content">
+            <button class="close-modal" onclick="closeModal('contact')">&times;</button>
+            <h2 id="contact-title">Contact Us</h2>
+            <div style="margin-top: 20px;">
+                <h3 style="color: var(--primary); margin-bottom: 10px;">Get in Touch</h3>
+                <p style="margin-bottom: 15px; line-height: 1.6;">We're here to help with any questions or feedback about PDFConvertMagic.</p>
+                
+                <h3 style="color: var(--primary); margin: 20px 0 10px;">Support Email</h3>
+                <p style="margin-bottom: 15px; line-height: 1.6; font-weight: 600;">contact@pdfmagic.github.io</p>
+                
+                <h3 style="color: var(--primary); margin: 20px 0 10px;">Response Time</h3>
+                <p style="margin-bottom: 15px; line-height: 1.6;">We typically respond to inquiries within 24-48 hours during business days.</p>
+            </div>
+        </div>
+    </div>
+    
+    <div id="faqModal" class="modal">
+        <div class="modal-content">
+            <button class="close-modal" onclick="closeModal('faq')">&times;</button>
+            <h2 id="faq-title">Frequently Asked Questions</h2>
+            <div style="margin-top: 20px;">
+                <h3 style="color: var(--primary); margin-bottom: 10px;">Is PDFConvertMagic really free?</h3>
+                <p style="margin-bottom: 15px; line-height: 1.6;">Yes! PDFConvertMagic is 100% free with no hidden charges, subscriptions, or trial periods.</p>
+                
+                <h3 style="color: var(--primary); margin: 15px 0 10px;">What file formats do you support?</h3>
+                <p style="margin-bottom: 15px; line-height: 1.6;">
+                    <strong>Images:</strong> JPG, PNG, WebP, GIF, BMP<br>
+                    <strong>Documents:</strong> PDF<br>
+                    <strong>Other:</strong> More formats coming soon
+                </p>
+                
+                <h3 style="color: var(--primary); margin: 15px 0 10px;">Are my files safe and private?</h3>
+                <p style="margin-bottom: 15px; line-height: 1.6;">Absolutely. All processing happens locally in your browser. Your files never leave your computer.</p>
+            </div>
+        </div>
+    </div>
+    
+    <!-- ========== 🔴 JavaScript Code مع التحكم الكامل والترتيب التلقائي 🔴 -->
     <script>
-        // 🔴 المتغيرات
+        // 🔴 تهيئة المتغيرات
         let images = [];
         let imageUrls = new Map();
+        let imageRotations = new Map(); // تخزين زوايا التدوير لكل صورة
         let currentPDFFile = null;
         let currentLanguage = 'en';
         let currentImageIndex = 0;
+        let sortableInstance = null;
+        let imageUploadOrder = []; // لتتبع أسبقية اختيار الصور
         
         // 🔴 عناصر DOM
         const imageInput = document.getElementById('imageInput');
@@ -980,34 +2044,74 @@
         const previewSection = document.getElementById('previewSection');
         const previewGrid = document.getElementById('previewGrid');
         const imageCount = document.getElementById('imageCount');
+        const currentImageIndexEl = document.getElementById('currentImageIndex');
+        const totalImagesCount = document.getElementById('totalImagesCount');
+        const pdfInput = document.getElementById('pdfInput');
+        const pdfUploadArea = document.getElementById('pdfUploadArea');
+        const pdfFileInfo = document.getElementById('pdfFileInfo');
+        const pdfFileName = document.getElementById('pdfFileName');
+        const notification = document.getElementById('notification');
+        const header = document.getElementById('header');
+        
+        // 🔴 عناصر أزرار التحكم
+        const prevBtn = document.getElementById('prevBtn');
+        const nextBtn = document.getElementById('nextBtn');
+        const moveUpBtn = document.getElementById('moveUpBtn');
+        const moveDownBtn = document.getElementById('moveDownBtn');
+        const moveFirstBtn = document.getElementById('moveFirstBtn');
+        const moveLastBtn = document.getElementById('moveLastBtn');
+        const autoSortBtn = document.getElementById('autoSortBtn');
+        const autoSortText = document.getElementById('autoSortText');
         
         // 🔴 الترجمات
         const translations = {
             en: {
-                "logo-name": "PDFConvertMagic",
-                "logo-tagline": "All-in-One PDF Tools Platform",
-                "hero-title": "Free PDF Tools for Everyone",
-                "hero-desc": "Convert images to PDF & extract images from PDF online. 100% free, secure, and private.",
-                "feature1": "Instant Processing", "feature1-desc": "Fast conversion powered by modern web technology",
-                "feature2": "100% Secure", "feature2-desc": "Files never leave your device - complete privacy",
-                "feature3": "Unlimited Free", "feature3-desc": "No limits, watermarks, or subscriptions",
-                "feature4": "Premium Quality", "feature4-desc": "Professional results without quality loss",
-                "tool1-title": "Images to PDF Converter", "tool1-desc": "Transform images into PDF documents. Automatic sorting and rotation correction.",
-                "upload1-text": "Drag & Drop Images Here", "btn1-text": "Convert to PDF", "btn2-text": "Clear All",
-                "tool2-title": "PDF Image Extractor", "tool2-desc": "Extract all images from PDF files with high quality.",
-                "upload2-text": "Upload PDF File", "btn4-text": "Extract Images"
+                "feature1": "Instant Processing",
+                "feature1-desc": "Fast conversion powered by modern web technology",
+                "feature2": "100% Secure",
+                "feature2-desc": "Files never leave your device - complete privacy",
+                "feature3": "Unlimited Free",
+                "feature3-desc": "No limits, watermarks, or subscriptions",
+                "feature4": "Premium Quality",
+                "feature4-desc": "Professional results without quality loss",
+                "tool1-title": "Images to PDF Converter",
+                "tool1-desc": "Transform your images into professional PDF documents. Combine multiple images into a single PDF, reorder pages with intuitive drag-and-drop, and customize settings for optimal quality. Perfect for creating portfolios, presentations, and documents.",
+                "upload1-text": "Drag & Drop Images Here",
+                "upload1-subtext": "Supports JPG, PNG, GIF, BMP, WebP • Max 50 images • 20MB each",
+                "previewTitle": "Selected Images",
+                "btn1-text": "Convert to PDF",
+                "btn2-text": "Clear All",
+                "autoSortText": "Auto Sort (By Data)",
+                "tool2-title": "PDF Image Extractor",
+                "tool2-desc": "Extract all images from your PDF files with exceptional quality. Save each page as a high-resolution JPG image. Perfect for recovering images from PDF documents, creating image galleries, or repurposing PDF content for other uses.",
+                "upload2-text": "Upload PDF File",
+                "upload2-subtext": "All PDF versions supported • Max 100MB • Up to 200 pages",
+                "btn3-text": "Remove",
+                "btn4-text": "Extract Images"
             },
             ar: {
-                "logo-name": "بي دي اف كونفرت ماجيك", "logo-tagline": "منصة أدوات PDF شاملة",
-                "hero-title": "أدوات PDF مجانية للجميع", "hero-desc": "تحويل الصور إلى PDF واستخراج الصور من PDF أونلاين. مجاني 100%، آمن وخاص.",
-                "feature1": "معالجة فورية", "feature1-desc": "تحويل سريع مدعوم بتقنية الويب الحديثة",
-                "feature2": "آمن 100%", "feature2-desc": "ملفاتك لا تغادر جهازك - خصوصية كاملة",
-                "feature3": "مجاني غير محدود", "feature3-desc": "لا حدود، لا علامات مائية، لا اشتراكات",
-                "feature4": "جودة احترافية", "feature4-desc": "نتائج احترافية بدون فقدان الجودة",
-                "tool1-title": "محول الصور إلى PDF", "tool1-desc": "حوّل صورك إلى مستندات PDF مع ترتيب تلقائي وتصحيح الدوران.",
-                "upload1-text": "اسحب وأفلت الصور هنا", "btn1-text": "تحويل إلى PDF", "btn2-text": "مسح الكل",
-                "tool2-title": "مستخرج صور PDF", "tool2-desc": "استخرج جميع الصور من ملفات PDF بجودة عالية.",
-                "upload2-text": "رفع ملف PDF", "btn4-text": "استخراج الصور"
+                "feature1": "معالجة فورية",
+                "feature1-desc": "تحويل سريع مدعوم بتقنية الويب الحديثة",
+                "feature2": "آمن 100%",
+                "feature2-desc": "ملفاتك لا تغادر جهازك - خصوصية كاملة",
+                "feature3": "مجاني غير محدود",
+                "feature3-desc": "لا حدود، لا علامات مائية، لا اشتراكات",
+                "feature4": "جودة احترافية",
+                "feature4-desc": "نتائج احترافية بدون فقدان الجودة",
+                "tool1-title": "محول الصور إلى PDF",
+                "tool1-desc": "حوّل صورك إلى مستندات PDF احترافية. اجمع عدة صور في ملف PDF واحد، أعد ترتيب الصفحات بالسحب والإفلات، وخصص الإعدادات لأفضل جودة. مثالي لإنشاء ملفات العرض والتقديم والمستندات.",
+                "upload1-text": "اسحب وأفلت الصور هنا",
+                "upload1-subtext": "يدعم JPG، PNG، GIF، BMP، WebP • 50 صورة كحد أقصى • 20 ميجابايت لكل صورة",
+                "previewTitle": "الصور المختارة",
+                "btn1-text": "تحويل إلى PDF",
+                "btn2-text": "مسح الكل",
+                "autoSortText": "ترتيب تلقائي (باي داتا)",
+                "tool2-title": "مستخرج صور PDF",
+                "tool2-desc": "استخرج جميع الصور من ملفات PDF بجودة استثنائية. احفظ كل صفحة كصورة JPG عالية الدقة. مثالي لاستعادة الصور من مستندات PDF، إنشاء معارض الصور، أو إعادة استخدام محتوى PDF لأغراض أخرى.",
+                "upload2-text": "رفع ملف PDF",
+                "upload2-subtext": "جميع إصدارات PDF مدعومة • 100 ميجابايت كحد أقصى • حتى 200 صفحة",
+                "btn3-text": "إزالة",
+                "btn4-text": "استخراج الصور"
             }
         };
         
@@ -1015,32 +2119,97 @@
         document.addEventListener('DOMContentLoaded', function() {
             initApp();
             updateLanguage('en');
+            setupScrollEffects();
             loadAdSense();
+            updateMoveButtons(); // تحديث أزرار التحكم عند التحميل
+            adjustForDevice(); // ضبط التصميم حسب الجهاز
         });
         
         function initApp() {
             // إعداد مستمعي الأحداث
             imageInput.addEventListener('change', handleImageUpload);
-            document.getElementById('pdfInput').addEventListener('change', handlePDFUpload);
+            pdfInput.addEventListener('change', handlePDFUpload);
             
             imageUploadArea.addEventListener('click', () => imageInput.click());
-            document.getElementById('pdfUploadArea').addEventListener('click', () => document.getElementById('pdfInput').click());
+            pdfUploadArea.addEventListener('click', () => pdfInput.click());
             
             // إعداد السحب والإفلات
             setupDragAndDrop();
             
-            // تأثير التمرير
+            // إعداد التنقل بلوحة المفاتيح
+            document.addEventListener('keydown', function(e) {
+                if (previewSection.style.display === 'block') {
+                    switch(e.key) {
+                        case 'ArrowUp': moveCurrentImage('up'); break;
+                        case 'ArrowDown': moveCurrentImage('down'); break;
+                        case 'Home': moveCurrentImage('first'); break;
+                        case 'End': moveCurrentImage('last'); break;
+                        case 'ArrowLeft': navigateImage('prev'); break;
+                        case 'ArrowRight': navigateImage('next'); break;
+                    }
+                }
+            });
+            
+            // إغلاق النوافذ المنبثقة بالنقر خارجها
+            document.querySelectorAll('.modal').forEach(modal => {
+                modal.addEventListener('click', function(e) {
+                    if (e.target === this) {
+                        this.style.display = 'none';
+                        document.body.style.overflow = 'auto';
+                    }
+                });
+            });
+            
+            // تحسين اللمس للأجهزة الذكية
+            if ('ontouchstart' in window || navigator.maxTouchPoints) {
+                document.body.classList.add('touch-device');
+            }
+        }
+        
+        function adjustForDevice() {
+            const width = window.innerWidth;
+            const height = window.innerHeight;
+            const isMobile = width <= 768;
+            const isTablet = width > 768 && width <= 1024;
+            const isLandscape = width > height;
+            
+            // ضبط حجم الخط حسب الجهاز
+            if (isMobile) {
+                document.documentElement.style.fontSize = '14px';
+            } else if (isTablet) {
+                document.documentElement.style.fontSize = '15px';
+            } else {
+                document.documentElement.style.fontSize = '16px';
+            }
+            
+            // ضبط أبعاد المعاينة حسب الجهاز
+            const previewGrid = document.getElementById('previewGrid');
+            if (previewGrid) {
+                if (isMobile && isLandscape) {
+                    previewGrid.style.gridTemplateColumns = 'repeat(auto-fill, minmax(80px, 1fr))';
+                } else if (isMobile) {
+                    previewGrid.style.gridTemplateColumns = 'repeat(auto-fill, minmax(90px, 1fr))';
+                } else if (isTablet) {
+                    previewGrid.style.gridTemplateColumns = 'repeat(auto-fill, minmax(110px, 1fr))';
+                }
+            }
+        }
+        
+        window.addEventListener('resize', adjustForDevice);
+        window.addEventListener('orientationchange', adjustForDevice);
+        
+        function setupScrollEffects() {
             window.addEventListener('scroll', function() {
                 if (window.scrollY > 50) {
-                    document.getElementById('header').classList.add('scrolled');
+                    header.classList.add('scrolled');
                 } else {
-                    document.getElementById('header').classList.remove('scrolled');
+                    header.classList.remove('scrolled');
                 }
             });
         }
         
         function setupDragAndDrop() {
-            [imageUploadArea, document.getElementById('pdfUploadArea')].forEach(area => {
+            [imageUploadArea, pdfUploadArea].forEach(area => {
                 area.addEventListener('dragover', (e) => {
                     e.preventDefault();
                     area.style.borderColor = 'var(--primary)';
@@ -1072,51 +2241,85 @@
             const files = Array.from(e.target.files);
             if (files.length === 0) return;
             
+            // تسجيل وقت تحميل كل صورة لتتبع الأسبقية
             const currentTime = Date.now();
             files.forEach((file, index) => {
-                file.uploadOrder = currentTime + index;
+                file.uploadOrder = currentTime + index; // وقت دقيق مع فاصل بين الصور
+                file.rotation = 0; // إضافة خاصية التدوير الافتراضية
             });
             
+            // تنظيف الذاكرة وإضافة الصور الجديدة
             cleanImageMemory();
             images = files;
             updateImagePreviews();
-            showNotification(`Added ${files.length} image(s)`, 'success');
-            autoSortByData();
+            
+            showNotification(currentLanguage === 'en' ? 
+                `Added ${files.length} image(s)` : 
+                `تم إضافة ${files.length} صورة`, 'success');
+                
+            // الترتيب التلقائي حسب أسبقية الاختيار (by data)
+            sortImagesByUploadOrder();
         }
         
         function handlePDFUpload(e) {
             if (e.target.files.length === 0) return;
             currentPDFFile = e.target.files[0];
-            showNotification(`PDF loaded: ${currentPDFFile.name}`, 'success');
+            pdfFileName.textContent = currentPDFFile.name;
+            pdfFileInfo.style.display = 'flex';
+            showNotification(currentLanguage === 'en' ? 
+                `PDF loaded: ${currentPDFFile.name}` : 
+                `تم تحميل PDF: ${currentPDFFile.name}`, 'success');
         }
         
         function handleDroppedImages(files) {
             const imageFiles = files.filter(file => file.type.startsWith('image/'));
-            if (imageFiles.length === 0) return;
+            if (imageFiles.length === 0) {
+                showNotification(currentLanguage === 'en' ? 
+                    'Please drop image files only' : 
+                    'يرجى إسقاط ملفات الصور فقط', 'error');
+                return;
+            }
             
+            // تسجيل وقت تحميل كل صورة لتتبع الأسبقية
             const currentTime = Date.now();
             imageFiles.forEach((file, index) => {
                 file.uploadOrder = currentTime + index;
+                file.rotation = 0; // إضافة خاصية التدوير الافتراضية
             });
             
             cleanImageMemory();
             images = imageFiles;
             updateImagePreviews();
-            showNotification(`Added ${imageFiles.length} image(s)`, 'success');
-            autoSortByData();
+            
+            showNotification(currentLanguage === 'en' ? 
+                `Added ${imageFiles.length} image(s)` : 
+                `تم إضافة ${imageFiles.length} صورة`, 'success');
+                
+            // الترتيب التلقائي حسب أسبقية الاختيار (by data)
+            sortImagesByUploadOrder();
         }
         
         function handleDroppedPDF(files) {
             const pdfFiles = files.filter(file => file.type === 'application/pdf');
-            if (pdfFiles.length === 0) return;
+            if (pdfFiles.length === 0) {
+                showNotification(currentLanguage === 'en' ? 
+                    'Please drop a PDF file only' : 
+                    'يرجى إسقاط ملف PDF فقط', 'error');
+                return;
+            }
             
             currentPDFFile = pdfFiles[0];
-            showNotification(`PDF loaded: ${currentPDFFile.name}`, 'success');
+            pdfFileName.textContent = currentPDFFile.name;
+            pdfFileInfo.style.display = 'flex';
+            showNotification(currentLanguage === 'en' ? 
+                `PDF loaded: ${currentPDFFile.name}` : 
+                `تم تحميل PDF: ${currentPDFFile.name}`, 'success');
         }
         
         function cleanImageMemory() {
             imageUrls.forEach(url => URL.revokeObjectURL(url));
             imageUrls.clear();
+            imageRotations.clear();
         }
         
         function updateImagePreviews() {
@@ -1125,41 +2328,209 @@
                 return;
             }
             
+            // عرض قسم المعاينة
             previewSection.style.display = 'block';
-            imageCount.textContent = images.length;
-            document.getElementById('currentImageIndex').textContent = currentImageIndex + 1;
-            document.getElementById('totalImagesCount').textContent = images.length;
             
+            // تحديث العداد
+            imageCount.textContent = images.length;
+            currentImageIndexEl.textContent = currentImageIndex + 1;
+            totalImagesCount.textContent = images.length;
+            
+            // مسح الشبكة
             previewGrid.innerHTML = '';
             
+            // إضافة الصور إلى الشبكة
             images.forEach((file, index) => {
-                const previewItem = document.createElement('div');
-                previewItem.className = 'preview-item';
-                previewItem.dataset.index = index;
-                
-                if (!imageUrls.has(file)) {
-                    imageUrls.set(file, URL.createObjectURL(file));
-                }
-                
-                previewItem.innerHTML = `
-                    <div class="drag-handle"><i class="fas fa-bars"></i></div>
-                    <img src="${imageUrls.get(file)}" class="preview-img" alt="Image ${index + 1}" loading="lazy">
-                    <div class="preview-index">${index + 1}</div>
-                    <div class="preview-filename" title="${file.name}">${file.name.length > 15 ? file.name.substring(0, 12) + '...' : file.name}</div>
-                `;
-                
+                const previewItem = createPreviewItem(file, index);
                 previewGrid.appendChild(previewItem);
             });
             
-            initSortable();
+            // تحديث أزرار التنقل
             updateNavigationButtons();
+            updateMoveButtons();
+            
+            // تمكين السحب والإفلات
+            initSortable();
+            
+            // تحديد الصورة الحالية
+            highlightCurrentImage();
+            
+            // ضبط الشبكة حسب الجهاز
+            adjustForDevice();
+        }
+        
+        function createPreviewItem(file, index) {
+            const item = document.createElement('div');
+            item.className = 'preview-item';
+            item.dataset.index = index;
+            item.draggable = true;
+            
+            // إنشاء مقبض السحب
+            const dragHandle = document.createElement('div');
+            dragHandle.className = 'drag-handle';
+            dragHandle.innerHTML = '<i class="fas fa-bars"></i>';
+            dragHandle.title = currentLanguage === 'en' ? 'Drag to reorder' : 'اسحب لإعادة الترتيب';
+            
+            // إنشاء عنصر الصورة
+            const img = document.createElement('img');
+            img.className = 'preview-img';
+            img.alt = `Image ${index + 1}`;
+            img.loading = 'lazy';
+            
+            // تحميل الصورة مع معالجة الأخطاء
+            if (!imageUrls.has(file)) {
+                imageUrls.set(file, URL.createObjectURL(file));
+            }
+            
+            img.src = imageUrls.get(file);
+            
+            // تطبيق التدوير إذا كان موجوداً
+            const rotation = imageRotations.get(file) || 0;
+            img.style.transform = `rotate(${rotation}deg)`;
+            img.style.transition = 'transform 0.3s ease';
+            
+            img.onerror = function() {
+                this.src = 'data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 100 100"><rect width="100" height="100" fill="#f5f5f5"/><text x="50" y="55" text-anchor="middle" font-family="Arial" font-size="12" fill="#999">Image ' + (index + 1) + '</text></svg>';
+            };
+            
+            // إنشاء شارة الفهرس
+            const indexBadge = document.createElement('div');
+            indexBadge.className = 'preview-index';
+            indexBadge.textContent = index + 1;
+            
+            // إنشاء اسم الملف
+            const filename = document.createElement('div');
+            filename.className = 'preview-filename';
+            filename.title = file.name;
+            filename.textContent = file.name.length > 15 ? file.name.substring(0, 12) + '...' : file.name;
+            
+            // إنشاء عناصر التحكم في النقل الخاصة بالصورة
+            const controls = document.createElement('div');
+            controls.className = 'item-controls';
+            
+            const upBtn = document.createElement('button');
+            upBtn.className = 'item-btn';
+            upBtn.innerHTML = '<i class="fas fa-arrow-up"></i>';
+            upBtn.title = currentLanguage === 'en' ? 'Move up' : 'تحريك لأعلى';
+            upBtn.disabled = index === 0;
+            upBtn.onclick = (e) => {
+                e.stopPropagation();
+                moveSpecificImage(index, 'up');
+            };
+            
+            const downBtn = document.createElement('button');
+            downBtn.className = 'item-btn';
+            downBtn.innerHTML = '<i class="fas fa-arrow-down"></i>';
+            downBtn.title = currentLanguage === 'en' ? 'Move down' : 'تحريك لأسفل';
+            downBtn.disabled = index === images.length - 1;
+            downBtn.onclick = (e) => {
+                e.stopPropagation();
+                moveSpecificImage(index, 'down');
+            };
+            
+            controls.appendChild(upBtn);
+            controls.appendChild(downBtn);
+            
+            // إنشاء عناصر التحكم في التدوير
+            const rotateControls = document.createElement('div');
+            rotateControls.className = 'rotate-controls';
+            
+            const rotateLeftBtn = document.createElement('button');
+            rotateLeftBtn.className = 'rotate-btn';
+            rotateLeftBtn.innerHTML = '<i class="fas fa-rotate-left"></i>';
+            rotateLeftBtn.title = currentLanguage === 'en' ? 'Rotate left 90°' : 'تدوير لليسار 90°';
+            rotateLeftBtn.onclick = (e) => {
+                e.stopPropagation();
+                rotateImage(index, -90);
+            };
+            
+            const rotateRightBtn = document.createElement('button');
+            rotateRightBtn.className = 'rotate-btn';
+            rotateRightBtn.innerHTML = '<i class="fas fa-rotate-right"></i>';
+            rotateRightBtn.title = currentLanguage === 'en' ? 'Rotate right 90°' : 'تدوير لليمين 90°';
+            rotateRightBtn.onclick = (e) => {
+                e.stopPropagation();
+                rotateImage(index, 90);
+            };
+            
+            rotateControls.appendChild(rotateLeftBtn);
+            rotateControls.appendChild(rotateRightBtn);
+            
+            // تجميع العنصر
+            item.appendChild(dragHandle);
+            item.appendChild(img);
+            item.appendChild(indexBadge);
+            item.appendChild(filename);
+            item.appendChild(controls);
+            item.appendChild(rotateControls);
+            
+            // إضافة حدث النقر لتحديد الصورة
+            item.addEventListener('click', (e) => {
+                if (!e.target.closest('.drag-handle') && 
+                    !e.target.closest('.item-btn') && 
+                    !e.target.closest('.rotate-btn')) {
+                    currentImageIndex = index;
+                    updateNavigationInfo();
+                    highlightCurrentImage();
+                }
+            });
+            
+            // تحسين اللمس للأجهزة الذكية
+            if ('ontouchstart' in window) {
+                item.addEventListener('touchstart', function() {
+                    this.style.transform = 'scale(0.98)';
+                });
+                
+                item.addEventListener('touchend', function() {
+                    this.style.transform = '';
+                });
+            }
+            
+            return item;
+        }
+        
+        // 🔴 وظيفة تدوير الصور
+        function rotateImage(index, degrees) {
+            if (index < 0 || index >= images.length) return;
+            
+            const file = images[index];
+            const currentRotation = imageRotations.get(file) || 0;
+            const newRotation = (currentRotation + degrees) % 360;
+            
+            // تخزين زاوية التدوير الجديدة
+            imageRotations.set(file, newRotation);
+            
+            // تطبيق التدوير على الصورة في المعاينة
+            const imgElement = document.querySelector(`.preview-item[data-index="${index}"] .preview-img`);
+            if (imgElement) {
+                imgElement.style.transform = `rotate(${newRotation}deg)`;
+            }
+            
+            // تحديث ملف الصورة مع التدوير
+            file.rotation = newRotation;
+            
+            showNotification(currentLanguage === 'en' ? 
+                '✓ Image rotated' : 
+                '✓ تم تدوير الصورة', 'success');
         }
         
         function initSortable() {
-            new Sortable(previewGrid, {
+            if (sortableInstance) {
+                sortableInstance.destroy();
+            }
+            
+            sortableInstance = new Sortable(previewGrid, {
                 animation: 150,
                 handle: '.drag-handle',
+                ghostClass: 'sortable-ghost',
+                chosenClass: 'sortable-chosen',
+                dragClass: 'sortable-drag',
+                onStart: function() {
+                    document.body.style.cursor = 'grabbing';
+                },
                 onEnd: function(evt) {
+                    document.body.style.cursor = '';
+                    
                     const newOrder = [];
                     document.querySelectorAll('#previewGrid .preview-item').forEach(item => {
                         const oldIndex = parseInt(item.dataset.index);
@@ -1168,75 +2539,59 @@
                     
                     images = newOrder;
                     updateImagePreviews();
-                    showNotification('Image order updated', 'success');
+                    showNotification(currentLanguage === 'en' ? 
+                        '✓ Image order updated' : 
+                        '✓ تم تحديث ترتيب الصور', 'success');
                 }
             });
         }
         
-        // 🔴 إصلاح تدوير الصور
-        async function fixImageOrientation(img) {
-            return new Promise((resolve) => {
-                try {
-                    EXIF.getData(img, function() {
-                        const orientation = EXIF.getTag(this, 'Orientation');
-                        if (!orientation || orientation === 1) {
-                            resolve(img);
-                            return;
-                        }
-                        
-                        const canvas = document.createElement('canvas');
-                        const ctx = canvas.getContext('2d');
-                        
-                        if (orientation >= 5 && orientation <= 8) {
-                            canvas.width = img.height;
-                            canvas.height = img.width;
-                        } else {
-                            canvas.width = img.width;
-                            canvas.height = img.height;
-                        }
-                        
-                        switch(orientation) {
-                            case 2: ctx.transform(-1, 0, 0, 1, img.width, 0); break;
-                            case 3: ctx.transform(-1, 0, 0, -1, img.width, img.height); break;
-                            case 4: ctx.transform(1, 0, 0, -1, 0, img.height); break;
-                            case 5: ctx.transform(0, 1, 1, 0, 0, 0); break;
-                            case 6: ctx.transform(0, 1, -1, 0, img.height, 0); break;
-                            case 7: ctx.transform(0, -1, -1, 0, img.height, img.width); break;
-                            case 8: ctx.transform(0, -1, 1, 0, 0, img.width); break;
-                        }
-                        
-                        ctx.drawImage(img, 0, 0);
-                        const fixedImg = new Image();
-                        fixedImg.onload = () => resolve(fixedImg);
-                        fixedImg.src = canvas.toDataURL();
-                    });
-                } catch (error) {
-                    resolve(img);
-                }
-            });
-        }
-        
-        async function loadImageWithOrientation(file) {
-            return new Promise((resolve) => {
-                const img = new Image();
-                img.onload = async function() {
-                    const fixedImg = await fixImageOrientation(img);
-                    resolve(fixedImg);
-                };
-                img.src = URL.createObjectURL(file);
-            });
-        }
-        
-        // 🔴 ترتيب تلقائي حسب أسبقية الرفع
-        function autoSortByData() {
+        // 🔴 وظائف الترتيب التلقائي "باي داتا" حسب أسبقية الاختيار
+        function sortImagesByUploadOrder() {
             if (images.length < 2) return;
             
+            // الترتيب حسب أسبقية التحميل (uploadOrder)
             images.sort((a, b) => {
                 return (a.uploadOrder || 0) - (b.uploadOrder || 0);
             });
             
             updateImagePreviews();
-            showNotification('Images auto-sorted by upload order', 'success');
+            showNotification(currentLanguage === 'en' ? 
+                '✓ Images auto-sorted by upload order (By Data)' : 
+                '✓ تم الترتيب التلقائي حسب أسبقية التحميل (باي داتا)', 'success');
+        }
+        
+        function autoSortByData() {
+            if (images.length < 2) return;
+            
+            // خوارزمية الترتيب "باي داتا" المتقدمة
+            images.sort((a, b) => {
+                // 1. الترتيب حسب وقت التحميل (الأولوية القصوى)
+                const orderA = a.uploadOrder || 0;
+                const orderB = b.uploadOrder || 0;
+                if (orderA !== orderB) return orderA - orderB;
+                
+                // 2. الترتيب حسب النوع (الصيغة)
+                const typeA = a.type.split('/')[1] || '';
+                const typeB = b.type.split('/')[1] || '';
+                if (typeA !== typeB) return typeA.localeCompare(typeB);
+                
+                // 3. الترتيب حسب الحجم (من الأصغر للأكبر)
+                if (a.size !== b.size) return a.size - b.size;
+                
+                // 4. الترتيب حسب الاسم (أبجدي)
+                const nameA = a.name.toLowerCase();
+                const nameB = b.name.toLowerCase();
+                if (nameA !== nameB) return nameA.localeCompare(nameB);
+                
+                // 5. الترتيب حسب التاريخ (من الأقدم للأحدث)
+                return a.lastModified - b.lastModified;
+            });
+            
+            updateImagePreviews();
+            showNotification(currentLanguage === 'en' ? 
+                '✓ Images auto-sorted by "By Data" algorithm' : 
+                '✓ تم الترتيب التلقائي باستخدام خوارزمية "باي داتا"', 'success');
         }
         
         function sortImages(criteria) {
@@ -1245,88 +2600,412 @@
             switch(criteria) {
                 case 'name':
                     images.sort((a, b) => a.name.toLowerCase().localeCompare(b.name.toLowerCase()));
+                    showNotification(currentLanguage === 'en' ? 
+                        '✓ Sorted by name (A-Z)' : 
+                        '✓ تم الترتيب حسب الاسم (أ-ي)', 'success');
+                    break;
+                case 'size':
+                    images.sort((a, b) => a.size - b.size);
+                    showNotification(currentLanguage === 'en' ? 
+                        '✓ Sorted by size (smallest first)' : 
+                        '✓ تم الترتيب حسب الحجم (من الأصغر)', 'success');
                     break;
                 case 'date':
                     images.sort((a, b) => b.lastModified - a.lastModified);
+                    showNotification(currentLanguage === 'en' ? 
+                        '✓ Sorted by date (newest first)' : 
+                        '✓ تم الترتيب حسب التاريخ (من الأحدث)', 'success');
+                    break;
+                case 'type':
+                    images.sort((a, b) => {
+                        const typeA = a.type.split('/')[1] || '';
+                        const typeB = b.type.split('/')[1] || '';
+                        return typeA.localeCompare(typeB);
+                    });
+                    showNotification(currentLanguage === 'en' ? 
+                        '✓ Sorted by file type' : 
+                        '✓ تم الترتيب حسب نوع الملف', 'success');
                     break;
             }
             
             updateImagePreviews();
-            showNotification(`Sorted by ${criteria}`, 'success');
         }
         
-        // 🔴 تحويل الصور إلى PDF
+        // 🔴 وظائف نقل الصور
+        function moveCurrentImage(direction) {
+            if (images.length === 0) return;
+            
+            switch(direction) {
+                case 'up':
+                    if (currentImageIndex > 0) {
+                        moveSpecificImage(currentImageIndex, 'up');
+                        currentImageIndex--;
+                    }
+                    break;
+                case 'down':
+                    if (currentImageIndex < images.length - 1) {
+                        moveSpecificImage(currentImageIndex, 'down');
+                        currentImageIndex++;
+                    }
+                    break;
+                case 'first':
+                    if (currentImageIndex > 0) {
+                        moveSpecificImage(currentImageIndex, 'first');
+                        currentImageIndex = 0;
+                    }
+                    break;
+                case 'last':
+                    if (currentImageIndex < images.length - 1) {
+                        moveSpecificImage(currentImageIndex, 'last');
+                        currentImageIndex = images.length - 1;
+                    }
+                    break;
+            }
+            
+            updateNavigationInfo();
+        }
+        
+        function moveSpecificImage(index, direction) {
+            if (index < 0 || index >= images.length) return;
+            
+            let newIndex = index;
+            
+            switch(direction) {
+                case 'up':
+                    if (index > 0) {
+                        [images[index], images[index - 1]] = [images[index - 1], images[index]];
+                        newIndex = index - 1;
+                        showNotification(currentLanguage === 'en' ? 
+                            '✓ Image moved up' : 
+                            '✓ تم نقل الصورة لأعلى', 'success');
+                    }
+                    break;
+                case 'down':
+                    if (index < images.length - 1) {
+                        [images[index], images[index + 1]] = [images[index + 1], images[index]];
+                        newIndex = index + 1;
+                        showNotification(currentLanguage === 'en' ? 
+                            '✓ Image moved down' : 
+                            '✓ تم نقل الصورة لأسفل', 'success');
+                    }
+                    break;
+                case 'first':
+                    if (index > 0) {
+                        const image = images.splice(index, 1)[0];
+                        images.unshift(image);
+                        newIndex = 0;
+                        showNotification(currentLanguage === 'en' ? 
+                            '✓ Image moved to first position' : 
+                            '✓ تم نقل الصورة للمركز الأول', 'success');
+                    }
+                    break;
+                case 'last':
+                    if (index < images.length - 1) {
+                        const image = images.splice(index, 1)[0];
+                        images.push(image);
+                        newIndex = images.length - 1;
+                        showNotification(currentLanguage === 'en' ? 
+                            '✓ Image moved to last position' : 
+                            '✓ تم نقل الصورة للمركز الأخير', 'success');
+                    }
+                    break;
+            }
+            
+            updateImagePreviews();
+            
+            // تحديث المؤشر الحالي
+            if (currentImageIndex === index) {
+                currentImageIndex = newIndex;
+                updateNavigationInfo();
+            }
+        }
+        
+        function updateMoveButtons() {
+            if (moveUpBtn && moveDownBtn && moveFirstBtn && moveLastBtn) {
+                const hasImages = images.length > 0;
+                const isFirst = currentImageIndex === 0;
+                const isLast = currentImageIndex === images.length - 1;
+                
+                moveUpBtn.disabled = !hasImages || isFirst;
+                moveDownBtn.disabled = !hasImages || isLast;
+                moveFirstBtn.disabled = !hasImages || isFirst;
+                moveLastBtn.disabled = !hasImages || isLast;
+            }
+        }
+        
+        // 🔴 تحديث التنقل
+        function updateNavigationButtons() {
+            const hasImages = images.length > 0;
+            const isFirst = currentImageIndex === 0;
+            const isLast = currentImageIndex === images.length - 1;
+            
+            if (prevBtn) prevBtn.disabled = !hasImages || isFirst;
+            if (nextBtn) nextBtn.disabled = !hasImages || isLast;
+        }
+        
+        function updateNavigationInfo() {
+            currentImageIndexEl.textContent = currentImageIndex + 1;
+            totalImagesCount.textContent = images.length;
+            updateNavigationButtons();
+            updateMoveButtons();
+            highlightCurrentImage();
+        }
+        
+        function navigateImage(direction) {
+            if (direction === 'prev' && currentImageIndex > 0) {
+                currentImageIndex--;
+            } else if (direction === 'next' && currentImageIndex < images.length - 1) {
+                currentImageIndex++;
+            }
+            updateNavigationInfo();
+        }
+        
+        function highlightCurrentImage() {
+            document.querySelectorAll('.preview-item').forEach(item => {
+                item.classList.remove('active');
+            });
+            
+            const currentItem = document.querySelector(`.preview-item[data-index="${currentImageIndex}"]`);
+            if (currentItem) {
+                currentItem.classList.add('active');
+                // سلاسة التمرير على الأجهزة الذكية
+                if ('ontouchstart' in window) {
+                    currentItem.scrollIntoView({ 
+                        behavior: 'smooth', 
+                        block: 'nearest'
+                    });
+                } else {
+                    currentItem.scrollIntoView({ 
+                        behavior: 'smooth', 
+                        block: 'nearest', 
+                        inline: 'center' 
+                    });
+                }
+            }
+        }
+        
+        // 🔴 تحويل الصور إلى PDF مع مراعاة التدوير
         async function convertImagesToPDF() {
             if (images.length === 0) {
-                showNotification('Please upload images first', 'error');
+                showNotification(currentLanguage === 'en' ? 
+                    'Please upload images first' : 
+                    'يرجى تحميل الصور أولاً', 'error');
                 return;
             }
             
             const btn = document.getElementById('convert-btn1');
+            const originalText = btn.innerHTML;
+            btn.innerHTML = '<i class="fas fa-spinner fa-spin"></i>' + 
+                           (currentLanguage === 'en' ? ' Creating PDF...' : ' جاري إنشاء PDF...');
             btn.disabled = true;
-            btn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Creating PDF...';
+            
+            const progressBar = document.getElementById('pdfProgress');
+            const progressFill = progressBar.querySelector('.progress-bar');
+            progressBar.style.display = 'block';
+            progressFill.style.width = '10%';
             
             try {
                 const { jsPDF } = window.jspdf;
-                const pdf = new jsPDF();
                 
-                for (let i = 0; i < images.length; i++) {
-                    const img = await loadImageWithOrientation(images[i]);
-                    
+                progressFill.style.width = '20%';
+                
+                // تحميل الصور مع مراعاة التدوير
+                const imagePromises = images.map(async (file, index) => {
+                    const rotation = imageRotations.get(file) || 0;
+                    const img = await loadAndRotateImage(file, rotation);
+                    return { img, file };
+                });
+                
+                const loadedImages = await Promise.all(imagePromises);
+                progressFill.style.width = '40%';
+                
+                let pdf = null;
+                
+                for (let i = 0; i < loadedImages.length; i++) {
+                    const { img, file } = loadedImages[i];
                     if (!img) continue;
                     
-                    const pageWidth = pdf.internal.pageSize.getWidth();
-                    const pageHeight = pdf.internal.pageSize.getHeight();
-                    const imgWidth = img.width;
-                    const imgHeight = img.height;
+                    // حساب أبعاد الصورة بعد التدوير
+                    const rotation = imageRotations.get(file) || 0;
+                    let imgWidth = img.naturalWidth || img.width;
+                    let imgHeight = img.naturalHeight || img.height;
                     
-                    const ratio = Math.min(pageWidth / imgWidth, pageHeight / imgHeight);
-                    const width = imgWidth * ratio;
-                    const height = imgHeight * ratio;
-                    const x = (pageWidth - width) / 2;
-                    const y = (pageHeight - height) / 2;
+                    // إذا كانت الصورة مائلة 90° أو 270°, تبادل الأبعاد
+                    if (rotation === 90 || rotation === 270 || rotation === -90 || rotation === -270) {
+                        [imgWidth, imgHeight] = [imgHeight, imgWidth];
+                    }
                     
-                    if (i > 0) pdf.addPage();
+                    const mmWidth = (imgWidth * 25.4) / 96;
+                    const mmHeight = (imgHeight * 25.4) / 96;
                     
-                    const canvas = document.createElement('canvas');
-                    canvas.width = img.width;
-                    canvas.height = img.height;
-                    const ctx = canvas.getContext('2d');
-                    ctx.drawImage(img, 0, 0);
+                    const pageWidth = mmWidth;
+                    const pageHeight = mmHeight;
                     
-                    const dataUrl = canvas.toDataURL('image/jpeg', 0.95);
-                    pdf.addImage(dataUrl, 'JPEG', x, y, width, height);
+                    if (i === 0) {
+                        pdf = new jsPDF({
+                            unit: 'mm',
+                            format: [pageWidth, pageHeight],
+                            compress: true,
+                            orientation: pageWidth > pageHeight ? 'landscape' : 'portrait'
+                        });
+                    } else {
+                        pdf.addPage([pageWidth, pageHeight], pageWidth > pageHeight ? 'landscape' : 'portrait');
+                    }
+                    
+                    const dataUrl = await getImageDataUrl(file, rotation);
+                    pdf.addImage(dataUrl, 'JPEG', 0, 0, mmWidth, mmHeight, '', 'FAST');
+                    
+                    progressFill.style.width = `${40 + ((i + 1) / loadedImages.length) * 50}%`;
+                    
+                    // إشعار التقدم
+                    if ((i + 1) % 5 === 0 || i === loadedImages.length - 1) {
+                        showNotification(currentLanguage === 'en' ? 
+                            `Processing ${i + 1} of ${loadedImages.length} images...` : 
+                            `جاري معالجة ${i + 1} من ${loadedImages.length} صورة...`, 'success');
+                    }
                 }
                 
-                pdf.save(`PDFConvertMagic_${Date.now()}.pdf`);
-                showNotification('PDF created successfully!', 'success');
+                progressFill.style.width = '95%';
+                const timestamp = Date.now();
+                const filename = `PDFConvertMagic_${timestamp}.pdf`;
+                pdf.save(filename);
+                
+                progressFill.style.width = '100%';
+                showNotification(currentLanguage === 'en' ? 
+                    `✅ PDF created successfully with ${images.length} pages!` : 
+                    `✅ تم إنشاء PDF بنجاح بـ ${images.length} صفحة!`, 'success');
+                
+                setTimeout(() => {
+                    progressBar.style.display = 'none';
+                    progressFill.style.width = '0%';
+                }, 1500);
                 
             } catch (error) {
                 console.error('PDF conversion error:', error);
-                showNotification('Conversion failed. Please try again.', 'error');
+                showNotification(currentLanguage === 'en' ? 
+                    '❌ Conversion failed. Please try again.' : 
+                    '❌ فشل التحويل. يرجى المحاولة مرة أخرى.', 'error');
             } finally {
+                btn.innerHTML = '<i class="fas fa-file-pdf"></i><span id="btn1-text">' + 
+                               (currentLanguage === 'en' ? 'Convert to PDF' : 'تحويل إلى PDF') + '</span>';
                 btn.disabled = false;
-                btn.innerHTML = '<i class="fas fa-file-pdf"></i><span id="btn1-text">Convert to PDF</span>';
             }
+        }
+        
+        // 🔴 تحميل وتدوير الصورة
+        async function loadAndRotateImage(file, rotation) {
+            return new Promise((resolve) => {
+                const img = new Image();
+                img.onload = function() {
+                    if (rotation === 0) {
+                        resolve(img);
+                        return;
+                    }
+                    
+                    // إنشاء canvas لتطبيق التدوير
+                    const canvas = document.createElement('canvas');
+                    const ctx = canvas.getContext('2d');
+                    
+                    // حساب أبعاد canvas بعد التدوير
+                    if (rotation === 90 || rotation === 270 || rotation === -90 || rotation === -270) {
+                        canvas.width = img.height;
+                        canvas.height = img.width;
+                    } else {
+                        canvas.width = img.width;
+                        canvas.height = img.height;
+                    }
+                    
+                    // تدوير وإعادة رسم الصورة
+                    ctx.translate(canvas.width / 2, canvas.height / 2);
+                    ctx.rotate(rotation * Math.PI / 180);
+                    ctx.drawImage(img, -img.width / 2, -img.height / 2);
+                    
+                    // إنشاء صورة جديدة من canvas
+                    const rotatedImg = new Image();
+                    rotatedImg.onload = () => resolve(rotatedImg);
+                    rotatedImg.src = canvas.toDataURL('image/jpeg', 0.95);
+                };
+                img.onerror = () => {
+                    console.warn('Failed to load image:', file.name);
+                    resolve(null);
+                };
+                img.src = URL.createObjectURL(file);
+            });
+        }
+        
+        // 🔴 الحصول على dataUrl للصورة مع مراعاة التدوير
+        async function getImageDataUrl(file, rotation) {
+            return new Promise((resolve) => {
+                if (rotation === 0) {
+                    const reader = new FileReader();
+                    reader.onload = (e) => resolve(e.target.result);
+                    reader.onerror = () => {
+                        console.warn('Failed to read image:', file.name);
+                        resolve(URL.createObjectURL(file));
+                    };
+                    reader.readAsDataURL(file);
+                } else {
+                    // إنشاء canvas وتدوير الصورة
+                    const img = new Image();
+                    img.onload = function() {
+                        const canvas = document.createElement('canvas');
+                        const ctx = canvas.getContext('2d');
+                        
+                        if (rotation === 90 || rotation === 270 || rotation === -90 || rotation === -270) {
+                            canvas.width = img.height;
+                            canvas.height = img.width;
+                        } else {
+                            canvas.width = img.width;
+                            canvas.height = img.height;
+                        }
+                        
+                        ctx.translate(canvas.width / 2, canvas.height / 2);
+                        ctx.rotate(rotation * Math.PI / 180);
+                        ctx.drawImage(img, -img.width / 2, -img.height / 2);
+                        
+                        resolve(canvas.toDataURL('image/jpeg', 0.95));
+                    };
+                    img.src = URL.createObjectURL(file);
+                }
+            });
         }
         
         // 🔴 استخراج الصور من PDF
         async function convertPDFToImages() {
             if (!currentPDFFile) {
-                showNotification('Please upload a PDF file first', 'error');
+                showNotification(currentLanguage === 'en' ? 
+                    'Please upload a PDF file first' : 
+                    'يرجى تحميل ملف PDF أولاً', 'error');
                 return;
             }
             
             const btn = document.getElementById('convert-btn2');
+            const originalText = btn.innerHTML;
+            btn.innerHTML = '<i class="fas fa-spinner fa-spin"></i>' + 
+                           (currentLanguage === 'en' ? ' Extracting images...' : ' جاري استخراج الصور...');
             btn.disabled = true;
-            btn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Extracting images...';
+            
+            const progressBar = document.getElementById('imageProgress');
+            const progressFill = progressBar.querySelector('.progress-bar');
+            progressBar.style.display = 'block';
+            progressFill.style.width = '10%';
             
             try {
                 const arrayBuffer = await currentPDFFile.arrayBuffer();
                 const pdf = await pdfjsLib.getDocument({ data: arrayBuffer }).promise;
                 const totalPages = pdf.numPages;
                 
+                if (totalPages > 50) {
+                    showNotification(currentLanguage === 'en' ? 
+                        'Large PDF detected. Extraction may take longer.' : 
+                        'تم اكتشاف ملف PDF كبير. قد يستغرق الاستخراج وقتاً أطول.', 'success');
+                }
+                
+                const downloadPromises = [];
+                
                 for (let i = 1; i <= totalPages; i++) {
+                    progressFill.style.width = `${10 + ((i / totalPages) * 80)}%`;
+                    
                     const page = await pdf.getPage(i);
                     const viewport = page.getViewport({ scale: 2.0 });
                     
@@ -1335,25 +3014,58 @@
                     canvas.width = viewport.width;
                     canvas.height = viewport.height;
                     
-                    await page.render({ canvasContext: context, viewport: viewport }).promise;
+                    await page.render({
+                        canvasContext: context,
+                        viewport: viewport
+                    }).promise;
                     
                     const dataUrl = canvas.toDataURL('image/jpeg', 0.95);
+                    downloadPromises.push({
+                        dataUrl,
+                        pageNumber: i
+                    });
+                    
+                    // إشعار تقدم كل 10 صفحات
+                    if (i % 10 === 0 || i === totalPages) {
+                        showNotification(currentLanguage === 'en' ? 
+                            `Extracted ${i} of ${totalPages} pages...` : 
+                            `تم استخراج ${i} من ${totalPages} صفحة...`, 'success');
+                    }
+                }
+                
+                progressFill.style.width = '95%';
+                
+                for (const item of downloadPromises) {
                     const a = document.createElement('a');
-                    a.href = dataUrl;
-                    a.download = `PDF_Page_${i}.jpg`;
+                    a.href = item.dataUrl;
+                    a.download = `PDFConvertMagic_Page_${item.pageNumber}_${currentPDFFile.name.replace('.pdf', '')}.jpg`;
+                    a.style.display = 'none';
+                    document.body.appendChild(a);
                     a.click();
+                    document.body.removeChild(a);
                     
                     await new Promise(resolve => setTimeout(resolve, 100));
                 }
                 
-                showNotification(`Successfully extracted ${totalPages} images!`, 'success');
+                progressFill.style.width = '100%';
+                showNotification(currentLanguage === 'en' ? 
+                    `✅ Successfully converted ${totalPages} pages to images!` : 
+                    `✅ تم تحويل ${totalPages} صفحة إلى صور بنجاح!`, 'success');
+                
+                setTimeout(() => {
+                    progressBar.style.display = 'none';
+                    progressFill.style.width = '0%';
+                }, 1500);
                 
             } catch (error) {
-                console.error('PDF extraction error:', error);
-                showNotification('Extraction failed. Please try again.', 'error');
+                console.error('PDF to images error:', error);
+                showNotification(currentLanguage === 'en' ? 
+                    '❌ Extraction failed. Please try again.' : 
+                    '❌ فشل الاستخراج. يرجى المحاولة مرة أخرى.', 'error');
             } finally {
+                btn.innerHTML = '<i class="fas fa-download"></i><span id="btn4-text">' + 
+                               (currentLanguage === 'en' ? 'Extract Images' : 'استخراج الصور') + '</span>';
                 btn.disabled = false;
-                btn.innerHTML = '<i class="fas fa-download"></i><span id="btn4-text">Extract Images</span>';
             }
         }
         
@@ -1363,66 +3075,78 @@
             previewSection.style.display = 'none';
             imageInput.value = '';
             currentImageIndex = 0;
-            showNotification('All images cleared', 'success');
+            showNotification(currentLanguage === 'en' ? 
+                'All images cleared' : 
+                'تم مسح جميع الصور', 'success');
         }
         
-        function updateNavigationButtons() {
-            const hasImages = images.length > 0;
-            const isFirst = currentImageIndex === 0;
-            const isLast = currentImageIndex === images.length - 1;
-            
-            document.getElementById('prevBtn').disabled = !hasImages || isFirst;
-            document.getElementById('nextBtn').disabled = !hasImages || isLast;
-        }
-        
-        function navigateImage(direction) {
-            if (direction === 'prev' && currentImageIndex > 0) {
-                currentImageIndex--;
-            } else if (direction === 'next' && currentImageIndex < images.length - 1) {
-                currentImageIndex++;
-            }
-            
-            document.getElementById('currentImageIndex').textContent = currentImageIndex + 1;
-            updateNavigationButtons();
+        function clearPDF() {
+            currentPDFFile = null;
+            pdfFileInfo.style.display = 'none';
+            pdfInput.value = '';
+            showNotification(currentLanguage === 'en' ? 
+                'PDF file removed' : 
+                'تم إزالة ملف PDF', 'success');
         }
         
         function showNotification(message, type = 'success') {
-            const notification = document.createElement('div');
-            notification.style.cssText = `
-                position: fixed;
-                top: 100px;
-                right: 20px;
-                background: ${type === 'success' ? '#00D4AA' : '#FF4444'};
-                color: white;
-                padding: 12px 20px;
-                border-radius: 8px;
-                z-index: 9999;
-                font-weight: 600;
-                box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+            notification.innerHTML = `
+                <i class="fas fa-${type === 'success' ? 'check-circle' : 'exclamation-circle'}" 
+                   style="color: ${type === 'success' ? 'var(--accent)' : '#FF4444'}; font-size: 18px;"></i>
+                <span style="flex: 1; font-size: 14px; font-weight: 600;">${message}</span>
             `;
-            notification.textContent = message;
-            document.body.appendChild(notification);
+            notification.className = `notification ${type}`;
+            notification.style.display = 'flex';
             
-            setTimeout(() => notification.remove(), 3000);
+            setTimeout(() => {
+                notification.style.display = 'none';
+            }, 3000);
         }
         
         function setLanguage(lang) {
             currentLanguage = lang;
             updateLanguage(lang);
+            
             document.documentElement.dir = lang === 'ar' ? 'rtl' : 'ltr';
             document.documentElement.lang = lang;
             
-            // تحديث أزرار اللغة
-            document.querySelectorAll('.lang-btn').forEach(btn => btn.classList.remove('active'));
+            if (lang === 'ar') {
+                showNotification('تم تغيير اللغة إلى العربية', 'success');
+            } else {
+                showNotification('Language changed to English', 'success');
+            }
+            
+            document.querySelectorAll('.lang-btn').forEach(btn => {
+                btn.classList.remove('active');
+            });
             event.target.closest('.lang-btn').classList.add('active');
         }
         
         function updateLanguage(lang) {
             const t = translations[lang];
+            
             Object.keys(t).forEach(key => {
                 const element = document.getElementById(key);
-                if (element) element.textContent = t[key];
+                if (element) {
+                    element.textContent = t[key];
+                }
             });
+        }
+        
+        function openModal(modalId) {
+            const modal = document.getElementById(modalId + 'Modal');
+            if (modal) {
+                modal.style.display = 'flex';
+                document.body.style.overflow = 'hidden';
+            }
+        }
+        
+        function closeModal(modalId) {
+            const modal = document.getElementById(modalId + 'Modal');
+            if (modal) {
+                modal.style.display = 'none';
+                document.body.style.overflow = 'auto';
+            }
         }
         
         function loadAdSense() {
@@ -1436,5 +3160,24 @@
             cleanImageMemory();
         });
     </script>
+<section class="seo-content" style="max-width:900px;margin:40px auto;padding:20px;line-height:1.8;">
+<h2>What is PDFConvertMagic?</h2>
+<p>PDFConvertMagic is a free online platform that provides powerful and easy-to-use PDF tools directly in your browser. You can convert, merge, compress, split, and manage PDF files without installing any software. All tools work instantly and are designed for students, professionals, and anyone who works with documents.</p>
+<h2>Free Online PDF Tools</h2>
+<p>Our website offers a complete set of PDF utilities including PDF to Word conversion, image to PDF creation, PDF compression, file merging, and document protection. Everything runs securely in your browser, making PDFConvertMagic one of the fastest and most convenient online PDF toolkits available.</p>
+<h2>Why Choose PDFConvertMagic?</h2>
+<ul>
+<li>No registration required</li>
+<li>Works on mobile and desktop</li>
+<li>Fast browser-based processing</li>
+<li>Simple and clean interface</li>
+<li>Free tools with no hidden limits</li>
+</ul>
+<h2>Safe & Private PDF Processing</h2>
+<p>Your files are processed securely, and we respect your privacy. PDFConvertMagic helps you work with documents safely and efficiently.</p>
+<h2>Use PDFConvertMagic Anywhere</h2>
+<p>Whether you need to convert PDFs for school, compress documents for email, or merge files for work, PDFConvertMagic gives you instant access to professional PDF tools from any device with a web browser.</p>
+</section>
+
 </body>
 </html>
