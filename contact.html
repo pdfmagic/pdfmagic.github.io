@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>من نحن - PDFConvertMagic</title>
-    <meta name="description" content="تعرف على فريق PDFConvertMagic ورسالتنا في تقديم أفضل أدوات PDF مجانية عبر الإنترنت.">
+    <title>اتصل بنا - PDFConvertMagic</title>
+    <meta name="description" content="تواصل مع فريق PDFConvertMagic للإقتراحات، الدعم الفني، أو أي استفسارات أخرى.">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
         * { margin: 0; padding: 0; box-sizing: border-box; }
@@ -29,13 +29,18 @@
         
         .content-section { padding: 60px 0; }
         .section-title { font-size: 32px; font-weight: 900; margin-bottom: 30px; text-align: center; }
-        .about-content { background: white; padding: 40px; border-radius: 16px; box-shadow: 0 6px 20px rgba(0,0,0,0.08); }
-        .about-text { font-size: 16px; line-height: 1.8; margin-bottom: 25px; color: #4A5568; }
         
-        .features-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 25px; margin-top: 40px; }
-        .feature-card { background: #F8FAFC; padding: 25px; border-radius: 12px; text-align: center; border: 1px solid #E2E8F0; }
-        .feature-icon { font-size: 40px; color: #4A6FFF; margin-bottom: 15px; }
-        .feature-title { font-size: 18px; font-weight: 700; margin-bottom: 10px; }
+        .contact-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; margin-top: 40px; }
+        .contact-card { background: white; padding: 30px; border-radius: 16px; box-shadow: 0 6px 20px rgba(0,0,0,0.08); }
+        .contact-icon { font-size: 40px; color: #4A6FFF; margin-bottom: 20px; }
+        .contact-title { font-size: 20px; font-weight: 700; margin-bottom: 15px; color: #1A1F36; }
+        .contact-desc { color: #64748B; margin-bottom: 20px; }
+        .contact-info { color: #4A6FFF; font-weight: 600; font-size: 18px; }
+        
+        .faq-section { margin-top: 60px; }
+        .faq-item { background: white; padding: 25px; border-radius: 12px; margin-bottom: 20px; box-shadow: 0 4px 12px rgba(0,0,0,0.05); border-left: 4px solid #4A6FFF; }
+        .faq-question { font-size: 18px; font-weight: 700; color: #1A1F36; margin-bottom: 10px; }
+        .faq-answer { color: #64748B; }
         
         .footer { background: #1A1F36; color: white; padding: 50px 0 30px; margin-top: 60px; }
         .footer-content { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 30px; margin-bottom: 30px; }
@@ -46,8 +51,7 @@
         @media (max-width: 768px) {
             .hero { padding: 80px 0 30px; }
             .hero-title { font-size: 32px; }
-            .about-content { padding: 25px; }
-            .features-grid { grid-template-columns: 1fr; }
+            .contact-grid { grid-template-columns: 1fr; }
         }
     </style>
 </head>
@@ -71,9 +75,9 @@
         <div class="container">
             <div class="nav-links">
                 <a href="index.html">الصفحة الرئيسية</a>
-                <a href="about.html" class="active">من نحن</a>
+                <a href="about.html">من نحن</a>
                 <a href="blog.html">مقالات</a>
-                <a href="contact.html">اتصل بنا</a>
+                <a href="contact.html" class="active">اتصل بنا</a>
                 <a href="privacy-policy.html">سياسة الخصوصية</a>
                 <a href="terms.html">شروط الخدمة</a>
             </div>
@@ -82,59 +86,66 @@
 
     <section class="hero">
         <div class="container">
-            <h1 class="hero-title">من <span>نحن</span></h1>
-            <p class="hero-desc">فريق ملتزم بتقديم أفضل أدوات PDF مجانية عبر الإنترنت</p>
+            <h1 class="hero-title">اتصل <span>بنا</span></h1>
+            <p class="hero-desc">نحن هنا لمساعدتك في أي وقت</p>
         </div>
     </section>
 
     <section class="content-section">
         <div class="container">
-            <div class="about-content">
-                <h2 class="section-title">قصتنا ورسالتنا</h2>
-                
-                <p class="about-text">
-                    PDFConvertMagic بدأ كفكرة بسيطة: تقديم أدوات PDF مجانية وسهلة للجميع. لاحظنا أن العديد من المواقع تقدم خدمات بمقابل أو تطلب تسجيل، فأردنا أن نكون البديل المجاني والبسيط.
-                </p>
-                
-                <p class="about-text">
-                    نؤمن بأن الأدوات الرقمية يجب أن تكون مجانية للجميع. لهذا طورنا منصة تعمل في متصفحك مباشرة، بدون تحميل برامج، وبنفس جودة الأدوات المدفوعة.
-                </p>
-                
-                <p class="about-text">
-                    كل أدواتنا تعمل محلياً على جهازك. ملفاتك تبقى خاصة ولا تصل إلينا أبداً. نضع خصوصيتك في المقام الأول.
-                </p>
-                
-                <h3 style="color: #4A6FFF; margin: 30px 0 15px; font-size: 24px;">قيمنا الأساسية</h3>
-                
-                <div class="features-grid">
-                    <div class="feature-card">
-                        <div class="feature-icon"><i class="fas fa-lock"></i></div>
-                        <h3 class="feature-title">الخصوصية أولاً</h3>
-                        <p>ملفاتك تبقى على جهازك ولا نرسلها لسيرفراتنا</p>
+            <h2 class="section-title">طرق التواصل معنا</h2>
+            
+            <div class="contact-grid">
+                <div class="contact-card">
+                    <div class="contact-icon">
+                        <i class="fas fa-envelope"></i>
                     </div>
-                    
-                    <div class="feature-card">
-                        <div class="feature-icon"><i class="fas fa-star"></i></div>
-                        <h3 class="feature-title">جودة احترافية</h3>
-                        <p>نتائج بمستوى احترافي بدون فقدان الجودة</p>
-                    </div>
-                    
-                    <div class="feature-card">
-                        <div class="feature-icon"><i class="fas fa-infinity"></i></div>
-                        <h3 class="feature-title">مجاني دائمًا</h3>
-                        <p>خدماتنا مجانية للجميع، بدون رسوم خفية</p>
-                    </div>
-                    
-                    <div class="feature-card">
-                        <div class="feature-icon"><i class="fas fa-globe"></i></div>
-                        <h3 class="feature-title">يدعم العربية</h3>
-                        <p>واجهة كاملة باللغة العربية لراحتك</p>
-                    </div>
+                    <h3 class="contact-title">البريد الإلكتروني</h3>
+                    <p class="contact-desc">للاستفسارات العامة، الدعم الفني، أو الاقتراحات</p>
+                    <div class="contact-info">contact@pdfmagic.github.io</div>
                 </div>
                 
-                <p class="about-text" style="margin-top: 40px;">
-                    نطور أدوات جديدة باستمرار ونحسن الحالية بناءً على ملاحظات المستخدمين. هدفنا أن نكون المنصة الشاملة لكل ما تحتاجه مع ملفات PDF.
-                </p>
+                <div class="contact-card">
+                    <div class="contact-icon">
+                        <i class="fas fa-question-circle"></i>
+                    </div>
+                    <h3 class="contact-title">الدعم الفني</h3>
+                    <p class="contact-desc">مساعدة في استخدام الأدوات أو حل المشاكل التقنية</p>
+                    <div class="contact-info">support@pdfmagic.github.io</div>
+                </div>
+                
+                <div class="contact-card">
+                    <div class="contact-icon">
+                        <i class="fas fa-lightbulb"></i>
+                    </div>
+                    <h3 class="contact-title">اقتراحات وتحسينات</h3>
+                    <p class="contact-desc">مقترحاتك تساعدنا في تحسين الخدمة</p>
+                    <div class="contact-info">feedback@pdfmagic.github.io</div>
+                </div>
+            </div>
+            
+            <div class="faq-section">
+                <h2 class="section-title">أسئلة شائعة</h2>
+                
+                <div class="faq-item">
+                    <div class="faq-question">ما هو وقت الاستجابة المتوقع؟</div>
+                    <div class="faq-answer">نحاول الرد على جميع الرسائل خلال 24-48 ساعة في أيام العمل. قد يستغرق الرد وقتاً أطول في عطلات نهاية الأسبوع.</div>
+                </div>
+                
+                <div class="faq-item">
+                    <div class="faq-question">هل تقدمون دعم فني مجاني؟</div>
+                    <div class="faq-answer">نعم، جميع خدمات الدعم الفني مجانية تماماً. نحن هنا لمساعدتك في أي مشكلة تواجهك مع أدواتنا.</div>
+                </div>
+                
+                <div class="faq-item">
+                    <div class="faq-question">كيف يمكنني اقتراح أداة جديدة؟</div>
+                    <div class="faq-answer">يمكنك إرسال اقتراحاتك عبر البريد الإلكتروني. نقرأ جميع الاقتراحات ونأخذها بعين الاعتبار في تطوير أدوات جديدة.</div>
+                </div>
+                
+                <div class="faq-item">
+                    <div class="faq-question">هل يمكنني التعاون معكم؟</div>
+                    <div class="faq-answer">نعم، نرحب بالتعاون مع المطورين والمصممين. أرسل لنا رسالة عبر البريد الإلكتروني مع تفاصيل عن خبرتك وأفكارك.</div>
+                </div>
             </div>
         </div>
     </section>
