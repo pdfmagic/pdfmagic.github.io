@@ -52,6 +52,31 @@
     
     <!-- ========== 🔴 مكتبات JavaScript إضافية ========== -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+<script>
+// حل بديل إذا لم تحمل المكتبات
+window.onload = function() {
+    if (!window.jspdf) {
+        console.warn("jspdf not loaded, retrying...");
+        const script = document.createElement("script");
+        script.src = "https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js";
+        document.head.appendChild(script);
+    }
+    
+    if (!window.pdfjsLib) {
+        console.warn("pdfjsLib not loaded, retrying...");
+        const script = document.createElement("script");
+        script.src = "https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.16.105/pdf.min.js";
+        document.head.appendChild(script);
+    }
+    
+    if (!window.Sortable) {
+        console.warn("Sortable not loaded, retrying...");
+        const script = document.createElement("script");
+        script.src = "https://cdnjs.cloudflare.com/ajax/libs/Sortable/1.15.0/Sortable.min.js";
+        document.head.appendChild(script);
+    }
+};
+</script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.16.105/pdf.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Sortable/1.15.0/Sortable.min.js"></script>
     
@@ -1572,11 +1597,11 @@
                 </div>
                 
                 <div class="language-switcher">
-                    <button class="lang-btn active" onclick="setLanguage('en')">
+                    <button class="lang-btn active" onclick="setLanguage("en"); return false;">
                         <i class="fas fa-globe"></i>
                         <span>English</span>
                     </button>
-                    <button class="lang-btn" onclick="setLanguage('ar')">
+                    <button class="lang-btn" onclick="setLanguage("ar"); return false;">
                         <i class="fas fa-globe"></i>
                         <span>العربية</span>
                     </button>
@@ -1904,78 +1929,124 @@
     </div>
     
     <!-- ========== 🔴 Footer 🔴 -->
-<footer class="footer">
-    <div class="container">
-        <div class="footer-content">
-            <div class="footer-brand">
-                <div class="footer-logo">
-                    <div class="footer-logo-icon">
-                        <img src="/assets/logo.png" alt="PDFConvertMagic Logo">
-                    </div>
-                    <span>PDFConvertMagic</span>
-                </div>
-                <p class="footer-about" id="footer-about">
-                    منصة مجانية كاملة لأدوات PDF. لا حاجة للتسجيل، آمن وخاص 100%.
-                </p>
-            </div>
-            
-            <div>
-                <div class="footer-links-title">روابط سريعة</div>
-                <div class="footer-links">
-                    <a href="index.html">
-                        <i class="fas fa-home"></i>
-                        <span>الصفحة الرئيسية</span>
-                    </a>
-                    <a href="about.html">
-                        <i class="fas fa-info-circle"></i>
-                        <span>من نحن</span>
-                    </a>
-                    <a href="blog.html">
-                        <i class="fas fa-blog"></i>
-                        <span>مقالات</span>
-                    </a>
-                    <a href="contact.html">
-                        <i class="fas fa-envelope"></i>
-                        <span>اتصل بنا</span>
-                    </a>
-                </div>
-            </div>
-            
-            <div>
-                <div class="footer-links-title">القانونية</div>
-                <div class="footer-links">
-                    <a href="privacy-policy.html">
-                        <i class="fas fa-shield-alt"></i>
-                        <span>سياسة الخصوصية</span>
-                    </a>
-                    <a href="terms.html">
-                        <i class="fas fa-file-contract"></i>
-                        <span>شروط الخدمة</span>
-                    </a>
-                </div>
-            </div>
-            
-            <div>
-                <div class="footer-links-title">أدوات PDF</div>
-                <div class="footer-links">
-                    <a href="#imageUploadArea">
-                        <i class="fas fa-image"></i>
-                        <span>صور إلى PDF</span>
-                    </a>
-                    <a href="#pdfUploadArea">
-                        <i class="fas fa-file-pdf"></i>
-                        <span>PDF إلى صور</span>
-                    </a>
-                </div>
-            </div>
-        </div>
-        
-        <div class="copyright">
-            <p>© 2024 PDFConvertMagic - منصة أدوات PDF الشاملة</p>
-            <p>أدوات PDF مجانية للاستخدام الشخصي والمهني</p>
-        </div>
-    </div>
+<footer class="footer" id="mainFooter">
+    <!-- الفوتر سيتم تحديثه ديناميكياً بواسطة JavaScript -->
 </footer>
+<script>
+// دالة لتحديث الفوتر بناءً على اللغة
+function updateFooterLanguage(lang) {
+    const footer = document.getElementById("mainFooter");
+    if (!footer) return;
+    
+    if (lang === "ar") {
+        footer.innerHTML = `
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-brand">
+                    <div class="footer-logo">
+                        <div class="footer-logo-icon">
+                            <i class="fas fa-file-pdf"></i>
+                        </div>
+                        <span>PDFConvertMagic</span>
+                    </div>
+                    <p style="color: rgba(255, 255, 255, 0.7);">
+                        منصة مجانية كاملة لأدوات PDF
+                    </p>
+                </div>
+                
+                <div>
+                    <h3>روابط سريعة</h3>
+                    <div class="footer-links">
+                        <a href="index.html">الصفحة الرئيسية</a>
+                        <a href="about.html">من نحن</a>
+                        <a href="blog.html">مقالات</a>
+                        <a href="contact.html">اتصل بنا</a>
+                    </div>
+                </div>
+                
+                <div>
+                    <h3>القانونية</h3>
+                    <div class="footer-links">
+                        <a href="privacy-policy.html">سياسة الخصوصية</a>
+                        <a href="terms.html">شروط الخدمة</a>
+                    </div>
+                </div>
+                
+                <div>
+                    <h3>أدوات PDF</h3>
+                    <div class="footer-links">
+                        <a href="#imageUploadArea">صور إلى PDF</a>
+                        <a href="#pdfUploadArea">PDF إلى صور</a>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="copyright">
+                <p>© 2024 PDFConvertMagic. جميع الحقوق محفوظة.</p>
+            </div>
+        </div>`;
+    } else {
+        footer.innerHTML = `
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-brand">
+                    <div class="footer-logo">
+                        <div class="footer-logo-icon">
+                            <i class="fas fa-file-pdf"></i>
+                        </div>
+                        <span>PDFConvertMagic</span>
+                    </div>
+                    <p style="color: rgba(255, 255, 255, 0.7);">
+                        Complete free PDF tools platform
+                    </p>
+                </div>
+                
+                <div>
+                    <h3>Quick Links</h3>
+                    <div class="footer-links">
+                        <a href="index.html">Home</a>
+                        <a href="about.html">About Us</a>
+                        <a href="blog.html">Blog</a>
+                        <a href="contact.html">Contact Us</a>
+                    </div>
+                </div>
+                
+                <div>
+                    <h3>Legal</h3>
+                    <div class="footer-links">
+                        <a href="privacy-policy.html">Privacy Policy</a>
+                        <a href="terms.html">Terms of Service</a>
+                    </div>
+                </div>
+                
+                <div>
+                    <h3>PDF Tools</h3>
+                    <div class="footer-links">
+                        <a href="#imageUploadArea">Images to PDF</a>
+                        <a href="#pdfUploadArea">PDF to Images</a>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="copyright">
+                <p>© 2024 PDFConvertMagic. All rights reserved.</p>
+            </div>
+        </div>`;
+    }
+}
+
+// تحديث الفوتر عند تحميل الصفحة
+document.addEventListener("DOMContentLoaded", function() {
+    updateFooterLanguage(currentLanguage);
+});
+
+// تحديث دالة setLanguage لتشمل تحديث الفوتر
+const originalSetLanguage = window.setLanguage;
+window.setLanguage = function(lang) {
+    originalSetLanguage(lang);
+    updateFooterLanguage(lang);
+};
+</script>
     
     <!-- ========== 🔴 Notification 🔴 -->
     <div class="notification" id="notification"></div>
@@ -2826,399 +2897,79 @@
         }
         
         // 🔴 تحويل الصور إلى PDF مع مراعاة التدوير
-        async function convertImagesToPDF() {
-            if (images.length === 0) {
-                showNotification(currentLanguage === 'en' ? 
-                    'Please upload images first' : 
-                    'يرجى تحميل الصور أولاً', 'error');
-                return;
-            }
+
+<!-- 🔧 إصلاح طارئ للمشاكل -->
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    console.log('🔧 تطبيق إصلاحات طارئة...');
+    
+    // إصلاح زر اللغة
+    const langButtons = document.querySelectorAll('.lang-btn');
+    langButtons.forEach(btn => {
+        btn.onclick = function(e) {
+            e.preventDefault();
+            e.stopPropagation();
             
-            const btn = document.getElementById('convert-btn1');
-            const originalText = btn.innerHTML;
-            btn.innerHTML = '<i class="fas fa-spinner fa-spin"></i>' + 
-                           (currentLanguage === 'en' ? ' Creating PDF...' : ' جاري إنشاء PDF...');
-            btn.disabled = true;
+            const lang = this.querySelector('span').textContent === 'English' ? 'en' : 'ar';
             
-            const progressBar = document.getElementById('pdfProgress');
-            const progressFill = progressBar.querySelector('.progress-bar');
-            progressBar.style.display = 'block';
-            progressFill.style.width = '10%';
+            // تحديث المتغير العالمي
+            window.currentLanguage = lang;
             
-            try {
-                const { jsPDF } = window.jspdf;
-                
-                progressFill.style.width = '20%';
-                
-                // تحميل الصور مع مراعاة التدوير
-                const imagePromises = images.map(async (file, index) => {
-                    const rotation = imageRotations.get(file) || 0;
-                    const img = await loadAndRotateImage(file, rotation);
-                    return { img, file };
-                });
-                
-                const loadedImages = await Promise.all(imagePromises);
-                progressFill.style.width = '40%';
-                
-                let pdf = null;
-                
-                for (let i = 0; i < loadedImages.length; i++) {
-                    const { img, file } = loadedImages[i];
-                    if (!img) continue;
-                    
-                    // حساب أبعاد الصورة بعد التدوير
-                    const rotation = imageRotations.get(file) || 0;
-                    let imgWidth = img.naturalWidth || img.width;
-                    let imgHeight = img.naturalHeight || img.height;
-                    
-                    // إذا كانت الصورة مائلة 90° أو 270°, تبادل الأبعاد
-                    if (rotation === 90 || rotation === 270 || rotation === -90 || rotation === -270) {
-                        [imgWidth, imgHeight] = [imgHeight, imgWidth];
-                    }
-                    
-                    const mmWidth = (imgWidth * 25.4) / 96;
-                    const mmHeight = (imgHeight * 25.4) / 96;
-                    
-                    const pageWidth = mmWidth;
-                    const pageHeight = mmHeight;
-                    
-                    if (i === 0) {
-                        pdf = new jsPDF({
-                            unit: 'mm',
-                            format: [pageWidth, pageHeight],
-                            compress: true,
-                            orientation: pageWidth > pageHeight ? 'landscape' : 'portrait'
-                        });
-                    } else {
-                        pdf.addPage([pageWidth, pageHeight], pageWidth > pageHeight ? 'landscape' : 'portrait');
-                    }
-                    
-                    const dataUrl = await getImageDataUrl(file, rotation);
-                    pdf.addImage(dataUrl, 'JPEG', 0, 0, mmWidth, mmHeight, '', 'FAST');
-                    
-                    progressFill.style.width = `${40 + ((i + 1) / loadedImages.length) * 50}%`;
-                    
-                    // إشعار التقدم
-                    if ((i + 1) % 5 === 0 || i === loadedImages.length - 1) {
-                        showNotification(currentLanguage === 'en' ? 
-                            `Processing ${i + 1} of ${loadedImages.length} images...` : 
-                            `جاري معالجة ${i + 1} من ${loadedImages.length} صورة...`, 'success');
-                    }
-                }
-                
-                progressFill.style.width = '95%';
-                const timestamp = Date.now();
-                const filename = `PDFConvertMagic_${timestamp}.pdf`;
-                pdf.save(filename);
-                
-                progressFill.style.width = '100%';
-                showNotification(currentLanguage === 'en' ? 
-                    `✅ PDF created successfully with ${images.length} pages!` : 
-                    `✅ تم إنشاء PDF بنجاح بـ ${images.length} صفحة!`, 'success');
-                
-                setTimeout(() => {
-                    progressBar.style.display = 'none';
-                    progressFill.style.width = '0%';
-                }, 1500);
-                
-            } catch (error) {
-                console.error('PDF conversion error:', error);
-                showNotification(currentLanguage === 'en' ? 
-                    '❌ Conversion failed. Please try again.' : 
-                    '❌ فشل التحويل. يرجى المحاولة مرة أخرى.', 'error');
-            } finally {
-                btn.innerHTML = '<i class="fas fa-file-pdf"></i><span id="btn1-text">' + 
-                               (currentLanguage === 'en' ? 'Convert to PDF' : 'تحويل إلى PDF') + '</span>';
-                btn.disabled = false;
-            }
-        }
-        
-        // 🔴 تحميل وتدوير الصورة
-        async function loadAndRotateImage(file, rotation) {
-            return new Promise((resolve) => {
-                const img = new Image();
-                img.onload = function() {
-                    if (rotation === 0) {
-                        resolve(img);
-                        return;
-                    }
-                    
-                    // إنشاء canvas لتطبيق التدوير
-                    const canvas = document.createElement('canvas');
-                    const ctx = canvas.getContext('2d');
-                    
-                    // حساب أبعاد canvas بعد التدوير
-                    if (rotation === 90 || rotation === 270 || rotation === -90 || rotation === -270) {
-                        canvas.width = img.height;
-                        canvas.height = img.width;
-                    } else {
-                        canvas.width = img.width;
-                        canvas.height = img.height;
-                    }
-                    
-                    // تدوير وإعادة رسم الصورة
-                    ctx.translate(canvas.width / 2, canvas.height / 2);
-                    ctx.rotate(rotation * Math.PI / 180);
-                    ctx.drawImage(img, -img.width / 2, -img.height / 2);
-                    
-                    // إنشاء صورة جديدة من canvas
-                    const rotatedImg = new Image();
-                    rotatedImg.onload = () => resolve(rotatedImg);
-                    rotatedImg.src = canvas.toDataURL('image/jpeg', 0.95);
-                };
-                img.onerror = () => {
-                    console.warn('Failed to load image:', file.name);
-                    resolve(null);
-                };
-                img.src = URL.createObjectURL(file);
-            });
-        }
-        
-        // 🔴 الحصول على dataUrl للصورة مع مراعاة التدوير
-        async function getImageDataUrl(file, rotation) {
-            return new Promise((resolve) => {
-                if (rotation === 0) {
-                    const reader = new FileReader();
-                    reader.onload = (e) => resolve(e.target.result);
-                    reader.onerror = () => {
-                        console.warn('Failed to read image:', file.name);
-                        resolve(URL.createObjectURL(file));
-                    };
-                    reader.readAsDataURL(file);
-                } else {
-                    // إنشاء canvas وتدوير الصورة
-                    const img = new Image();
-                    img.onload = function() {
-                        const canvas = document.createElement('canvas');
-                        const ctx = canvas.getContext('2d');
-                        
-                        if (rotation === 90 || rotation === 270 || rotation === -90 || rotation === -270) {
-                            canvas.width = img.height;
-                            canvas.height = img.width;
-                        } else {
-                            canvas.width = img.width;
-                            canvas.height = img.height;
-                        }
-                        
-                        ctx.translate(canvas.width / 2, canvas.height / 2);
-                        ctx.rotate(rotation * Math.PI / 180);
-                        ctx.drawImage(img, -img.width / 2, -img.height / 2);
-                        
-                        resolve(canvas.toDataURL('image/jpeg', 0.95));
-                    };
-                    img.src = URL.createObjectURL(file);
-                }
-            });
-        }
-        
-        // 🔴 استخراج الصور من PDF
-        async function convertPDFToImages() {
-            if (!currentPDFFile) {
-                showNotification(currentLanguage === 'en' ? 
-                    'Please upload a PDF file first' : 
-                    'يرجى تحميل ملف PDF أولاً', 'error');
-                return;
-            }
-            
-            const btn = document.getElementById('convert-btn2');
-            const originalText = btn.innerHTML;
-            btn.innerHTML = '<i class="fas fa-spinner fa-spin"></i>' + 
-                           (currentLanguage === 'en' ? ' Extracting images...' : ' جاري استخراج الصور...');
-            btn.disabled = true;
-            
-            const progressBar = document.getElementById('imageProgress');
-            const progressFill = progressBar.querySelector('.progress-bar');
-            progressBar.style.display = 'block';
-            progressFill.style.width = '10%';
-            
-            try {
-                const arrayBuffer = await currentPDFFile.arrayBuffer();
-                const pdf = await pdfjsLib.getDocument({ data: arrayBuffer }).promise;
-                const totalPages = pdf.numPages;
-                
-                if (totalPages > 50) {
-                    showNotification(currentLanguage === 'en' ? 
-                        'Large PDF detected. Extraction may take longer.' : 
-                        'تم اكتشاف ملف PDF كبير. قد يستغرق الاستخراج وقتاً أطول.', 'success');
-                }
-                
-                const downloadPromises = [];
-                
-                for (let i = 1; i <= totalPages; i++) {
-                    progressFill.style.width = `${10 + ((i / totalPages) * 80)}%`;
-                    
-                    const page = await pdf.getPage(i);
-                    const viewport = page.getViewport({ scale: 2.0 });
-                    
-                    const canvas = document.createElement('canvas');
-                    const context = canvas.getContext('2d');
-                    canvas.width = viewport.width;
-                    canvas.height = viewport.height;
-                    
-                    await page.render({
-                        canvasContext: context,
-                        viewport: viewport
-                    }).promise;
-                    
-                    const dataUrl = canvas.toDataURL('image/jpeg', 0.95);
-                    downloadPromises.push({
-                        dataUrl,
-                        pageNumber: i
-                    });
-                    
-                    // إشعار تقدم كل 10 صفحات
-                    if (i % 10 === 0 || i === totalPages) {
-                        showNotification(currentLanguage === 'en' ? 
-                            `Extracted ${i} of ${totalPages} pages...` : 
-                            `تم استخراج ${i} من ${totalPages} صفحة...`, 'success');
-                    }
-                }
-                
-                progressFill.style.width = '95%';
-                
-                for (const item of downloadPromises) {
-                    const a = document.createElement('a');
-                    a.href = item.dataUrl;
-                    a.download = `PDFConvertMagic_Page_${item.pageNumber}_${currentPDFFile.name.replace('.pdf', '')}.jpg`;
-                    a.style.display = 'none';
-                    document.body.appendChild(a);
-                    a.click();
-                    document.body.removeChild(a);
-                    
-                    await new Promise(resolve => setTimeout(resolve, 100));
-                }
-                
-                progressFill.style.width = '100%';
-                showNotification(currentLanguage === 'en' ? 
-                    `✅ Successfully converted ${totalPages} pages to images!` : 
-                    `✅ تم تحويل ${totalPages} صفحة إلى صور بنجاح!`, 'success');
-                
-                setTimeout(() => {
-                    progressBar.style.display = 'none';
-                    progressFill.style.width = '0%';
-                }, 1500);
-                
-            } catch (error) {
-                console.error('PDF to images error:', error);
-                showNotification(currentLanguage === 'en' ? 
-                    '❌ Extraction failed. Please try again.' : 
-                    '❌ فشل الاستخراج. يرجى المحاولة مرة أخرى.', 'error');
-            } finally {
-                btn.innerHTML = '<i class="fas fa-download"></i><span id="btn4-text">' + 
-                               (currentLanguage === 'en' ? 'Extract Images' : 'استخراج الصور') + '</span>';
-                btn.disabled = false;
-            }
-        }
-        
-        function clearAllImages() {
-            cleanImageMemory();
-            images = [];
-            previewSection.style.display = 'none';
-            imageInput.value = '';
-            currentImageIndex = 0;
-            showNotification(currentLanguage === 'en' ? 
-                'All images cleared' : 
-                'تم مسح جميع الصور', 'success');
-        }
-        
-        function clearPDF() {
-            currentPDFFile = null;
-            pdfFileInfo.style.display = 'none';
-            pdfInput.value = '';
-            showNotification(currentLanguage === 'en' ? 
-                'PDF file removed' : 
-                'تم إزالة ملف PDF', 'success');
-        }
-        
-        function showNotification(message, type = 'success') {
-            notification.innerHTML = `
-                <i class="fas fa-${type === 'success' ? 'check-circle' : 'exclamation-circle'}" 
-                   style="color: ${type === 'success' ? 'var(--accent)' : '#FF4444'}; font-size: 18px;"></i>
-                <span style="flex: 1; font-size: 14px; font-weight: 600;">${message}</span>
-            `;
-            notification.className = `notification ${type}`;
-            notification.style.display = 'flex';
-            
-            setTimeout(() => {
-                notification.style.display = 'none';
-            }, 3000);
-        }
-        
-        function setLanguage(lang) {
-            currentLanguage = lang;
-            updateLanguage(lang);
-            
+            // تحديث اتجاه الصفحة
             document.documentElement.dir = lang === 'ar' ? 'rtl' : 'ltr';
             document.documentElement.lang = lang;
             
+            // تحديث الأزرار النشطة
+            langButtons.forEach(b => b.classList.remove('active'));
+            this.classList.add('active');
+            
+            // تحديث الفوتر
             if (lang === 'ar') {
-                showNotification('تم تغيير اللغة إلى العربية', 'success');
-            } else {
-                showNotification('Language changed to English', 'success');
-            }
-            
-            document.querySelectorAll('.lang-btn').forEach(btn => {
-                btn.classList.remove('active');
-            });
-            event.target.closest('.lang-btn').classList.add('active');
-        }
-        
-        function updateLanguage(lang) {
-            const t = translations[lang];
-            
-            Object.keys(t).forEach(key => {
-                const element = document.getElementById(key);
-                if (element) {
-                    element.textContent = t[key];
+                // تحديث الفوتر للعربية
+                const footer = document.querySelector('.footer');
+                if (footer) {
+                    footer.innerHTML = footer.innerHTML
+                        .replace(/Quick Links/g, 'روابط سريعة')
+                        .replace(/Home/g, 'الصفحة الرئيسية')
+                        .replace(/About Us/g, 'من نحن')
+                        .replace(/Blog/g, 'مقالات')
+                        .replace(/Contact Us/g, 'اتصل بنا')
+                        .replace(/Legal/g, 'القانونية')
+                        .replace(/Privacy Policy/g, 'سياسة الخصوصية')
+                        .replace(/Terms of Service/g, 'شروط الخدمة')
+                        .replace(/PDF Tools/g, 'أدوات PDF')
+                        .replace(/Images to PDF/g, 'صور إلى PDF')
+                        .replace(/PDF to Images/g, 'PDF إلى صور')
+                        .replace(/Complete free PDF tools platform/g, 'منصة مجانية كاملة لأدوات PDF')
+                        .replace(/All rights reserved/g, 'جميع الحقوق محفوظة');
                 }
-            });
-        }
-        
-        function openModal(modalId) {
-            const modal = document.getElementById(modalId + 'Modal');
-            if (modal) {
-                modal.style.display = 'flex';
-                document.body.style.overflow = 'hidden';
+                alert('✅ تم التغيير للغة العربية');
+            } else {
+                // تحديث الفوتر للإنجليزية
+                const footer = document.querySelector('.footer');
+                if (footer) {
+                    footer.innerHTML = footer.innerHTML
+                        .replace(/روابط سريعة/g, 'Quick Links')
+                        .replace(/الصفحة الرئيسية/g, 'Home')
+                        .replace(/من نحن/g, 'About Us')
+                        .replace(/مقالات/g, 'Blog')
+                        .replace(/اتصل بنا/g, 'Contact Us')
+                        .replace(/القانونية/g, 'Legal')
+                        .replace(/سياسة الخصوصية/g, 'Privacy Policy')
+                        .replace(/شروط الخدمة/g, 'Terms of Service')
+                        .replace(/أدوات PDF/g, 'PDF Tools')
+                        .replace(/صور إلى PDF/g, 'Images to PDF')
+                        .replace(/PDF إلى صور/g, 'PDF to Images')
+                        .replace(/منصة مجانية كاملة لأدوات PDF/g, 'Complete free PDF tools platform')
+                        .replace(/جميع الحقوق محفوظة/g, 'All rights reserved');
+                }
+                alert('✅ Changed to English');
             }
-        }
-        
-        function closeModal(modalId) {
-            const modal = document.getElementById(modalId + 'Modal');
-            if (modal) {
-                modal.style.display = 'none';
-                document.body.style.overflow = 'auto';
-            }
-        }
-        
-        function loadAdSense() {
-            setTimeout(function() {
-                (adsbygoogle = window.adsbygoogle || []).push({});
-            }, 1000);
-        }
-        
-        // تنظيف الذاكرة عند مغادرة الصفحة
-        window.addEventListener('beforeunload', function() {
-            cleanImageMemory();
-        });
-    </script>
-<section class="seo-content" style="max-width:900px;margin:40px auto;padding:20px;line-height:1.8;">
-<h2>What is PDFConvertMagic?</h2>
-<p>PDFConvertMagic is a free online platform that provides powerful and easy-to-use PDF tools directly in your browser. You can convert, merge, compress, split, and manage PDF files without installing any software. All tools work instantly and are designed for students, professionals, and anyone who works with documents.</p>
-<h2>Free Online PDF Tools</h2>
-<p>Our website offers a complete set of PDF utilities including PDF to Word conversion, image to PDF creation, PDF compression, file merging, and document protection. Everything runs securely in your browser, making PDFConvertMagic one of the fastest and most convenient online PDF toolkits available.</p>
-<h2>Why Choose PDFConvertMagic?</h2>
-<ul>
-<li>No registration required</li>
-<li>Works on mobile and desktop</li>
-<li>Fast browser-based processing</li>
-<li>Simple and clean interface</li>
-<li>Free tools with no hidden limits</li>
-</ul>
-<h2>Safe & Private PDF Processing</h2>
-<p>Your files are processed securely, and we respect your privacy. PDFConvertMagic helps you work with documents safely and efficiently.</p>
-<h2>Use PDFConvertMagic Anywhere</h2>
-<p>Whether you need to convert PDFs for school, compress documents for email, or merge files for work, PDFConvertMagic gives you instant access to professional PDF tools from any device with a web browser.</p>
-</section>
-
-</body>
-</html>
+            
+            return false;
+        };
+    });
+    
+    console.log('✅ تم تطبيق الإصلاحات');
+});
+</script>
