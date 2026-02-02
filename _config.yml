@@ -1,0 +1,8 @@
+title: "PDFConvertMagic - Free PDF Converter"
+description: "Free online PDF converter. Convert PDF to Word, Excel, JPG and vice versa. Merge, split PDF without registration."
+baseurl: ""
+url: "https://pdfmagic.github.io"
+theme: jekyll-theme-minimal
+github:
+  is_project_page: true
+show_downloads: false
