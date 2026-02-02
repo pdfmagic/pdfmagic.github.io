@@ -1,60 +1,74 @@
 <!DOCTYPE html>
-<html lang="ar" dir="rtl">
+<html lang="en" dir="ltr">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>مقالات عن PDF - PDFConvertMagic</title>
-    <meta name="description" content="مقالات تعليمية عن استخدامات PDF، نصائح، وأفضل الممارسات.">
+    <title>PDF Blog & Tutorials - PDFConvertMagic</title>
+    <meta name="description" content="Educational articles, tips, and best practices for working with PDF files. Learn PDF conversion, security, optimization and more.">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
         * { margin: 0; padding: 0; box-sizing: border-box; }
         body { font-family: 'Inter', -apple-system, sans-serif; background: #f8fafc; color: #1A1F36; line-height: 1.8; }
         .container { max-width: 1200px; margin: 0 auto; padding: 0 20px; }
-        
+
         .header { background: white; padding: 15px 0; border-bottom: 1px solid #e2e8f0; }
         .header-content { display: flex; justify-content: space-between; align-items: center; }
         .logo { display: flex; align-items: center; gap: 15px; text-decoration: none; }
         .logo-img { width: 48px; height: 48px; background: linear-gradient(135deg, #4A6FFF, #FF6B6B); border-radius: 12px; display: flex; align-items: center; justify-content: center; color: white; }
         .logo-text { display: flex; flex-direction: column; }
         .logo-name { font-size: 22px; font-weight: 900; color: #1A1F36; }
-        
+
         .nav-menu { background: white; padding: 10px 0; border-bottom: 1px solid #e2e8f0; margin-top: 15px; }
         .nav-links { display: flex; justify-content: center; gap: 20px; flex-wrap: wrap; }
         .nav-links a { padding: 10px 15px; color: #64748B; text-decoration: none; font-weight: 600; border-radius: 8px; transition: all 0.3s; }
         .nav-links a:hover, .nav-links a.active { background: #4A6FFF; color: white; }
-        
+
         .hero { padding: 100px 0 50px; text-align: center; background: linear-gradient(135deg, rgba(74, 111, 255, 0.05) 0%, rgba(255, 107, 107, 0.05) 100%); }
         .hero-title { font-size: 42px; font-weight: 900; margin-bottom: 20px; }
         .hero-title span { background: linear-gradient(135deg, #4A6FFF, #FF6B6B); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
         .hero-desc { font-size: 18px; color: #64748B; max-width: 700px; margin: 0 auto 30px; }
-        
+
         .content-section { padding: 60px 0; }
         .section-title { font-size: 32px; font-weight: 900; margin-bottom: 40px; text-align: center; }
-        
+
         .blog-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(350px, 1fr)); gap: 30px; }
-        .blog-card { background: white; border-radius: 16px; overflow: hidden; box-shadow: 0 6px 20px rgba(0,0,0,0.08); transition: transform 0.3s; }
-        .blog-card:hover { transform: translateY(-5px); }
+        .blog-card { background: white; border-radius: 16px; overflow: hidden; box-shadow: 0 6px 20px rgba(0,0,0,0.08); transition: transform 0.3s, box-shadow 0.3s; }
+        .blog-card:hover { transform: translateY(-5px); box-shadow: 0 12px 30px rgba(0,0,0,0.12); }
         .blog-image { height: 200px; background: linear-gradient(135deg, #4A6FFF, #FF6B6B); display: flex; align-items: center; justify-content: center; color: white; font-size: 50px; }
         .blog-content { padding: 30px; }
-        .blog-date { color: #94A3B8; font-size: 14px; margin-bottom: 10px; }
+        .blog-meta { display: flex; justify-content: space-between; align-items: center; margin-bottom: 15px; }
+        .blog-date { color: #94A3B8; font-size: 14px; }
+        .blog-category { background: #E2E8F0; color: #64748B; padding: 4px 12px; border-radius: 20px; font-size: 12px; font-weight: 600; }
         .blog-title { font-size: 20px; font-weight: 800; margin-bottom: 15px; color: #1A1F36; }
-        .blog-excerpt { color: #64748B; margin-bottom: 20px; }
-        .read-more { color: #4A6FFF; text-decoration: none; font-weight: 600; display: inline-flex; align-items: center; gap: 8px; }
-        
+        .blog-excerpt { color: #64748B; margin-bottom: 20px; line-height: 1.6; }
+        .read-more { color: #4A6FFF; text-decoration: none; font-weight: 600; display: inline-flex; align-items: center; gap: 8px; transition: gap 0.3s; }
+        .read-more:hover { gap: 12px; }
+
         .categories { display: flex; justify-content: center; gap: 15px; margin: 40px 0; flex-wrap: wrap; }
         .category-btn { padding: 10px 20px; background: #E2E8F0; border: none; border-radius: 20px; color: #64748B; font-weight: 600; cursor: pointer; transition: all 0.3s; }
         .category-btn.active, .category-btn:hover { background: #4A6FFF; color: white; }
-        
+
+        .newsletter { background: linear-gradient(135deg, #4A6FFF, #FF6B6B); color: white; padding: 50px; border-radius: 16px; margin-top: 60px; text-align: center; }
+        .newsletter h2 { font-size: 28px; margin-bottom: 15px; }
+        .newsletter p { margin-bottom: 25px; opacity: 0.9; }
+        .newsletter-form { display: flex; max-width: 500px; margin: 0 auto; }
+        .newsletter-input { flex: 1; padding: 12px 20px; border: none; border-radius: 8px 0 0 8px; font-size: 16px; }
+        .newsletter-btn { background: #1A1F36; color: white; border: none; padding: 12px 25px; border-radius: 0 8px 8px 0; cursor: pointer; font-weight: 600; }
+
         .footer { background: #1A1F36; color: white; padding: 50px 0 30px; margin-top: 60px; }
         .footer-content { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 30px; margin-bottom: 30px; }
         .footer-links a { color: rgba(255, 255, 255, 0.7); text-decoration: none; display: block; margin-bottom: 10px; }
         .footer-links a:hover { color: white; }
         .copyright { text-align: center; padding-top: 30px; border-top: 1px solid rgba(255, 255, 255, 0.1); color: rgba(255, 255, 255, 0.5); }
-        
+
         @media (max-width: 768px) {
             .hero { padding: 80px 0 30px; }
             .hero-title { font-size: 32px; }
             .blog-grid { grid-template-columns: 1fr; }
+            .newsletter { padding: 30px 20px; }
+            .newsletter-form { flex-direction: column; }
+            .newsletter-input, .newsletter-btn { border-radius: 8px; width: 100%; }
+            .newsletter-btn { margin-top: 10px; }
         }
     </style>
 </head>
@@ -77,209 +91,335 @@
     <nav class="nav-menu">
         <div class="container">
             <div class="nav-links">
-                <a href="index.html">الصفحة الرئيسية</a>
-                <a href="about.html">من نحن</a>
-                <a href="blog.html" class="active">مقالات</a>
-                <a href="contact.html">اتصل بنا</a>
-                <a href="privacy-policy.html">سياسة الخصوصية</a>
-                <a href="terms.html">شروط الخدمة</a>
+                <a href="index.html">Home</a>
+                <a href="about.html">About Us</a>
+                <a href="blog.html" class="active">Blog</a>
+                <a href="contact.html">Contact Us</a>
+                <a href="privacy-policy.html">Privacy Policy</a>
+                <a href="terms.html">Terms of Service</a>
             </div>
         </div>
     </nav>
 
     <section class="hero">
         <div class="container">
-            <h1 class="hero-title">مقالات <span>PDF</span></h1>
-            <p class="hero-desc">تعلم كل ما تحتاجه عن ملفات PDF، النصائح، والحيل المفيدة</p>
+            <h1 class="hero-title">PDF <span>Blog & Tutorials</span></h1>
+            <p class="hero-desc">Learn everything about PDF files: conversion tips, security, optimization, and best practices</p>
         </div>
     </section>
 
     <section class="content-section">
         <div class="container">
-            <h2 class="section-title">أحدث المقالات</h2>
-            
+            <h2 class="section-title">Latest Articles</h2>
+
             <div class="categories">
-                <button class="category-btn active">الجميع</button>
-                <button class="category-btn">نصائح PDF</button>
-                <button class="category-btn">تعليمي</button>
-                <button class="category-btn">أدوات مجانية</button>
+                <button class="category-btn active" data-category="all">All Topics</button>
+                <button class="category-btn" data-category="tips">PDF Tips</button>
+                <button class="category-btn" data-category="tutorial">Tutorials</button>
+                <button class="category-btn" data-category="tools">Free Tools</button>
+                <button class="category-btn" data-category="security">Security</button>
             </div>
-            
+
             <div class="blog-grid">
-                <article class="blog-card">
+                <article class="blog-card" data-category="tutorial">
                     <div class="blog-image">
                         <i class="fas fa-graduation-cap"></i>
                     </div>
                     <div class="blog-content">
-                        <div class="blog-date">15 يناير 2024</div>
-                        <h3 class="blog-title">دليل المبتدئين الكامل لملفات PDF</h3>
+                        <div class="blog-meta">
+                            <div class="blog-date">January 15, 2024</div>
+                            <div class="blog-category">Tutorial</div>
+                        </div>
+                        <h3 class="blog-title">Complete Beginner's Guide to PDF Files</h3>
                         <p class="blog-excerpt">
-                            كل ما تحتاج معرفته عن ملفات PDF، من الأساسيات إلى التقنيات المتقدمة. تعرف على مزايا PDF ولماذا أصبح المعيار العالمي للمستندات...
+                            Everything you need to know about PDF files, from basics to advanced techniques. Learn about PDF advantages and why it became the global standard for documents...
                         </p>
                         <a href="#" class="read-more">
-                            اقرأ المزيد <i class="fas fa-arrow-left"></i>
+                            Read Article <i class="fas fa-arrow-right"></i>
                         </a>
                     </div>
                 </article>
-                
-                <article class="blog-card">
+
+                <article class="blog-card" data-category="tips">
                     <div class="blog-image">
                         <i class="fas fa-image"></i>
                     </div>
                     <div class="blog-content">
-                        <div class="blog-date">10 يناير 2024</div>
-                        <h3 class="blog-title">كيف تحول صورك إلى PDF بجودة عالية</h3>
+                        <div class="blog-meta">
+                            <div class="blog-date">January 10, 2024</div>
+                            <div class="blog-category">PDF Tips</div>
+                        </div>
+                        <h3 class="blog-title">How to Convert Images to PDF with High Quality</h3>
                         <p class="blog-excerpt">
-                            دليل عملي خطوة بخطوة لتحويل الصور إلى PDF مع الحفاظ على الجودة. نصائح للصور، الترتيب، والإعدادات المثلى...
+                            Step-by-step practical guide to convert images to PDF while maintaining quality. Tips for images, ordering, and optimal settings...
                         </p>
                         <a href="#" class="read-more">
-                            اقرأ المزيد <i class="fas fa-arrow-left"></i>
+                            Read Article <i class="fas fa-arrow-right"></i>
                         </a>
                     </div>
                 </article>
-                
-                <article class="blog-card">
+
+                <article class="blog-card" data-category="security">
                     <div class="blog-image">
                         <i class="fas fa-shield-alt"></i>
                     </div>
                     <div class="blog-content">
-                        <div class="blog-date">5 يناير 2024</div>
-                        <h3 class="blog-title">أمان وخصوصية ملفات PDF</h3>
+                        <div class="blog-meta">
+                            <div class="blog-date">January 5, 2024</div>
+                            <div class="blog-category">Security</div>
+                        </div>
+                        <h3 class="blog-title">PDF File Security and Privacy</h3>
                         <p class="blog-excerpt">
-                            كيف تحمي ملفات PDF الخاصة بك؟ تعرف على طرق التشفير، كلمات المرور، والحماية من التعديل. نصائح أمنية مهمة...
+                            How to protect your PDF files? Learn about encryption methods, passwords, and protection from modification. Important security tips...
                         </p>
                         <a href="#" class="read-more">
-                            اقرأ المزيد <i class="fas fa-arrow-left"></i>
+                            Read Article <i class="fas fa-arrow-right"></i>
                         </a>
                     </div>
                 </article>
-                
-                <article class="blog-card">
+
+                <article class="blog-card" data-category="tools">
                     <div class="blog-image">
                         <i class="fas fa-mobile-alt"></i>
                     </div>
                     <div class="blog-content">
-                        <div class="blog-date">28 ديسمبر 2023</div>
-                        <h3 class="blog-title">أفضل أدوات PDF المجانية للهاتف</h3>
+                        <div class="blog-meta">
+                            <div class="blog-date">December 28, 2023</div>
+                            <div class="blog-category">Free Tools</div>
+                        </div>
+                        <h3 class="blog-title">Best Free PDF Tools for Smartphones</h3>
                         <p class="blog-excerpt">
-                            قائمة بأفضل التطبيقات والأدوات المجانية للتعامل مع ملفات PDF على الهواتف الذكية. مقارنة بين المزايا والعيوب...
+                            List of the best free applications and tools for working with PDF files on smartphones. Comparison of advantages and disadvantages...
                         </p>
                         <a href="#" class="read-more">
-                            اقرأ المزيد <i class="fas fa-arrow-left"></i>
+                            Read Article <i class="fas fa-arrow-right"></i>
                         </a>
                     </div>
                 </article>
-                
-                <article class="blog-card">
+
+                <article class="blog-card" data-category="tips">
                     <div class="blog-image">
                         <i class="fas fa-briefcase"></i>
                     </div>
                     <div class="blog-content">
-                        <div class="blog-date">20 ديسمبر 2023</div>
-                        <h3 class="blog-title">استخدام PDF في الأعمال التجارية</h3>
+                        <div class="blog-meta">
+                            <div class="blog-date">December 20, 2023</div>
+                            <div class="blog-category">PDF Tips</div>
+                        </div>
+                        <h3 class="blog-title">Using PDF in Business Operations</h3>
                         <p class="blog-excerpt">
-                            كيف تستخدم ملفات PDF لتحسين عملك؟ نماذج عقود، عروض تقديمية، كتالوجات منتجات، وأكثر. أمثلة عملية...
+                            How to use PDF files to improve your business? Contract templates, presentations, product catalogs, and more. Practical examples...
                         </p>
                         <a href="#" class="read-more">
-                            اقرأ المزيد <i class="fas fa-arrow-left"></i>
+                            Read Article <i class="fas fa-arrow-right"></i>
                         </a>
                     </div>
                 </article>
-                
-                <article class="blog-card">
+
+                <article class="blog-card" data-category="tutorial">
                     <div class="blog-image">
                         <i class="fas fa-magic"></i>
                     </div>
                     <div class="blog-content">
-                        <div class="blog-date">15 ديسمبر 2023</div>
-                        <h3 class="blog-title">10 حيل ذكية مع ملفات PDF</h3>
+                        <div class="blog-meta">
+                            <div class="blog-date">December 15, 2023</div>
+                            <div class="blog-category">Tutorial</div>
+                        </div>
+                        <h3 class="blog-title">10 Smart Tricks with PDF Files</h3>
                         <p class="blog-excerpt">
-                            حيل وتقنيات متقدمة قد لا تعرفها عن ملفات PDF. توفير الوقت، تحسين الملفات، وحلول لمشاكل شائعة...
+                            Advanced tricks and techniques you might not know about PDF files. Time saving, file optimization, and solutions for common problems...
                         </p>
                         <a href="#" class="read-more">
-                            اقرأ المزيد <i class="fas fa-arrow-left"></i>
+                            Read Article <i class="fas fa-arrow-right"></i>
                         </a>
                     </div>
                 </article>
             </div>
+
+            <div class="newsletter">
+                <h2>Stay Updated</h2>
+                <p>Subscribe to our newsletter to receive the latest PDF tips, tutorials, and tool updates directly in your inbox.</p>
+                <form class="newsletter-form">
+                    <input type="email" class="newsletter-input" placeholder="Your email address" required>
+                    <button type="submit" class="newsletter-btn">Subscribe</button>
+                </form>
+            </div>
         </div>
     </section>
 
-<footer class="footer">
-    <div class="container">
-        <div class="footer-content">
-            <div class="footer-brand">
-                <div class="footer-logo">
-                    <div class="footer-logo-icon">
-                        <i class="fas fa-file-pdf"></i>
-                    </div>
-                    <span>PDFConvertMagic</span>
-                </div>
-                <p style="color: rgba(255, 255, 255, 0.7);">
-                    منصة مجانية كاملة لأدوات PDF
-                </p>
-            </div>
-            
-            <div>
-                <h3>روابط سريعة</h3>
-                <div class="footer-links">
-                    <a href="index.html">الصفحة الرئيسية</a>
-                    <a href="about.html">من نحن</a>
-                    <a href="blog.html">مقالات</a>
-                    <a href="contact.html">اتصل بنا</a>
-                </div>
-            </div>
-            
-            <div>
-                <h3>القانونية</h3>
-                <div class="footer-links">
-                    <a href="privacy-policy.html">سياسة الخصوصية</a>
-                    <a href="terms.html">شروط الخدمة</a>
-                </div>
-            </div>
-            
-            <div>
-                <h3>أدوات PDF</h3>
-                <div class="footer-links">
-                    <a href="index.html#imageUploadArea">صور إلى PDF</a>
-                    <a href="index.html#pdfUploadArea">PDF إلى صور</a>
-                </div>
-            </div>
-        </div>
-        
-        <div class="copyright">
-            <p>© 2024 PDFConvertMagic. جميع الحقوق محفوظة.</p>
-        </div>
-    </div>
-</footer>
-    
+    <footer class="footer" id="mainFooter">
+        <!-- Footer will be updated dynamically by JavaScript -->
+    </footer>
+
     <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            const categoryBtns = document.querySelectorAll('.category-btn');
-            const blogCards = document.querySelectorAll('.blog-card');
-            
-            categoryBtns.forEach(btn => {
-                btn.addEventListener('click', function() {
-                    // Remove active class from all buttons
-                    categoryBtns.forEach(b => b.classList.remove('active'));
-                    // Add active class to clicked button
-                    this.classList.add('active');
+    // Function to update footer based on language
+    function updateFooterLanguage(lang) {
+        const footer = document.getElementById("mainFooter");
+        if (!footer) return;
+
+        if (lang === "ar") {
+            footer.innerHTML = `
+            <div class="container">
+                <div class="footer-content">
+                    <div class="footer-brand">
+                        <div class="footer-logo">
+                            <div class="footer-logo-icon">
+                                <i class="fas fa-file-pdf"></i>
+                            </div>
+                            <span>PDFConvertMagic</span>
+                        </div>
+                        <p style="color: rgba(255, 255, 255, 0.7);">
+                            منصة أدوات PDF مجانية كاملة
+                        </p>
+                    </div>
+
+                    <div>
+                        <h3>روابط سريعة</h3>
+                        <div class="footer-links">
+                            <a href="index.html">الصفحة الرئيسية</a>
+                            <a href="about.html">من نحن</a>
+                            <a href="blog.html">المدونة</a>
+                            <a href="contact.html">اتصل بنا</a>
+                        </div>
+                    </div>
+
+                    <div>
+                        <h3>القانونية</h3>
+                        <div class="footer-links">
+                            <a href="privacy-policy.html">سياسة الخصوصية</a>
+                            <a href="terms.html">شروط الخدمة</a>
+                        </div>
+                    </div>
+
+                    <div>
+                        <h3>أدوات PDF</h3>
+                        <div class="footer-links">
+                            <a href="index.html#imageUploadArea">صور إلى PDF</a>
+                            <a href="index.html#pdfUploadArea">PDF إلى صور</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="copyright">
+                    <p>© 2024 PDFConvertMagic. جميع الحقوق محفوظة.</p>
+                </div>
+            </div>`;
+        } else {
+            footer.innerHTML = `
+            <div class="container">
+                <div class="footer-content">
+                    <div class="footer-brand">
+                        <div class="footer-logo">
+                            <div class="footer-logo-icon">
+                                <i class="fas fa-file-pdf"></i>
+                            </div>
+                            <span>PDFConvertMagic</span>
+                        </div>
+                        <p style="color: rgba(255, 255, 255, 0.7);">
+                            Complete free PDF tools platform
+                        </p>
+                    </div>
+
+                    <div>
+                        <h3>Quick Links</h3>
+                        <div class="footer-links">
+                            <a href="index.html">Home</a>
+                            <a href="about.html">About Us</a>
+                            <a href="blog.html">Blog</a>
+                            <a href="contact.html">Contact Us</a>
+                        </div>
+                    </div>
+
+                    <div>
+                        <h3>Legal</h3>
+                        <div class="footer-links">
+                            <a href="privacy-policy.html">Privacy Policy</a>
+                            <a href="terms.html">Terms of Service</a>
+                        </div>
+                    </div>
+
+                    <div>
+                        <h3>PDF Tools</h3>
+                        <div class="footer-links">
+                            <a href="index.html#imageUploadArea">Images to PDF</a>
+                            <a href="index.html#pdfUploadArea">PDF to Images</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="copyright">
+                    <p>© 2024 PDFConvertMagic. All rights reserved.</p>
+                </div>
+            </div>`;
+        }
+    }
+
+    // Category filtering functionality
+    document.addEventListener('DOMContentLoaded', function() {
+        // Update footer
+        const currentLang = document.documentElement.lang || "en";
+        updateFooterLanguage(currentLang);
+
+        // Category filtering
+        const categoryBtns = document.querySelectorAll('.category-btn');
+        const blogCards = document.querySelectorAll('.blog-card');
+
+        categoryBtns.forEach(btn => {
+            btn.addEventListener('click', function() {
+                // Remove active class from all buttons
+                categoryBtns.forEach(b => b.classList.remove('active'));
+                // Add active class to clicked button
+                this.classList.add('active');
+
+                const category = this.getAttribute('data-category');
+
+                // Filter blog cards
+                blogCards.forEach(card => {
+                    const cardCategory = card.getAttribute('data-category');
                     
-                    const category = this.textContent;
-                    
-                    // Filter blog cards
-                    blogCards.forEach(card => {
-                        if (category === 'الجميع') {
-                            card.style.display = 'block';
-                        } else {
-                            // In a real implementation, you would check the card's category
-                            // For now, we'll just show all cards
-                            card.style.display = 'block';
-                        }
-                    });
+                    if (category === 'all' || category === cardCategory) {
+                        card.style.display = 'block';
+                        setTimeout(() => {
+                            card.style.opacity = '1';
+                            card.style.transform = 'translateY(0)';
+                        }, 10);
+                    } else {
+                        card.style.opacity = '0';
+                        card.style.transform = 'translateY(10px)';
+                        setTimeout(() => {
+                            card.style.display = 'none';
+                        }, 300);
+                    }
                 });
             });
         });
+
+        // Newsletter form submission
+        const newsletterForm = document.querySelector('.newsletter-form');
+        if (newsletterForm) {
+            newsletterForm.addEventListener('submit', function(e) {
+                e.preventDefault();
+                const emailInput = this.querySelector('.newsletter-input');
+                const email = emailInput.value.trim();
+                
+                if (email) {
+                    alert(`Thank you for subscribing with: ${email}\nYou'll receive our latest updates soon!`);
+                    emailInput.value = '';
+                }
+            });
+        }
+
+        // Add listeners for language buttons if found
+        const langButtons = document.querySelectorAll(".lang-btn");
+        if (langButtons.length > 0) {
+            langButtons.forEach(btn => {
+                btn.addEventListener("click", function() {
+                    const lang = this.getAttribute("onclick").includes("en") ? "en" : "ar";
+                    updateFooterLanguage(lang);
+                });
+            });
+        }
+    });
     </script>
 </body>
 </html>

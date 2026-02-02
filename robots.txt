@@ -1,7 +1,14 @@
 User-agent: *
 Allow: /
 Disallow: /assets/
+Disallow: /google*
 
-# Sitemaps
-Sitemap: https://pdfmagic.github.io/sitemap.xml
-Sitemap: https://pdfmagic.github.io/sitemap_index.xml
+Sitemap: https://pdfmagic.github.io/sitemap-final.xml
+
+# الصفحات المهمة
+Allow: /index.html
+Allow: /about.html
+Allow: /contact.html
+Allow: /privacy-policy.html
+Allow: /terms.html
+Allow: /blog.html
