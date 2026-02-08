@@ -1,1 +1,15 @@
-google.com, pub-7397173829932152, DIRECT, f08c47fec0942fa0
+# Ads.txt file for PDFConvertMagic
+# Active Network: PrepollerAds
+# Website: https://pdfmagic.github.io/
+
+# PrepollerAds Network
+prepollerads.com, 3221233, DIRECT
+
+# Contact Information
+contact=contact@pdfconvertmagic.com
+manager=PDFConvertMagic Team
+issuer=PDFConvertMagic
+verified_date=2026-2-6
+EOF
+
+
