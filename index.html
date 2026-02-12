@@ -5,7 +5,7 @@
     <meta property="og:url" content="https://pdfmagic.github.io/">
     <meta charset="UTF-8">
     <link rel="sitemap" type="application/xml" href="https://pdfmagic.github.io/sitemap-final.xml">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=yes">
+    <meta name="viewport" content="width=device-width, initial-scale=0.85, maximum-scale=3.0, user-scalable=yes">
     
     <!-- 🔴 SEO Meta Tags 🔴 -->
     <title>PDFConvertMagic | Free Online PDF Converter &amp; Tools | Convert PDF to Word, Excel, JPG</title>
@@ -42,12 +42,12 @@
     <!-- 🔴 Google Fonts 🔴 -->
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&amp;display=swap" rel="stylesheet">
     
-    <!-- 🔴 External Libraries 🔴 -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js" defer></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.16.105/pdf.min.js" defer></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.16.105/pdf.worker.min.js" defer></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/Sortable/1.15.0/Sortable.min.js" defer></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.10.1/jszip.min.js" defer></script>
+    <!-- ========== 🔴 مكتبات JavaScript إضافية ========== -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.16.105/pdf.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.16.105/pdf.worker.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Sortable/1.15.0/Sortable.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.10.1/jszip.min.js"></script>
     
     <style>
         /* ========== 🔴 CSS Variables ========== */
@@ -74,7 +74,7 @@
             --transition: all 0.3s ease;
         }
 
-        /* ========== 🔴 Base Styles ========== */
+        /* ========== 🔴 Base Styles مع زوم متوسط ========== */
         * {
             margin: 0;
             padding: 0;
@@ -289,10 +289,6 @@
             text-align: center;
             position: relative;
             overflow: hidden;
-            min-height: 90px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
         }
         .ad-label {
             background: linear-gradient(135deg, var(--primary), var(--secondary));
@@ -317,36 +313,6 @@
         }
         .ad-content.large {
             min-height: 220px;
-        }
-
-        /* 🔴 إصلاحات الإعلانات */
-        .ad-section iframe,
-        .ad-section ins,
-        .ad-section div[id*="ad"] {
-            max-width: 100% !important;
-            overflow: hidden !important;
-        }
-
-        /* زر إغلاق الإعلانات */
-        .ad-close {
-            position: absolute;
-            top: 5px;
-            right: 5px;
-            background: rgba(0,0,0,0.5);
-            color: white;
-            border: none;
-            width: 24px;
-            height: 24px;
-            border-radius: 50%;
-            cursor: pointer;
-            z-index: 10;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 14px;
-        }
-        .ad-close:hover {
-            background: rgba(0,0,0,0.7);
         }
 
         /* ========== 🔴 Tools Section ========== */
@@ -501,7 +467,6 @@
             gap: 9px;
         }
 
-        /* 🔴 أزرار التحكم */
         .preview-controls {
             display: flex;
             gap: 9px;
@@ -611,7 +576,6 @@
             text-align: center;
         }
 
-        /* 🔴 أنماط السحب والإفلات */
         .drag-handle {
             position: absolute;
             top: 6px;
@@ -639,7 +603,6 @@
             transform: scale(1.1);
         }
 
-        /* 🔴 أنماط التحكم في كل صورة */
         .item-controls {
             position: absolute;
             bottom: 22px;
@@ -680,7 +643,6 @@
             opacity: 0.5;
         }
 
-        /* 🔴 زر تدوير الصور */
         .rotate-controls {
             position: absolute;
             top: 6px;
@@ -712,6 +674,19 @@
         .rotate-btn:hover {
             background: var(--primary);
             color: white;
+        }
+
+        .sortable-ghost {
+            opacity: 0.4;
+            background: var(--primary-light);
+        }
+        .sortable-chosen {
+            background: var(--primary-light);
+            transform: scale(1.05);
+        }
+        .sortable-drag {
+            opacity: 0.8;
+            transform: rotate(5deg);
         }
 
         /* ========== 🔴 Carousel Navigation ========== */
@@ -1274,17 +1249,13 @@
             .upload-subtext {
                 font-size: 12px;
             }
-        }
-
-        /* ========== 🔴 تحسينات السرعة ========== */
-        /* تقليل التأثيرات لتحسين الأداء */
-        .feature-card, .tool-card, .stat-card {
-            will-change: transform;
-        }
-
-        /* تحسين تحميل الخطوط */
-        body {
-            font-display: swap;
+            .mobile-gallery-hint {
+                display: block;
+                font-size: 11px;
+                color: var(--gray-600);
+                margin-top: 8px;
+                font-style: italic;
+            }
         }
 
         /* ========== 🔴 Responsive Design ========== */
@@ -1433,35 +1404,41 @@
         }
     </style>
 
-    <!-- 🔴 Script لحل مشاكل الإعلانات -->
-    <script>
-    // فلترة إعلانات القمار والمحتوى غير المناسب
-    document.addEventListener('DOMContentLoaded', function() {
-        // منع الإعلانات العائمة
-        setInterval(function() {
-            var floatingAds = document.querySelectorAll('div[style*="fixed"], div[style*="absolute"]');
-            floatingAds.forEach(function(ad) {
-                if (!ad.classList.contains('notification') && 
-                    !ad.classList.contains('modal') &&
-                    !ad.classList.contains('preview-modal')) {
-                    ad.style.display = 'none';
-                }
-            });
-        }, 1000);
-        
-        // فلترة إعلانات القمار
-        setTimeout(function() {
-            var ads = document.querySelectorAll('iframe, ins, div');
-            ads.forEach(function(ad) {
-                var content = ad.innerHTML.toLowerCase();
-                if (content.includes('casino') || content.includes('gambling') || 
-                    content.includes('poker') || content.includes('bet') ||
-                    content.includes('slot')) {
-                    ad.style.display = 'none';
-                }
-            });
-        }, 3000);
-    });
+    <!-- Google Site Name -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "WebSite",
+        "name": "PDFConvertMagic - Free PDF Converter Tools",
+        "alternateName": "Online PDF Tools Platform",
+        "url": "https://pdfmagic.github.io/",
+        "description": "Free online PDF converter tools. Convert PDF to Word, Excel, JPG, PNG. Merge, split, compress PDF files. Extract images from PDF. No registration required.",
+        "potentialAction": {
+            "@type": "SearchAction",
+            "target": "https://pdfmagic.github.io/?q={search_term_string}",
+            "query-input": "required name=search_term_string"
+        }
+    }
+    </script>
+
+    <!-- Google Organization -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "Organization",
+        "name": "PDFConvertMagic",
+        "url": "https://pdfmagic.github.io/",
+        "logo": "https://pdfmagic.github.io/assets/logo.png",
+        "description": "Free online PDF converter and tools platform. Convert PDF to various formats, merge, split, and extract content from PDF files.",
+        "sameAs": [
+            "https://pdfmagic.github.io/"
+        ],
+        "contactPoint": {
+            "@type": "ContactPoint",
+            "email": "contact@pdfmagic.github.io",
+            "contactType": "customer service"
+        }
+    }
     </script>
 </head>
 
@@ -1497,16 +1474,22 @@
         </div>
     </header>
 
-    <!-- ========== 🔴 Ad 1: أعلى الموقع 🔴 -->
-    <div class="container">
-        <div class="ad-section">
-            <button class="ad-close" onclick="this.parentElement.style.display='none'">×</button>
-            <div class="ad-label">Advertisement</div>
-            <div class="ad-content">
-                <script src="https://quge5.com/88/tag.min.js" data-zone="209093" async data-cfasync="false"></script>
+    <!-- ========== 🔴 Navigation Menu 🔴 -->
+    <nav class="nav-menu" style="background: white; padding: 10px 0; border-bottom: 1px solid #e2e8f0; position: sticky; top: 70px; z-index: 999;">
+        <div class="container">
+            <div style="display: flex; justify-content: center; gap: 20px; flex-wrap: wrap;">
+                <a href="https://pdfmagic.github.io/index.html" style="padding: 10px 15px; color: #4A6FFF; text-decoration: none; font-weight: 600; border-radius: 8px; transition: all 0.3s;">Home</a>
+                <a href="https://pdfmagic.github.io/about.html" style="padding: 10px 15px; color: #64748B; text-decoration: none; font-weight: 600; border-radius: 8px; transition: all 0.3s;">About Us</a>
+                <a href="https://pdfmagic.github.io/blog.html" style="padding: 10px 15px; color: #64748B; text-decoration: none; font-weight: 600; border-radius: 8px; transition: all 0.3s;">Blog</a>
+                <a href="https://pdfmagic.github.io/contact.html" style="padding: 10px 15px; color: #64748B; text-decoration: none; font-weight: 600; border-radius: 8px; transition: all 0.3s;">Contact Us</a>
+                <a href="https://pdfmagic.github.io/privacy-policy.html" style="padding: 10px 15px; color: #64748B; text-decoration: none; font-weight: 600; border-radius: 8px; transition: all 0.3s;">Privacy Policy</a>
+                <a href="https://pdfmagic.github.io/terms.html" style="padding: 10px 15px; color: #64748B; text-decoration: none; font-weight: 600; border-radius: 8px; transition: all 0.3s;">Terms of Service</a>
             </div>
         </div>
-    </div>
+    </nav>
+
+    <!-- ========== 🔴 Ad 1: أعلى الموقع 🔴 -->
+    <!-- تم إزالة أكواد PrePollerAds -->
 
     <!-- ========== 🔴 Hero Section 🔴 -->
     <section class="hero">
@@ -1550,15 +1533,7 @@
     </section>
 
     <!-- ========== 🔴 Ad 2: بعد الهيرو 🔴 -->
-    <div class="container">
-        <div class="ad-section">
-            <button class="ad-close" onclick="this.parentElement.style.display='none'">×</button>
-            <div class="ad-label">Advertisement</div>
-            <div class="ad-content">
-                <script src="https://quge5.com/88/tag.min.js" data-zone="209199" async data-cfasync="false"></script>
-            </div>
-        </div>
-    </div>
+    <!-- تم إزالة أكواد PrePollerAds -->
 
     <!-- ========== 🔴 Main Tools Section 🔴 -->
     <div class="container">
@@ -1688,13 +1663,7 @@
                 </div>
 
                 <!-- ========== 🔴 Ad 3: بين الأدوات 🔴 -->
-                <div class="ad-section">
-                    <button class="ad-close" onclick="this.parentElement.style.display='none'">×</button>
-                    <div class="ad-label">Advertisement</div>
-                    <div class="ad-content">
-                        <script src="https://quge5.com/88/tag.min.js" data-zone="209200" async data-cfasync="false"></script>
-                    </div>
-                </div>
+                <!-- تم إزالة أكواد PrePollerAds -->
 
                 <!-- PDF to Images Tool -->
                 <div class="tool-card">
@@ -1765,15 +1734,7 @@
     </div>
 
     <!-- ========== 🔴 Ad 4: داخل المحتوى 🔴 -->
-    <div class="container">
-        <div class="ad-section">
-            <button class="ad-close" onclick="this.parentElement.style.display='none'">×</button>
-            <div class="ad-label">Advertisement</div>
-            <div class="ad-content large">
-                <script src="https://quge5.com/88/tag.min.js" data-zone="209201" async data-cfasync="false"></script>
-            </div>
-        </div>
-    </div>
+    <!-- تم إزالة أكواد PrePollerAds -->
 
     <!-- ========== 🔴 Stats Section 🔴 -->
     <div class="container">
@@ -1821,48 +1782,16 @@
     </div>
 
     <!-- ========== 🔴 Ad 5: بعد الإحصائيات 🔴 -->
-    <div class="container">
-        <div class="ad-section">
-            <button class="ad-close" onclick="this.parentElement.style.display='none'">×</button>
-            <div class="ad-label">Advertisement</div>
-            <div class="ad-content">
-                <script src="https://quge5.com/88/tag.min.js" data-zone="209202" async data-cfasync="false"></script>
-            </div>
-        </div>
-    </div>
+    <!-- تم إزالة أكواد PrePollerAds -->
 
     <!-- ========== 🔴 Ad 6: في المنتصف 🔴 -->
-    <div class="container">
-        <div class="ad-section">
-            <button class="ad-close" onclick="this.parentElement.style.display='none'">×</button>
-            <div class="ad-label">Advertisement</div>
-            <div class="ad-content">
-                <script src="https://quge5.com/88/tag.min.js" data-zone="209203" async data-cfasync="false"></script>
-            </div>
-        </div>
-    </div>
+    <!-- تم إزالة أكواد PrePollerAds -->
 
     <!-- ========== 🔴 Ad 7: قبل الفوتر 🔴 -->
-    <div class="container">
-        <div class="ad-section">
-            <button class="ad-close" onclick="this.parentElement.style.display='none'">×</button>
-            <div class="ad-label">Advertisement</div>
-            <div class="ad-content">
-                <script src="https://quge5.com/88/tag.min.js" data-zone="209204" async data-cfasync="false"></script>
-            </div>
-        </div>
-    </div>
+    <!-- تم إزالة أكواد PrePollerAds -->
 
     <!-- ========== 🔴 Ad 8: أسفل الموقع 🔴 -->
-    <div class="container">
-        <div class="ad-section">
-            <button class="ad-close" onclick="this.parentElement.style.display='none'">×</button>
-            <div class="ad-label">Advertisement</div>
-            <div class="ad-content">
-                <script src="https://quge5.com/88/tag.min.js" data-zone="209205" async data-cfasync="false"></script>
-            </div>
-        </div>
-    </div>
+    <!-- تم إزالة أكواد PrePollerAds -->
 
     <!-- ========== 🔴 Footer 🔴 -->
     <footer class="footer" id="mainFooter">
@@ -1898,7 +1827,7 @@
         </div>
     </div>
 
-    <!-- 🔴 JavaScript الكود المدمج -->
+    <!-- 🔴 JavaScript الكود المدمج (محذوف منه أي تعديلات على الإعلانات) -->
     <script>
         // 🔴 تهيئة المتغيرات
         let images = [];
@@ -1991,23 +1920,17 @@
         // 🔴 دالة تغيير اللغة الرئيسية
         function setLanguage(lang) {
             currentLanguage = lang;
-            // تحديث اتجاه الصفحة
             document.documentElement.dir = lang === 'ar' ? 'rtl' : 'ltr';
             document.documentElement.lang = lang;
-            // تحديث النصوص
             updateLanguage(lang);
-            // تحديث الفوتر
             updateFooterLanguage(lang);
-            // تحديث الأزرار النشطة
             document.querySelectorAll('.lang-btn').forEach(btn => {
                 btn.classList.remove('active');
             });
             document.querySelector(`.lang-btn[onclick*="${lang}"]`).classList.add('active');
-            // إشعار
             showNotification(lang === 'en' ? 'Language changed to English' : 'تم تغيير اللغة إلى العربية', 'success');
         }
 
-        // 🔴 تحديث النصوص حسب اللغة
         function updateLanguage(lang) {
             const trans = translations[lang];
             for (const key in trans) {
@@ -2018,7 +1941,6 @@
             }
         }
 
-        // 🔴 تحديث الفوتر مع روابط الموقع الحقيقي
         function updateFooterLanguage(lang) {
             const footer = document.getElementById("mainFooter");
             if (!footer) return;
@@ -2116,7 +2038,6 @@
             }
         }
 
-        // 🔴 تهيئة التطبيق
         document.addEventListener('DOMContentLoaded', function() {
             initApp();
             updateFooterLanguage('en');
@@ -2124,7 +2045,6 @@
             updateMoveButtons();
             hideAllProgressBars();
             
-            // إظهار رسالة الهاتف إذا كان جهاز محمول
             if (isMobileDevice()) {
                 const mobileHint = document.createElement('div');
                 mobileHint.className = 'mobile-gallery-hint';
@@ -2134,20 +2054,15 @@
             }
         });
 
-        // 🔴 دالة لفتح معرض الصور مع مسح الصور الحالية
         function openMobileGallery() {
-            // مسح الصور الحالية أولاً
             clearImagesBeforeNewSelection();
-            // فتح نافذة اختيار الملفات
             document.getElementById('imageInput').click();
         }
 
-        // 🔴 التحقق مما إذا كان الجهاز محمولاً
         function isMobileDevice() {
             return /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
         }
 
-        // 🔴 إخفاء جميع شرائط التقدم
         function hideAllProgressBars() {
             document.getElementById('pdfProgress').style.display = 'none';
             document.getElementById('imageProgress').style.display = 'none';
@@ -2155,9 +2070,7 @@
             document.getElementById('imageProgressInfo').style.display = 'none';
         }
 
-        // 🔴 تهيئة التطبيق الأساسية
         function initApp() {
-            // إعداد مستمعي الأحداث
             const imageInput = document.getElementById('imageInput');
             const imageUploadArea = document.getElementById('imageUploadArea');
             const pdfInput = document.getElementById('pdfInput');
@@ -2177,10 +2090,8 @@
                 pdfUploadArea.addEventListener('click', () => pdfInput.click());
             }
             
-            // إعداد السحب والإفلات
             setupDragAndDrop();
             
-            // إعداد التنقل بلوحة المفاتيح
             document.addEventListener('keydown', function(e) {
                 const previewSection = document.getElementById('previewSection');
                 if (previewSection && previewSection.style.display === 'block') {
@@ -2208,7 +2119,6 @@
             });
         }
 
-        // 🔴 مسح الصور قبل اختيار صور جديدة
         function clearImagesBeforeNewSelection() {
             if (images.length > 0) {
                 cleanImageMemory();
@@ -2222,28 +2132,24 @@
             }
         }
 
-        // 🔴 معالجة رفع الصور مع تسجيل وقت التحميل وترتيب الاختيار
         function handleImageUpload(e) {
             const files = Array.from(e.target.files);
             if (files.length === 0) return;
             
-            // إضافة الصور الجديدة مع تسجيل وقت التحميل وترتيب الاختيار
             const currentTime = Date.now();
             files.forEach((file, index) => {
                 file.uploadTime = currentTime + index;
                 file.rotation = file.rotation || 0;
-                file.selectedIndex = images.length + index; // تسجيل ترتيب الاختيار
+                file.selectedIndex = images.length + index;
                 images.push(file);
             });
             
             updateImagePreviews();
-            // التطبيق التلقائي للترتيب حسب وقت الرفع
             autoSortByUploadOrder(true);
             
             showNotification(currentLanguage === 'en' ? `Added ${files.length} image(s). Total: ${images.length}` : `تم إضافة ${files.length} صورة. الإجمالي: ${images.length}`, 'success');
         }
 
-        // 🔴 معالجة رفع PDF
         function handlePDFUpload(e) {
             if (e.target.files.length === 0) return;
             currentPDFFile = e.target.files[0];
@@ -2252,7 +2158,6 @@
             showNotification(currentLanguage === 'en' ? `PDF loaded: ${currentPDFFile.name}` : `تم تحميل PDF: ${currentPDFFile.name}`, 'success');
         }
 
-        // 🔴 إعداد السحب والإفلات
         function setupDragAndDrop() {
             const imageUploadArea = document.getElementById('imageUploadArea');
             const pdfUploadArea = document.getElementById('pdfUploadArea');
@@ -2300,7 +2205,6 @@
             }
         }
 
-        // 🔴 معالجة الصور المسقطة مع تسجيل وقت التحميل وترتيب الاختيار
         function handleDroppedImages(files) {
             const imageFiles = files.filter(file => file.type.startsWith('image/'));
             if (imageFiles.length === 0) {
@@ -2308,23 +2212,20 @@
                 return;
             }
             
-            // إضافة الصور مع تسجيل وقت التحميل وترتيب الاختيار
             const currentTime = Date.now();
             imageFiles.forEach((file, index) => {
                 file.uploadTime = currentTime + index;
                 file.rotation = file.rotation || 0;
-                file.selectedIndex = images.length + index; // تسجيل ترتيب الاختيار
+                file.selectedIndex = images.length + index;
                 images.push(file);
             });
             
             updateImagePreviews();
-            // التطبيق التلقائي للترتيب حسب وقت الرفع
             autoSortByUploadOrder(true);
             
             showNotification(currentLanguage === 'en' ? `Added ${imageFiles.length} image(s). Total: ${images.length}` : `تم إضافة ${imageFiles.length} صورة. الإجمالي: ${images.length}`, 'success');
         }
 
-        // 🔴 معالجة PDF المسقط
         function handleDroppedPDF(files) {
             const pdfFiles = files.filter(file => file.type === 'application/pdf');
             if (pdfFiles.length === 0) {
@@ -2337,7 +2238,6 @@
             showNotification(currentLanguage === 'en' ? `PDF loaded: ${currentPDFFile.name}` : `تم تحميل PDF: ${currentPDFFile.name}`, 'success');
         }
 
-        // 🔴 تحديث معاينة الصور
         function updateImagePreviews() {
             const previewSection = document.getElementById('previewSection');
             const previewGrid = document.getElementById('previewGrid');
@@ -2347,74 +2247,59 @@
                 return;
             }
             
-            // عرض قسم المعاينة
             previewSection.style.display = 'block';
             
-            // تحديث العداد
             document.getElementById('imageCount').textContent = images.length;
             updateNavigationInfo();
             
-            // مسح الشبكة
             previewGrid.innerHTML = '';
             
-            // إضافة الصور
             images.forEach((file, index) => {
                 const previewItem = createPreviewItem(file, index);
                 previewGrid.appendChild(previewItem);
             });
             
-            // تحديث الأزرار
             updateNavigationButtons();
             updateMoveButtons();
             
-            // تهيئة السحب والإفلات
             initSortable();
             
-            // تحديد الصورة الحالية
             highlightCurrentImage();
         }
 
-        // 🔴 إنشاء عنصر معاينة
         function createPreviewItem(file, index) {
             const item = document.createElement('div');
             item.className = 'preview-item';
             item.dataset.index = index;
             item.draggable = true;
             
-            // مقبض السحب
             const dragHandle = document.createElement('div');
             dragHandle.className = 'drag-handle';
             dragHandle.innerHTML = '<i class="fas fa-bars"></i>';
             dragHandle.title = currentLanguage === 'en' ? 'Drag to reorder' : 'اسحب لإعادة الترتيب';
             
-            // الصورة
             const img = document.createElement('img');
             img.className = 'preview-img';
             img.alt = `Image ${index + 1}`;
             img.loading = 'lazy';
             
-            // إنشاء رابط مؤقت للصورة
             if (!imageUrls.has(file)) {
                 imageUrls.set(file, URL.createObjectURL(file));
             }
             img.src = imageUrls.get(file);
             
-            // تطبيق التدوير المسبق الذي تم حفظه في الكائن file نفسه
             const rotation = file.rotation || 0;
             img.style.transform = `rotate(${rotation}deg)`;
             img.style.transition = 'transform 0.3s ease';
             
-            // شارة الفهرس
             const indexBadge = document.createElement('div');
             indexBadge.className = 'preview-index';
             indexBadge.textContent = index + 1;
             
-            // اسم الملف
             const filename = document.createElement('div');
             filename.className = 'preview-filename';
             filename.textContent = file.name.length > 15 ? file.name.substring(0, 12) + '...' : file.name;
             
-            // أزرار التحكم
             const controls = document.createElement('div');
             controls.className = 'item-controls';
             
@@ -2441,7 +2326,6 @@
             controls.appendChild(upBtn);
             controls.appendChild(downBtn);
             
-            // أزرار التدوير
             const rotateControls = document.createElement('div');
             rotateControls.className = 'rotate-controls';
             
@@ -2466,7 +2350,6 @@
             rotateControls.appendChild(rotateLeftBtn);
             rotateControls.appendChild(rotateRightBtn);
             
-            // تجميع العنصر
             item.appendChild(dragHandle);
             item.appendChild(img);
             item.appendChild(indexBadge);
@@ -2474,7 +2357,6 @@
             item.appendChild(controls);
             item.appendChild(rotateControls);
             
-            // حدث النقر لتحديد الصورة
             item.addEventListener('click', (e) => {
                 if (!e.target.closest('.drag-handle') && !e.target.closest('.item-btn') && !e.target.closest('.rotate-btn')) {
                     currentImageIndex = index;
@@ -2486,7 +2368,6 @@
             return item;
         }
 
-        // 🔴 تدوير الصورة مع الحفاظ على التدوير في الـ PDF النهائي
         function rotateImage(index, degrees) {
             if (index < 0 || index >= images.length) return;
             
@@ -2494,10 +2375,8 @@
             const currentRotation = file.rotation || 0;
             const newRotation = (currentRotation + degrees) % 360;
             
-            // تحديث قيمة التدوير في الكائن file نفسه
             file.rotation = newRotation;
             
-            // تحديث العنصر المرئي
             const imgElement = document.querySelector(`.preview-item[data-index="${index}"] .preview-img`);
             if (imgElement) {
                 imgElement.style.transform = `rotate(${newRotation}deg)`;
@@ -2506,7 +2385,6 @@
             showNotification(currentLanguage === 'en' ? 'Image rotated' : 'تم تدوير الصورة', 'success');
         }
 
-        // 🔴 تهيئة السحب والإفلات
         function initSortable() {
             if (sortableInstance) {
                 sortableInstance.destroy();
@@ -2538,7 +2416,6 @@
             });
         }
 
-        // 🔴 ترتيب الصور حسب المعايير المختلفة
         function sortImages(criteria) {
             if (images.length < 2) return;
             
@@ -2568,13 +2445,10 @@
             updateImagePreviews();
         }
 
-        // 🔴 الترتيب التلقائي حسب أسبقية التحميل
         function autoSortByUploadOrder(silent = false) {
             if (images.length < 2) return;
             
-            // فرض الترتيب حسب وقت الرفع أو ترتيب الاختيار
             images.sort((a, b) => {
-                // الأولوية لوقت الرفع، ثم لترتيب الاختيار
                 const orderA = a.uploadTime || a.selectedIndex || 0;
                 const orderB = b.uploadTime || b.selectedIndex || 0;
                 return orderA - orderB;
@@ -2586,7 +2460,6 @@
             }
         }
 
-        // 🔴 نقل الصورة الحالية
         function moveCurrentImage(direction) {
             if (images.length === 0) return;
             
@@ -2613,7 +2486,6 @@
             }
         }
 
-        // 🔴 نقل صورة محددة
         function moveSpecificImage(index, direction) {
             if (index < 0 || index >= images.length) return;
             
@@ -2640,7 +2512,6 @@
             }
         }
 
-        // 🔴 تحديث أزرار التحكم
         function updateMoveButtons() {
             const hasImages = images.length > 0;
             const isFirst = currentImageIndex === 0;
@@ -2657,7 +2528,6 @@
             if (moveLastBtn) moveLastBtn.disabled = !hasImages || isLast;
         }
 
-        // 🔴 التنقل بين الصور
         function navigateImage(direction) {
             if (direction === 'prev' && currentImageIndex > 0) {
                 currentImageIndex--;
@@ -2667,7 +2537,6 @@
             updateNavigationInfo();
         }
 
-        // 🔴 تحديث معلومات التنقل
         function updateNavigationInfo() {
             document.getElementById('currentImageIndex').textContent = currentImageIndex + 1;
             document.getElementById('totalImagesCount').textContent = images.length;
@@ -2676,7 +2545,6 @@
             highlightCurrentImage();
         }
 
-        // 🔴 تحديث أزرار التنقل
         function updateNavigationButtons() {
             const hasImages = images.length > 0;
             const isFirst = currentImageIndex === 0;
@@ -2689,7 +2557,6 @@
             if (nextBtn) nextBtn.disabled = !hasImages || isLast;
         }
 
-        // 🔴 تمييز الصورة الحالية
         function highlightCurrentImage() {
             document.querySelectorAll('.preview-item').forEach(item => {
                 item.classList.remove('active');
@@ -2706,7 +2573,6 @@
             }
         }
 
-        // 🔴 دالة عرض شريط التقدم
         function showProgressBar(progressBarId, progressInfoId, progressPercentageId, progressStatusId) {
             const progressBar = document.getElementById(progressBarId);
             const progressInfo = document.getElementById(progressInfoId);
@@ -2736,7 +2602,6 @@
             };
         }
 
-        // 🔴 دالة مساعدة لتحميل الصور
         function loadImage(src) {
             return new Promise((resolve, reject) => {
                 const img = new Image();
@@ -2746,7 +2611,6 @@
             });
         }
 
-        // 🔴 تحويل الصور إلى PDF مع الحفاظ على حجم الصورة والتدوير
         async function convertImagesToPDF() {
             if (isConverting) {
                 showNotification(currentLanguage === 'en' ? 'Please wait for current operation to complete' : 'يرجى الانتظار حتى اكتمال العملية الحالية', 'error');
@@ -2760,25 +2624,19 @@
             
             isConverting = true;
             try {
-                // تعطيل الأزرار أثناء التحويل
                 document.getElementById('convert-btn1').disabled = true;
                 document.getElementById('clear-btn1').disabled = true;
                 
-                // إظهار شريط التقدم
                 const progress = showProgressBar('pdfProgress', 'pdfProgressInfo', 'pdfProgressPercentage', 'pdfProgressStatus');
                 
-                // المرحلة 1: التحضير
                 progress.update(10, currentLanguage === 'en' ? 'Preparing images...' : 'جاري تحضير الصور...');
                 await sleep(500);
                 
-                // المرحلة 2: معالجة الصور
                 progress.update(20, currentLanguage === 'en' ? 'Processing images...' : 'جاري معالجة الصور...');
                 
-                // إنشاء كائن PDF جديد
                 const { jsPDF } = window.jspdf;
                 let pdf;
                 
-                // المرحلة 3: إضافة كل صورة كصفحة في PDF
                 for (let i = 0; i < images.length; i++) {
                     const percentage = 20 + Math.floor((i / images.length) * 70);
                     progress.update(percentage, currentLanguage === 'en' ? `Processing image ${i + 1} of ${images.length}` : `جاري معالجة الصورة ${i + 1} من ${images.length}`);
@@ -2787,47 +2645,37 @@
                     const imageUrl = imageUrls.get(imageFile);
                     const rotation = imageFile.rotation || 0;
                     
-                    // تحميل الصورة
                     const img = await loadImage(imageUrl);
                     
-                    // تعيين حجم الصفحة ليكون بنفس حجم الصورة
                     let imgWidth = img.width;
                     let imgHeight = img.height;
                     
-                    // تطبيق التدوير على أبعاد الصورة
                     if (rotation === 90 || rotation === 270) {
                         imgWidth = img.height;
                         imgHeight = img.width;
                     }
                     
-                    // تحويل البكسل إلى نقاط (افتراض 96 DPI)
                     const pointsPerInch = 72;
                     const pixelsPerInch = 96;
                     const widthInPoints = (imgWidth * pointsPerInch) / pixelsPerInch;
                     const heightInPoints = (imgHeight * pointsPerInch) / pixelsPerInch;
                     
-                    // إذا كانت هذه الصفحة الأولى، أنشئ PDF جديد بحجم الصورة
                     if (i === 0) {
                         pdf = new jsPDF({
                             unit: "pt",
                             format: [widthInPoints, heightInPoints]
                         });
                     } else {
-                        // أضف صفحة جديدة بنفس حجم الصورة
                         pdf.addPage([widthInPoints, heightInPoints]);
                     }
                     
-                    // ملء الصفحة بالكامل بالصورة
                     const x = 0;
                     const y = 0;
                     
-                    // تطبيق التدوير إذا كان موجوداً
                     if (rotation !== 0) {
-                        // إنشاء canvas لتدوير الصورة
                         const canvas = document.createElement('canvas');
                         const ctx = canvas.getContext('2d');
                         
-                        // تعيين أبعاد Canvas حسب التدوير
                         if (rotation === 90 || rotation === 270) {
                             canvas.width = img.height;
                             canvas.height = img.width;
@@ -2836,12 +2684,10 @@
                             canvas.height = img.height;
                         }
                         
-                        // تطبيق التدوير
                         ctx.translate(canvas.width / 2, canvas.height / 2);
                         ctx.rotate(rotation * Math.PI / 180);
                         ctx.drawImage(img, -img.width / 2, -img.height / 2);
                         
-                        // الحصول على الصورة المدورة
                         const rotatedDataUrl = canvas.toDataURL('image/jpeg', 0.95);
                         pdf.addImage(rotatedDataUrl, 'JPEG', x, y, widthInPoints, heightInPoints);
                     } else {
@@ -2851,26 +2697,21 @@
                     await sleep(100);
                 }
                 
-                // المرحلة 4: إنشاء PDF النهائي
                 progress.update(95, currentLanguage === 'en' ? 'Creating PDF document...' : 'جاري إنشاء مستند PDF...');
                 await sleep(500);
                 
-                // المرحلة 5: الإكمال
                 progress.update(100, currentLanguage === 'en' ? 'Complete!' : 'اكتمل!');
                 await sleep(300);
                 progress.hide();
                 
-                // إنشاء Blob من PDF
                 const pdfBlob = pdf.output('blob');
                 
-                // حفظ النتيجة
                 conversionResults.pdf = {
                     blob: pdfBlob,
                     fileName: `pdfmagic_${Date.now()}.pdf`,
                     fileSize: formatFileSize(pdfBlob.size)
                 };
                 
-                // عرض النتيجة في الصفحة
                 showPDFResult(conversionResults.pdf);
                 showNotification(currentLanguage === 'en' ? 'PDF created successfully!' : 'تم إنشاء PDF بنجاح!', 'success');
                 
@@ -2878,19 +2719,16 @@
                 console.error('Conversion error:', error);
                 showNotification(currentLanguage === 'en' ? 'Error during conversion. Please try again.' : 'حدث خطأ أثناء التحويل. يرجى المحاولة مرة أخرى.', 'error');
             } finally {
-                // إعادة تمكين الأزرار
                 document.getElementById('convert-btn1').disabled = false;
                 document.getElementById('clear-btn1').disabled = false;
                 isConverting = false;
             }
         }
 
-        // 🔴 عرض نتيجة PDF في الصفحة
         function showPDFResult(pdfResult) {
             const resultSection = document.getElementById('pdfResultSection');
             const resultContent = document.getElementById('pdfResultContent');
             
-            // إنشاء رابط للعرض والتنزيل
             const pdfUrl = URL.createObjectURL(pdfResult.blob);
             
             resultContent.innerHTML = `
@@ -2901,7 +2739,7 @@
                         </div>
                         <div class="result-details">
                             <div class="result-name">${pdfResult.fileName}</div>
-                            <div class="result-size">${pdfResult.fileSize} • ${images.length} pages • Page size: Same as image • Created: ${new Date().toLocaleDateString()}</div>
+                            <div class="result-size">${pdfResult.fileSize} • ${images.length} pages • Created: ${new Date().toLocaleDateString()}</div>
                         </div>
                     </div>
                     <div class="result-actions">
@@ -2915,24 +2753,16 @@
                         </button>
                     </div>
                 </div>
-                <div style="margin-top: 15px; padding: 15px; background: var(--gray-100); border-radius: var(--radius-sm);">
-                    <p style="margin: 0; font-size: 13px; color: var(--gray-700);">
-                        <i class="fas fa-info-circle" style="color: var(--primary); margin-right: 5px;"></i>
-                        ${currentLanguage === 'en' ? 'Your PDF is ready! Each page has the same size as the original image. Click Download to save it or Preview to view it in your browser.' : 'PDF جاهز! كل صفحة لها نفس حجم الصورة الأصلية. انقر على تنزيل لحفظه أو معاينة لعرضه في المتصفح.'}
-                    </p>
-                </div>
             `;
             
             resultSection.style.display = 'block';
             resultSection.classList.add('active');
             
-            // التمرير إلى النتيجة
             setTimeout(() => {
                 resultSection.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
             }, 300);
         }
 
-        // 🔴 تنزيل نتيجة PDF
         function downloadPDFResult(url, fileName) {
             const link = document.createElement('a');
             link.href = url;
@@ -2943,13 +2773,11 @@
             showNotification(currentLanguage === 'en' ? 'Download started!' : 'بدأ التنزيل!', 'success');
         }
 
-        // 🔴 معاينة PDF
         function previewPDF(url) {
             window.open(url, '_blank');
             showNotification(currentLanguage === 'en' ? 'PDF opened in new tab' : 'تم فتح PDF في علامة تبويب جديدة', 'info');
         }
 
-        // 🔴 مسح نتيجة PDF
         function clearPDFResult() {
             const resultSection = document.getElementById('pdfResultSection');
             const resultContent = document.getElementById('pdfResultContent');
@@ -2958,7 +2786,6 @@
             resultSection.style.display = 'none';
             resultSection.classList.remove('active');
             
-            // تحرير الذاكرة
             if (conversionResults.pdf && conversionResults.pdf.blob) {
                 URL.revokeObjectURL(conversionResults.pdf.blob);
             }
@@ -2967,7 +2794,6 @@
             showNotification(currentLanguage === 'en' ? 'PDF result cleared' : 'تم مسح نتيجة PDF', 'success');
         }
 
-        // 🔴 استخراج الصور من PDF مع شريط التقدم وعرض النتيجة
         async function convertPDFToImages() {
             if (isConverting) {
                 showNotification(currentLanguage === 'en' ? 'Please wait for current operation to complete' : 'يرجى الانتظار حتى اكتمال العملية الحالية', 'error');
@@ -2981,51 +2807,41 @@
             
             isConverting = true;
             try {
-                // تعطيل الأزرار أثناء التحويل
                 document.getElementById('convert-btn2').disabled = true;
                 document.getElementById('remove-btn').disabled = true;
                 
-                // إظهار شريط التقدم
                 const progress = showProgressBar('imageProgress', 'imageProgressInfo', 'imageProgressPercentage', 'imageProgressStatus');
                 
-                // المرحلة 1: قراءة PDF
                 progress.update(10, currentLanguage === 'en' ? 'Reading PDF file...' : 'جاري قراءة ملف PDF...');
                 
-                // تحميل ملف PDF باستخدام pdf.js
                 const arrayBuffer = await currentPDFFile.arrayBuffer();
                 const loadingTask = pdfjsLib.getDocument({ data: arrayBuffer });
                 const pdf = await loadingTask.promise;
                 const numPages = pdf.numPages;
                 
-                // تحديد الحد الأقصى للصفحات
                 const maxPages = Math.min(numPages, 200);
                 conversionResults.images = [];
                 
-                // المرحلة 2: استخراج كل صفحة كصورة
                 for (let i = 1; i <= maxPages; i++) {
                     const percentage = 10 + Math.floor(((i - 1) / maxPages) * 80);
                     progress.update(percentage, currentLanguage === 'en' ? `Extracting page ${i} of ${maxPages}` : `جاري استخراج الصفحة ${i} من ${maxPages}`);
                     
                     const page = await pdf.getPage(i);
                     
-                    // تحديد دقة الصورة
-                    const scale = 2; // زيادة الدقة
+                    const scale = 2;
                     const viewport = page.getViewport({ scale });
                     
-                    // إنشاء canvas لرسم صفحة PDF
                     const canvas = document.createElement('canvas');
                     const context = canvas.getContext('2d');
                     canvas.height = viewport.height;
                     canvas.width = viewport.width;
                     
-                    // عرض صفحة PDF على canvas
                     const renderContext = {
                         canvasContext: context,
                         viewport: viewport
                     };
                     await page.render(renderContext).promise;
                     
-                    // تحويل canvas إلى Blob
                     const blob = await new Promise((resolve) => {
                         canvas.toBlob((blob) => {
                             resolve(blob);
@@ -3042,16 +2858,13 @@
                     await sleep(100);
                 }
                 
-                // المرحلة 3: إكمال العملية
                 progress.update(95, currentLanguage === 'en' ? 'Finalizing...' : 'جاري الإنهاء...');
                 await sleep(500);
                 
-                // المرحلة 4: الإكمال
                 progress.update(100, currentLanguage === 'en' ? 'Complete!' : 'اكتمل!');
                 await sleep(300);
                 progress.hide();
                 
-                // عرض النتيجة في الصفحة
                 showImageResult(conversionResults.images);
                 showNotification(currentLanguage === 'en' ? 'Images extracted successfully!' : 'تم استخراج الصور بنجاح!', 'success');
                 
@@ -3059,21 +2872,18 @@
                 console.error('Extraction error:', error);
                 showNotification(currentLanguage === 'en' ? 'Error during extraction. Please try again.' : 'حدث خطأ أثناء الاستخراج. يرجى المحاولة مرة أخرى.', 'error');
             } finally {
-                // إعادة تمكين الأزرار
                 document.getElementById('convert-btn2').disabled = false;
                 document.getElementById('remove-btn').disabled = false;
                 isConverting = false;
             }
         }
 
-        // 🔴 عرض الصور المستخرجة في الصفحة
         function showImageResult(images) {
             const resultSection = document.getElementById('imageResultSection');
             const resultContent = document.getElementById('imageResultContent');
             
             resultContent.innerHTML = '';
             
-            // إضافة كل صورة
             images.forEach((image, index) => {
                 const imageUrl = URL.createObjectURL(image.blob);
                 const resultItem = document.createElement('div');
@@ -3102,7 +2912,6 @@
                 resultContent.appendChild(resultItem);
             });
             
-            // إضافة زر لتنزيل جميع الصور
             if (images.length > 1) {
                 const downloadAllBtn = document.createElement('button');
                 downloadAllBtn.className = 'btn btn-primary';
@@ -3119,13 +2928,11 @@
             resultSection.style.display = 'block';
             resultSection.classList.add('active');
             
-            // التمرير إلى النتيجة
             setTimeout(() => {
                 resultSection.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
             }, 300);
         }
 
-        // 🔴 تنزيل صورة معينة
         function downloadImageResult(url, fileName) {
             const link = document.createElement('a');
             link.href = url;
@@ -3136,7 +2943,6 @@
             showNotification(currentLanguage === 'en' ? 'Download started!' : 'بدأ التنزيل!', 'success');
         }
 
-        // 🔴 معاينة صورة
         function previewImage(url) {
             const modal = document.getElementById('previewModal');
             const modalImage = document.getElementById('previewModalImage');
@@ -3145,31 +2951,25 @@
             document.body.style.overflow = 'hidden';
         }
 
-        // 🔴 إغلاق نافذة المعاينة
         function closePreviewModal() {
             const modal = document.getElementById('previewModal');
             modal.style.display = 'none';
             document.body.style.overflow = 'auto';
         }
 
-        // 🔴 تنزيل جميع الصور كملف ZIP
         async function downloadAllImages() {
             if (conversionResults.images.length === 0) return;
             
             try {
-                // إنشاء ملف ZIP باستخدام JSZip
                 const zip = new JSZip();
                 
-                // إضافة كل صورة إلى الأرشيف
                 conversionResults.images.forEach((image, index) => {
                     zip.file(image.fileName, image.blob);
                 });
                 
-                // إنشاء ملف ZIP
                 const zipBlob = await zip.generateAsync({ type: "blob" });
                 const zipUrl = URL.createObjectURL(zipBlob);
                 
-                // تنزيل ملف ZIP
                 const link = document.createElement('a');
                 link.href = zipUrl;
                 link.download = `extracted_images_${Date.now()}.zip`;
@@ -3177,7 +2977,6 @@
                 link.click();
                 document.body.removeChild(link);
                 
-                // تحرير الذاكرة
                 setTimeout(() => {
                     URL.revokeObjectURL(zipUrl);
                 }, 1000);
@@ -3190,12 +2989,10 @@
             }
         }
 
-        // 🔴 مسح نتيجة الصور
         function clearImageResult() {
             const resultSection = document.getElementById('imageResultSection');
             const resultContent = document.getElementById('imageResultContent');
             
-            // تحرير ذاكرة جميع الصور
             conversionResults.images.forEach(image => {
                 if (image.blob) {
                     URL.revokeObjectURL(image.blob);
@@ -3210,12 +3007,10 @@
             showNotification(currentLanguage === 'en' ? 'Image results cleared' : 'تم مسح نتائج الصور', 'success');
         }
 
-        // 🔴 دالة المساعدة للتأخير
         function sleep(ms) {
             return new Promise(resolve => setTimeout(resolve, ms));
         }
 
-        // 🔴 تنسيق حجم الملف
         function formatFileSize(bytes) {
             if (bytes === 0) return '0 Bytes';
             const k = 1024;
@@ -3224,7 +3019,6 @@
             return parseFloat((bytes / Math.pow(k, i)).toFixed(2)) + ' ' + sizes[i];
         }
 
-        // 🔴 مسح جميع الصور
         function clearAllImages() {
             if (images.length === 0) {
                 showNotification(currentLanguage === 'en' ? 'No images to clear' : 'لا توجد صور لمسحها', 'error');
@@ -3243,7 +3037,6 @@
             }
         }
 
-        // 🔴 مسح ملف PDF
         function clearPDF() {
             if (!currentPDFFile) return;
             currentPDFFile = null;
@@ -3252,13 +3045,11 @@
             showNotification(currentLanguage === 'en' ? 'PDF file removed' : 'تم إزالة ملف PDF', 'success');
         }
 
-        // 🔴 تنظيف الذاكرة
         function cleanImageMemory() {
             imageUrls.forEach(url => URL.revokeObjectURL(url));
             imageUrls.clear();
         }
 
-        // 🔴 إظهار الإشعارات
         function showNotification(message, type = 'success') {
             const notification = document.getElementById('notification');
             if (!notification) return;
@@ -3279,7 +3070,6 @@
             }, 3000);
         }
 
-        // 🔴 إعداد تأثير التمرير
         function setupScrollEffects() {
             const header = document.getElementById('header');
             if (!header) return;
@@ -3293,7 +3083,6 @@
             });
         }
 
-        // 🔴 إغلاق النوافذ المنبثقة
         function closeModal(modalId) {
             const modal = document.getElementById(modalId + 'Modal');
             if (modal) {
@@ -3302,7 +3091,6 @@
             }
         }
 
-        // 🔴 فتح النوافذ المنبثقة
         function openModal(modalId) {
             const modal = document.getElementById(modalId + 'Modal');
             if (modal) {
